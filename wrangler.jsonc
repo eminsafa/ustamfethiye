@@ -11,6 +11,11 @@
     "not_found_handling": "404-page"
   },
 
+  // Wrangler deploy/dev oncesi statik siteyi uretir.
+  // Cloudflare Workers Builds dogrudan `npx wrangler deploy` calistirdigi icin
+  // build adimi burada tanimli olmak zorunda — package.json scripti CI'da calismaz.
+  "build": { "command": "node build.mjs" },
+
   "observability": { "enabled": true },
 
   "vars": {

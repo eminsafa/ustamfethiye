@@ -46,6 +46,12 @@ npx wrangler login
 npm run deploy
 ```
 
+> Cloudflare Workers Builds (GitHub bağlı otomatik yayın) doğrudan
+> `npx wrangler deploy` çalıştırır ve `package.json` scriptlerini atlar.
+> Bu yüzden statik üretim `wrangler.jsonc` içindeki `build.command` alanına
+> bağlıdır — hem yerelde hem CI'da çalışır. Panelde deploy komutunu
+> değiştirmeye gerek yok.
+
 Bu haliyle çalışır: site yayınlanır, form gönderilir ve talep Worker loglarına
 düşer (`npx wrangler tail`). Aşağıdakiler opsiyoneldir.
 
