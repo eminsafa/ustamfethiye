@@ -1,0 +1,959 @@
+<title>Ustam Fethiye Kuruluş Dosyası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+:root{
+  --paper:#F1F3EF;
+  --surface:#FBFCFA;
+  --surface-2:#E9ECE6;
+  --ink:#161F1B;
+  --ink-2:#4C5A53;
+  --ink-3:#76837C;
+  --rule:#D5DAD1;
+  --rule-strong:#B8C0B6;
+  --accent:#15665A;
+  --accent-soft:#DCEAE5;
+  --signal:#B47800;
+  --signal-soft:#F6EBCF;
+  --signal-rule:#E0BE72;
+  --danger:#9A3B2A;
+  --danger-soft:#F3DFD9;
+  --grid:rgba(22,31,27,.035);
+
+  --f-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --s1:.35rem; --s2:.7rem; --s3:1.1rem; --s4:1.8rem; --s5:2.8rem; --s6:4.2rem;
+  --maxw:1120px; --prose:68ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1613;
+    --surface:#151E1A;
+    --surface-2:#1C2722;
+    --ink:#E4EAE5;
+    --ink-2:#A6B3AC;
+    --ink-3:#7C8A83;
+    --rule:#28332D;
+    --rule-strong:#3A4840;
+    --accent:#5CC2AA;
+    --accent-soft:#16302A;
+    --signal:#E8B44C;
+    --signal-soft:#2C2415;
+    --signal-rule:#5C4A22;
+    --danger:#E08974;
+    --danger-soft:#31201B;
+    --grid:rgba(228,234,229,.035);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1613;
+  --surface:#151E1A;
+  --surface-2:#1C2722;
+  --ink:#E4EAE5;
+  --ink-2:#A6B3AC;
+  --ink-3:#7C8A83;
+  --rule:#28332D;
+  --rule-strong:#3A4840;
+  --accent:#5CC2AA;
+  --accent-soft:#16302A;
+  --signal:#E8B44C;
+  --signal-soft:#2C2415;
+  --signal-rule:#5C4A22;
+  --danger:#E08974;
+  --danger-soft:#31201B;
+  --grid:rgba(228,234,229,.035);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px,transparent 1px) 0 0/28px 28px,
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/28px 28px,
+    var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s4)}
+p{margin:0 0 var(--s3);max-width:var(--prose)}
+ul,ol{margin:0 0 var(--s3);padding-left:1.15rem;max-width:var(--prose)}
+li{margin-bottom:.3rem}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.kicker{
+  font-family:var(--f-mono);font-size:.66rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- header ---------- */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar .wrap{display:flex;align-items:center;gap:var(--s4);height:52px}
+.mark{font-family:var(--f-display);font-weight:800;font-size:.95rem;letter-spacing:-.01em;white-space:nowrap}
+.mark span{color:var(--accent)}
+.tocnav{display:flex;gap:1.15rem;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.tocnav::-webkit-scrollbar{display:none}
+.tocnav a{
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;white-space:nowrap;padding:2px 0;border-bottom:1px solid transparent;
+}
+.tocnav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+
+/* ---------- hero ---------- */
+.hero{padding:var(--s6) 0 var(--s5);border-bottom:1px solid var(--rule)}
+.hero h1{
+  font-family:var(--f-display);font-weight:800;
+  font-size:clamp(2.4rem,6.2vw,4.1rem);line-height:1.02;letter-spacing:-.028em;
+  margin:var(--s3) 0 var(--s3);text-wrap:balance;max-width:16ch;
+}
+.hero .lede{font-size:1.16rem;color:var(--ink-2);max-width:56ch}
+.metaline{
+  display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-top:var(--s4);
+  padding-top:var(--s3);border-top:1px solid var(--rule);
+}
+.metaline div{font-family:var(--f-mono);font-size:.72rem;color:var(--ink-3);letter-spacing:.03em}
+.metaline b{color:var(--ink);font-weight:500}
+
+/* ---------- sections ---------- */
+section{padding:var(--s5) 0;border-bottom:1px solid var(--rule)}
+.sechead{display:flex;gap:var(--s3);align-items:baseline;margin-bottom:var(--s4)}
+.secnum{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);font-weight:600;flex:none;padding-top:.35rem}
+.sechead h2{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(1.5rem,3vw,2.05rem);line-height:1.12;letter-spacing:-.02em;margin:0;text-wrap:balance;
+}
+.sechead p{margin:.4rem 0 0;color:var(--ink-2);font-size:.98rem}
+h3{
+  font-family:var(--f-display);font-weight:700;font-size:1.06rem;letter-spacing:-.01em;
+  margin:var(--s4) 0 var(--s2);
+}
+h3:first-child{margin-top:0}
+h4{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:var(--s3) 0 var(--s2);font-weight:500}
+
+/* ---------- callouts ---------- */
+.note,.risk{
+  border-left:2px solid var(--accent);background:var(--accent-soft);
+  padding:var(--s3) var(--s3) calc(var(--s3) - var(--s3)*.35);
+  margin:var(--s3) 0 var(--s4);max-width:var(--prose);
+}
+.risk{border-left-color:var(--danger);background:var(--danger-soft)}
+.note .tag,.risk .tag{
+  display:block;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:.35rem;font-weight:600;
+}
+.risk .tag{color:var(--danger)}
+.note p,.risk p{margin-bottom:var(--s2);max-width:none}
+.note ul,.risk ul{max-width:none;margin-bottom:var(--s2)}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:var(--s2) 0 var(--s4);border-top:1px solid var(--rule-strong)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.9rem}
+th,td{text-align:left;padding:.62rem .8rem .62rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;padding-top:.7rem;padding-bottom:.7rem;
+}
+td:first-child{font-weight:600;padding-right:1.1rem}
+td.num,td.mono{font-family:var(--f-mono);font-size:.82rem;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+tbody tr:hover td{background:var(--surface-2)}
+
+.pill{
+  display:inline-block;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.08em;
+  text-transform:uppercase;padding:.16rem .45rem;border:1px solid var(--rule-strong);
+  color:var(--ink-2);white-space:nowrap;
+}
+.pill.hi{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.pill.mid{border-color:var(--signal-rule);color:var(--signal);background:var(--signal-soft)}
+
+/* ---------- flow ---------- */
+.flow{list-style:none;padding:0;margin:0 0 var(--s4);max-width:none;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.flow li{margin:0;background:var(--surface);padding:var(--s3)}
+.flow .step{font-family:var(--f-mono);font-size:.66rem;color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:.3rem}
+.flow b{font-family:var(--f-display);font-size:.98rem;display:block;margin-bottom:.25rem}
+.flow small{color:var(--ink-2);font-size:.83rem;line-height:1.45;display:block}
+
+/* ---------- stack list ---------- */
+.deflist{display:grid;grid-template-columns:minmax(140px,180px) 1fr;gap:.55rem var(--s3);margin:0 0 var(--s4);align-items:baseline}
+.deflist dt{font-family:var(--f-mono);font-size:.76rem;color:var(--ink);font-weight:500;padding-top:.1rem}
+.deflist dd{margin:0;color:var(--ink-2);font-size:.94rem}
+
+/* ---------- code ---------- */
+pre{
+  font-family:var(--f-mono);font-size:.78rem;line-height:1.65;
+  background:var(--surface-2);border:1px solid var(--rule);
+  padding:var(--s3);overflow-x:auto;margin:var(--s2) 0 var(--s4);color:var(--ink-2);
+}
+pre b{color:var(--ink);font-weight:600}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--surface-2);padding:.08em .3em;border:1px solid var(--rule)}
+
+/* ---------- decisions ---------- */
+.dsec{background:var(--surface);border-top:2px solid var(--signal)}
+.dgroup{margin-bottom:var(--s5)}
+.dgroup > h3{
+  border-bottom:1px solid var(--rule);padding-bottom:.4rem;margin-bottom:var(--s3);
+}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.d{background:var(--paper);padding:var(--s3);display:flex;flex-direction:column;gap:.4rem}
+.d .id{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;color:var(--signal);font-weight:600}
+.d .q{font-family:var(--f-display);font-weight:700;font-size:.98rem;line-height:1.3;letter-spacing:-.01em}
+.d .why{font-size:.86rem;color:var(--ink-2);line-height:1.5}
+.d .opt{font-family:var(--f-mono);font-size:.72rem;color:var(--ink-3);border-top:1px dashed var(--rule-strong);padding-top:.4rem;margin-top:auto}
+
+/* ---------- kpi ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:var(--s4)}
+.kpi{background:var(--surface);padding:var(--s3)}
+.kpi .v{font-family:var(--f-display);font-size:1.7rem;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.kpi .l{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:.45rem;display:block}
+.kpi .n{font-size:.8rem;color:var(--ink-2);margin-top:.3rem;display:block;line-height:1.4}
+
+footer{padding:var(--s5) 0 var(--s6);color:var(--ink-3);font-family:var(--f-mono);font-size:.74rem;line-height:1.7}
+footer a{color:var(--ink-2)}
+
+@media (max-width:640px){
+  .wrap{padding:0 1.15rem}
+  .sechead{display:block}
+  .secnum{display:block;margin-bottom:.3rem;padding-top:0}
+  .deflist{grid-template-columns:1fr;gap:.2rem 0}
+  .deflist dd{margin-bottom:.55rem}
+  .topbar .wrap{gap:1rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  .topbar{display:none}
+  body{background:#fff;font-size:10.5pt}
+  section{page-break-inside:auto;border-color:#ccc}
+}
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="mark">USTAM <span>FETHİYE</span></div>
+    <nav class="tocnav" aria-label="Bölümler">
+      <a href="#ozet">Özet</a>
+      <a href="#hizmet">Hizmet</a>
+      <a href="#pazar">Pazar</a>
+      <a href="#operasyon">Operasyon</a>
+      <a href="#usta">Usta Ağı</a>
+      <a href="#fiyat">Fiyat</a>
+      <a href="#hukuk">Hukuk</a>
+      <a href="#buyume">Büyüme</a>
+      <a href="#site">Site</a>
+      <a href="#seo">SEO</a>
+      <a href="#geo">GEO</a>
+      <a href="#teknik">Teknik</a>
+      <a href="#yol">Yol Haritası</a>
+      <a href="#kpi">KPI</a>
+      <a href="#kararlar">Kararlar</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="kicker">Kuruluş Dosyası · v0.1 · Eylül 2026</div>
+  <h1>Fethiye'de ustayı siz aramayın.</h1>
+  <p class="lede">Boya &amp; tadilat, havuz &amp; bahçe bakımı ve su tesisatını kurumsal sorumlulukla veren bir hizmet şirketi için iş modeli, operasyon, SEO/GEO ve Cloudflare Workers mimarisi planı.</p>
+  <div class="metaline">
+    <div>BÖLGE <b>Fethiye &amp; çevresi</b></div>
+    <div>DİL <b>TR / EN / RU</b></div>
+    <div>MODEL <b>Kurumsal sorumluluk + usta ağı</b></div>
+    <div>ALTYAPI <b>Cloudflare Workers</b></div>
+  </div>
+</div>
+
+<!-- 1 -->
+<section id="ozet">
+  <div class="sechead">
+    <div class="secnum">§1</div>
+    <div>
+      <h2>Özet ve konumlandırma</h2>
+      <p>Sattığımız şey usta işçiliği değil; işin sonuçlanacağına dair güvence.</p>
+    </div>
+  </div>
+
+  <h3>Problem</h3>
+  <p>Fethiye'de usta bulmak zor değil; <strong>gelen ustanın geleceğinden, fiyatın değişmeyeceğinden ve işin bitirileceğinden emin olmak</strong> zor. Yabancı ev sahipleri için buna bir de dil ve uzaktan takip sorunu ekleniyor. Piyasadaki iş neredeyse tamamen tavsiyeyle, sözlü ve faturasız yürüyor.</p>
+
+  <h3>Çözüm</h3>
+  <p>Müşterinin tek muhatabı biziz. Keşfi biz yaparız, fiyatı biz sabitleriz, sözleşmeyi biz imzalarız, ustayı biz seçer ve denetleriz, işi biz teslim ederiz. Usta bizim tedarikçimizdir; müşteriyle sözleşmesi yoktur.</p>
+
+  <h3>Beş vaat (sitenin de omurgası)</h3>
+  <ul>
+    <li><strong>Sabit fiyat.</strong> Keşif sonrası yazılı teklif; kapsam değişmedikçe fiyat değişmez.</li>
+    <li><strong>Yazılı sözleşme.</strong> İş kapsamı, süre, malzeme, garanti tek belgede.</li>
+    <li><strong>Kurumsal sorumluluk.</strong> Bir sorun çıkarsa muhatap usta değil şirket.</li>
+    <li><strong>Kendi dilinizde.</strong> Türkçe, İngilizce, Rusça — teklif ve sözleşme dahil.</li>
+    <li><strong>Fotoğraflı iş raporu.</strong> Öncesi/sonrası, tarihli, WhatsApp veya e-posta ile.</li>
+  </ul>
+
+  <div class="note">
+    <span class="tag">Öneri</span>
+    <p>Beşinci vaat en ucuz, en ayırt edici olanı. Yurt dışındaki ev sahibi için "evimde ne oldu, göremiyorum" en büyük kaygı. Her işte 6–10 fotoğraf + kısa not = neredeyse sıfır maliyetli, taklidi zor bir fark. Bunu bir <em>özellik</em> olarak isimlendirin (ör. <strong>İş Dosyası</strong>) ve sitede öne çıkarın.</p>
+  </div>
+
+  <h3>Marka tonu</h3>
+  <p>Ne "en ucuz" ne "lüks". Konum: <strong>güvenilir, kurumsal, ölçülü.</strong> Yabancı müşteri için "Türkiye'de nadir bulunan profesyonellik", Türk müşteri için "işini bilen, arkasında duran firma".</p>
+</section>
+
+<!-- 2 -->
+<section id="hizmet">
+  <div class="sechead">
+    <div class="secnum">§2</div>
+    <div>
+      <h2>Hizmet portföyü</h2>
+      <p>Dört ana hizmet + önerdiğimiz bir çatı ürün.</p>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Hizmet</th><th>Gelir tipi</th><th>Sezon</th><th>Marj</th><th>Rol</th></tr></thead>
+      <tbody>
+        <tr><td>Havuz bakımı</td><td class="mono">Aylık abonelik</td><td class="mono">Nis–Eki (kışın seyreltilmiş)</td><td><span class="pill hi">Yüksek</span></td><td>Nakit akışı motoru</td></tr>
+        <tr><td>Bahçe bakımı</td><td class="mono">Aylık / periyodik</td><td class="mono">Yıl boyu</td><td><span class="pill hi">Yüksek</span></td><td>Abonelik ikizi</td></tr>
+        <tr><td>Boya &amp; tadilat</td><td class="mono">Proje bazlı</td><td class="mono">Kas–Nis (yoğun)</td><td><span class="pill mid">Orta-yüksek</span></td><td>Yüksek sepet, kış dolgusu</td></tr>
+        <tr><td>Su tesisatı</td><td class="mono">İş bazlı + acil</td><td class="mono">Yıl boyu, kış pikli</td><td><span class="pill mid">Orta</span></td><td>Giriş kapısı / kapı açıcı</td></tr>
+        <tr><td>Ev Bakım Planı <span class="pill hi">öneri</span></td><td class="mono">Yıllık abonelik</td><td class="mono">Yıl boyu</td><td><span class="pill hi">Yüksek</span></td><td>Çatı ürün</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <span class="tag">Öneri · Çatı ürün</span>
+    <p><strong>Ev Bakım Planı</strong> — Fethiye'nin yapısal gerçeği: binlerce ev yılın 9–10 ayı boş. Sahibi uzakta. Bu evler için aylık sabit ücretli bir paket:</p>
+    <ul>
+      <li>Ayda 1–2 kontrol ziyareti (su kaçağı, nem, böcek, elektrik sayacı, kapı/pencere)</li>
+      <li>Havuz + bahçe bakımı dahil</li>
+      <li>Fotoğraflı aylık rapor</li>
+      <li>Sezon öncesi açılış / sonrası kapanış hazırlığı</li>
+      <li>Acil durumda anahtar bizde, ilk müdahale bizden</li>
+    </ul>
+    <p>Neden önemli: proje işi dalgalıdır, abonelik dalgalanmaz. Ayrıca her plan müşterisi otomatik olarak tadilat/tesisat işlerinin de müşterisi olur — satın alma maliyeti sıfır.</p>
+  </div>
+
+  <h3>Kapsam dışı — net sınır</h3>
+  <p>Elektrik işleri kapsam dışı. Ancak tadilat işlerinin içinde küçük elektrik kalemleri (priz taşıma, avize) mutlaka çıkacak. İki seçenek: (a) "elektrik işlerinde anlaşmalı yetkili firmaya yönlendiriyoruz" diyerek sorumluluğu almadan çözmek, (b) tamamen reddetmek. (a) tavsiye edilir — müşteriyi kaybetmeden riski taşımazsınız. Sitede açıkça yazılmalı.</p>
+  <p>Diğer olası kapsam dışılar: doğalgaz/kombi gaz hattı, taşıyıcı sistem/betonarme müdahale, asbestli çatı, ruhsat gerektiren imalat.</p>
+</section>
+
+<!-- 3 -->
+<section id="pazar">
+  <div class="sechead">
+    <div class="secnum">§3</div>
+    <div>
+      <h2>Müşteri segmentleri</h2>
+      <p>Aynı hizmet, çok farklı satın alma davranışı.</p>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Segment</th><th>İhtiyaç</th><th>Kanal</th><th>Dil</th><th>Öncelik</th></tr></thead>
+      <tbody>
+        <tr><td>Yabancı ev sahibi<br><span class="pill">uzakta</span></td><td>Uzaktan güven, rapor, İngilizce/Rusça iletişim</td><td class="mono">Google (EN/RU), Facebook grupları, emlakçı</td><td class="mono">EN / RU</td><td><span class="pill hi">1</span></td></tr>
+        <tr><td>Yerleşik yabancı</td><td>Dil, dürüst fiyat, tekrar eden bakım</td><td class="mono">Ağızdan ağıza, Facebook, Google</td><td class="mono">EN / RU</td><td><span class="pill hi">1</span></td></tr>
+        <tr><td>Kiralık villa sahibi / yönetici</td><td>Sezon öncesi hazırlık, hızlı arıza müdahalesi</td><td class="mono">B2B doğrudan temas</td><td class="mono">TR / EN</td><td><span class="pill hi">1</span></td></tr>
+        <tr><td>Yerel ev sahibi</td><td>Fiyat/kalite, tadilat, tesisat</td><td class="mono">Google TR, tavsiye</td><td class="mono">TR</td><td><span class="pill mid">2</span></td></tr>
+        <tr><td>Site / apartman yönetimi</td><td>Periyodik bakım sözleşmesi, faturalı iş</td><td class="mono">B2B doğrudan temas</td><td class="mono">TR</td><td><span class="pill mid">2</span></td></tr>
+        <tr><td>Butik otel / pansiyon</td><td>Sezon dışı yenileme, havuz bakımı</td><td class="mono">B2B doğrudan temas</td><td class="mono">TR</td><td><span class="pill">3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Coğrafi öncelik</h3>
+  <p>Merkez, Çalış, Karagözler, Ölüdeniz, Ovacık, Hisarönü, Kayaköy, Göcek, Üzümlü, Çiftlik, Foça. Göcek ayrı bir segment: fiyat hassasiyeti düşük, beklenti yüksek, yat/villa çevresi. Uzak noktalar için ulaşım maliyeti fiyata yansıtılmalı ya da hizmet yarıçapı net çizilmeli.</p>
+
+  <div class="risk">
+    <span class="tag">Risk</span>
+    <p>Fethiye'de bu işin çoğu <strong>faturasız</strong> dönüyor. Kurumsal ve faturalı çalışacaksanız fiyatınız serbest ustadan %20–40 yüksek olacak. Bu bir dezavantaj değil, <em>konumlandırma</em>: "ucuz" segmentinde yarışmayın, o savaşı kaybedersiniz. Hedef kitle zaten güvence için fazladan ödemeye razı olan kitle.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="operasyon">
+  <div class="sechead">
+    <div class="secnum">§4</div>
+    <div>
+      <h2>Operasyon modeli</h2>
+      <p>Her iş aynı sekiz adımdan geçer. İstisna yok.</p>
+    </div>
+  </div>
+
+  <ol class="flow">
+    <li><span class="step">01</span><b>Talep</b><small>Form, WhatsApp veya telefon. Her talep aynı gün kayda girer.</small></li>
+    <li><span class="step">02</span><b>Ön eleme</b><small>Kapsam içi mi, bölge içi mi, bütçe aralığı uygun mu? Telefonda 5 dakika.</small></li>
+    <li><span class="step">03</span><b>Keşif</b><small>Yerinde ölçü, fotoğraf, notlar. 48 saat içinde randevu hedefi.</small></li>
+    <li><span class="step">04</span><b>Teklif</b><small>Kalem kalem, sabit fiyat, geçerlilik süreli. Müşterinin dilinde PDF.</small></li>
+    <li><span class="step">05</span><b>Sözleşme</b><small>Kapsam, süre, malzeme markası, garanti, ödeme planı.</small></li>
+    <li><span class="step">06</span><b>Planlama</b><small>Usta ataması, malzeme tedariki, takvim, müşteriye tarih bildirimi.</small></li>
+    <li><span class="step">07</span><b>İcra &amp; denetim</b><small>Şantiye ziyareti, ara fotoğraflar, günlük ilerleme notu.</small></li>
+    <li><span class="step">08</span><b>Teslim &amp; tahsilat</b><small>Kontrol listesi, iş dosyası, fatura, garanti belgesi. Sonra memnuniyet araması.</small></li>
+  </ol>
+
+  <h3>Kritik operasyon kuralları</h3>
+  <ul>
+    <li><strong>Yanıt süresi taahhüdü.</strong> Mesai içi 2 saat, dışı ertesi sabah. Bu sitede yazılı bir vaat olsun — rakiplerin en zayıf noktası tam burası.</li>
+    <li><strong>Keşifsiz fiyat verilmez.</strong> Telefonda "aşağı yukarı" fiyat vermek, sonradan gelen tüm anlaşmazlıkların kaynağıdır. Bunun yerine sitede <em>fiyat aralığı rehberleri</em> yayınlayın (§11'de SEO değeri de var).</li>
+    <li><strong>Tek muhatap.</strong> Müşteri ustayla değil, iş takipçisiyle konuşur. Usta numarası paylaşılmaz.</li>
+    <li><strong>Teslim kontrol listesi.</strong> Her hizmet için 8–15 maddelik sabit liste. Kalite tesadüfe bırakılmaz.</li>
+    <li><strong>Teklif geçerlilik süresi.</strong> Malzeme fiyatları oynak; 7–15 gün geçerlilik yazın.</li>
+  </ul>
+
+  <div class="note">
+    <span class="tag">Öneri · Araçlar</span>
+    <p>Başlangıçta yazılım yazmayın. WhatsApp Business (etiketler + hızlı yanıtlar) + tek bir Google Sheet iş takip tablosu + Drive'da iş klasörleri ilk 50 işi rahat taşır. Kendi paneliniz Faz 2'de gelir (§13). Erken yazılım, ilk müşteriden çalınan zamandır.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="usta">
+  <div class="sechead">
+    <div class="secnum">§5</div>
+    <div>
+      <h2>Usta ağı ve kalite kontrolü</h2>
+      <p>İş modelinin tek gerçek varlığı: güvenilir usta havuzu.</p>
+    </div>
+  </div>
+
+  <h3>Havuz kuralı</h3>
+  <p>Her branşta <strong>en az iki, tercihen üç</strong> çalışan usta/ekip. Tek ustaya bağımlılık, işin durması demektir. Aynı zamanda pazarlık gücü ve kalite kıyaslaması sağlar.</p>
+
+  <h3>Kabul kriterleri</h3>
+  <ul>
+    <li>Vergi levhası / fatura kesebilme (ya da bordrolu çalışmaya açık olma)</li>
+    <li>Referans iş görselleri + en az 2 doğrulanmış referans</li>
+    <li>Deneme işi: küçük ölçekli bir iş, tam denetim altında</li>
+    <li>İSG farkındalığı (yüksekte çalışma, iskele, kişisel koruyucu donanım)</li>
+  </ul>
+
+  <h3>Usta karnesi</h3>
+  <p>Her iş sonunda dört kalemden puan: <span class="pill">zamanında gelme</span> <span class="pill">işçilik kalitesi</span> <span class="pill">temizlik</span> <span class="pill">müşteriyle iletişim</span>. Üçüncü düşük puanda havuzdan çıkarma. Bu tabloyu ilk günden tutun — 6 ay sonra kimin gerçekten iyi olduğunu hafızanız değil veri söyler.</p>
+
+  <h3>Usta tarafı vaat</h3>
+  <p>İyi ustaları tutmanın yolu ceza değil, <strong>düzenli iş ve zamanında ödeme</strong>. Sektörün en büyük şikayeti geç ödeme. "İş bittiği hafta ödeme" politikası, sizi ustalar arasında tercih edilen firma yapar ve doğrudan kaliteye yansır.</p>
+
+  <div class="risk">
+    <span class="tag">Risk · Devre dışı bırakılma</span>
+    <p>Usta, müşterinin telefonunu alıp bir sonraki işi doğrudan yapabilir. Sözleşmeye rekabet etmeme/müşteriye doğrudan teklif vermeme maddesi konur ama uygulaması zayıftır. Gerçek koruma: (1) sürekli iş hacmi vererek ustanın sizi kaybetmeyi göze alamaması, (2) müşteriyle iletişimin tek kanaldan sizde olması, (3) garanti ve sözleşmenin sizde olması — müşteri için doğrudan gitmek güvenceyi kaybetmek demek.</p>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="fiyat">
+  <div class="sechead">
+    <div class="secnum">§6</div>
+    <div>
+      <h2>Fiyatlandırma ve birim ekonomisi</h2>
+      <p>Aşağıdaki rakamlar <em>şablondur</em>; gerçek maliyetlerle doldurulmalı.</p>
+    </div>
+  </div>
+
+  <h3>Fiyat mimarisi</h3>
+  <div class="deflist">
+    <dt>Proje işleri</dt><dd>Sabit fiyat. İçinde: usta bedeli + malzeme + nakliye + kurumsal marj + risk payı. Müşteriye tek rakam, arka planda kalem kalem hesap.</dd>
+    <dt>Abonelikler</dt><dd>Aylık sabit ücret; ziyaret sıklığı ve havuz m³ / bahçe m² üzerinden kademeli.</dd>
+    <dt>Acil müdahale</dt><dd>Çağrı bedeli + ilk saat, sonrası saatlik. Mesai dışı katsayısı.</dd>
+    <dt>Keşif</dt><dd>Hizmet yarıçapı içinde ücretsiz; dışında ücretli ve işe dönerse mahsup.</dd>
+    <dt>Malzeme</dt><dd>İki seçenek sunun: bizden (garanti kapsamı tam) veya müşteriden (işçilik garantisi devam eder, malzeme garantisi düşer).</dd>
+  </div>
+
+  <h3>İş başına ekonomi — şablon</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Kalem</th><th>Örnek: 90 m² iç boya</th><th>Örnek: havuz aboneliği / ay</th></tr></thead>
+      <tbody>
+        <tr><td>Müşteri fiyatı</td><td class="num">100 birim</td><td class="num">100 birim</td></tr>
+        <tr><td>Usta / işçilik</td><td class="num">− 45</td><td class="num">− 45</td></tr>
+        <tr><td>Malzeme</td><td class="num">− 25</td><td class="num">− 15 (kimyasal)</td></tr>
+        <tr><td>Ulaşım / lojistik</td><td class="num">− 4</td><td class="num">− 8</td></tr>
+        <tr><td>Keşif + koordinasyon</td><td class="num">− 6</td><td class="num">− 3</td></tr>
+        <tr><td>Garanti / yeniden iş payı</td><td class="num">− 3</td><td class="num">− 2</td></tr>
+        <tr><td><strong>Brüt marj</strong></td><td class="num"><strong>≈ 17</strong></td><td class="num"><strong>≈ 27</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Buradan görülen şey: <strong>abonelik işi proje işinden yapısal olarak daha kârlı</strong> — keşif maliyeti bir kez, satın alma maliyeti bir kez ödenir, gelir aylık tekrar eder. Portföy hedefi bu yöne kurulmalı.</p>
+
+  <h3>Ödeme planı</h3>
+  <p>Kademeli ödeme (başlangıç / ara / teslim) sektör standardıdır ve nakit akışı için şart. Sitede fiyat ve ödeme koşulları yer almaz; bunlar keşif ve sözleşme aşamasında konuşulur. Sitenin işi fiyat vermek değil, <strong>keşif randevusu üretmek</strong>.</p>
+
+  <div class="risk">
+    <span class="tag">Risk · Tahsilat</span>
+    <p>Uzaktaki müşteriden iş bittikten sonra tahsilat en zayıf halka. Önlem: sözleşmede net ödeme takvimi, teslim öncesi son ödeme, yurt dışı müşteriler için banka havalesi bilgilerinin sözleşmeyle birlikte verilmesi. Ayrıca yabancı müşteride kur riski: teklifi TL verin, ödeme günü kuru esas alın ve bunu sözleşmeye yazın.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="hukuk">
+  <div class="sechead">
+    <div class="secnum">§7</div>
+    <div>
+      <h2>Hukuk, sigorta, risk</h2>
+      <p>"Sorumlu biziz" demek, hukuken de sorumlu olmak demektir. Bu yapı doğru kurulmalı.</p>
+    </div>
+  </div>
+
+  <h3>Şirket yapısı</h3>
+  <p>Kurumsal güven vaadi veriyorsanız <strong>limited şirket</strong> şahıs şirketine göre hem algı hem sorumluluk sınırı açısından uygundur. Yabancı müşteri ve B2B (site yönetimi, otel) tarafı faturalı ve tüzel kişilikli çalışmak ister.</p>
+
+  <h3>Usta ilişkisinin hukuki niteliği — en kritik karar</h3>
+  <p>İki model var, sonuçları çok farklı:</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Model</th><th>Nasıl</th><th>Avantaj</th><th>Risk</th></tr></thead>
+      <tbody>
+        <tr><td>Alt yüklenici</td><td class="mono">Usta kendi vergi mükellefi, fatura keser</td><td>Esnek, sabit maliyet yok</td><td>Fiili bağımlılık varsa gizli işçilik sayılabilir; SGK/İş Kanunu riski</td></tr>
+        <tr><td>Bordrolu</td><td class="mono">Şirket çalışanı, SGK'lı</td><td>Kontrol, kalite, sadakat, net hukuk</td><td>Sabit maliyet, mevsimsel dalgada yük</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Pratik öneri: <strong>karma</strong>. Çekirdek 1–2 kişi bordrolu (havuz/bahçe abonelikleri düzenli iş, sabit maliyeti taşır), dalgalı proje işleri faturalı alt yüklenici. Bu yapıyı bir mali müşavir ve bir iş hukuku avukatıyla kurun — sonradan düzeltmesi pahalıdır.</p>
+
+  <h3>Sigortalar</h3>
+  <ul>
+    <li><strong>Üçüncü şahıs mali mesuliyet</strong> — müşterinin evinde verilen zarar (su basması, kırılan mermer). Bu iş modelinin olmazsa olmazı.</li>
+    <li><strong>İşveren mali mesuliyet</strong> — çalışanın iş kazası.</li>
+    <li>İSG yükümlülükleri: yüksekte çalışma, iskele, KKD. Boya işinde en sık kaza budur.</li>
+  </ul>
+  <div class="note">
+    <span class="tag">Öneri</span>
+    <p>Sigorta poliçesini bir maliyet değil, <strong>pazarlama argümanı</strong> olarak kullanın. "Sigortalıyız / We are insured / Мы застрахованы" cümlesi yabancı müşteri için Türkiye piyasasında son derece nadir ve ikna edicidir. Ana sayfada görünür olsun.</p>
+  </div>
+
+  <h3>Sözleşme ve belgeler</h3>
+  <p>Üç dilde hazır şablonlar: hizmet sözleşmesi, teklif formu, garanti belgesi, teslim tutanağı, KVKK/GDPR aydınlatma metni. Yabancı müşteri için sözleşmenin İngilizce/Rusça sürümü <em>bilgilendirme amaçlı</em>, Türkçesi esas — bu madde sözleşmede yazılı olmalı.</p>
+
+  <h3>Garanti politikası</h3>
+  <p>Her hizmet için yazılı işçilik garanti süresi belirleyin (ör. tesisat işçiliği 1 yıl, boya işçiliği 2 yıl, malzeme üretici garantisi). Garanti kapsamı ve kapsam dışı durumlar net yazılmalı. Bu, marjın içindeki "garanti payı"nın karşılığıdır.</p>
+</section>
+
+<!-- 8 -->
+<section id="buyume">
+  <div class="sechead">
+    <div class="secnum">§8</div>
+    <div>
+      <h2>Mevsimsellik ve büyüme kanalları</h2>
+      <p>Site tek başına yeterli değil; kanal karması gerekiyor.</p>
+    </div>
+  </div>
+
+  <h3>Yıl haritası</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Dönem</th><th>Yoğun iş</th><th>Odak</th></tr></thead>
+      <tbody>
+        <tr><td>Kasım – Şubat</td><td>Tadilat, iç boya, tesisat yenileme</td><td class="mono">Proje satışı; ev sahipleri sezon öncesi hazırlık ister</td></tr>
+        <tr><td>Mart – Mayıs</td><td>Havuz açılışı, dış boya, bahçe</td><td class="mono">Abonelik satışının en kritik penceresi</td></tr>
+        <tr><td>Haziran – Eylül</td><td>Bakım, acil tesisat, kiralık villa desteği</td><td class="mono">Operasyon yoğun, satış düşük; kalite ve referans toplama</td></tr>
+        <tr><td>Ekim</td><td>Havuz kapanışı, kışa hazırlık</td><td class="mono">Ev Bakım Planı yenileme dönemi</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Doğal denge iyi: proje işi kışın, bakım işi yazın yoğun. Nakit akışında ölümcül bir boşluk yok — ama abonelik tabanı olmadan Şubat ayı zor geçer.</p>
+
+  <h3>Kanallar — etkiye göre sıralı</h3>
+  <ol>
+    <li><strong>Google İşletme Profili.</strong> Yerel hizmet işlerinde web sitesinden bile önce gelir. Fotoğraf, hizmet listesi, çalışma saatleri ve <em>düzenli değerlendirme akışı</em>. Her tamamlanan işten sonra değerlendirme isteyin — süreç haline getirin.</li>
+    <li><strong>Fethiye yabancı Facebook grupları.</strong> "Can anyone recommend a plumber?" sorusu bu gruplarda her gün soruluyor. Spam değil, mevcut müşterilerin sizi anmasını sağlayacak gerçek memnuniyet + firma sayfasının varlığı.</li>
+    <li><strong>B2B ortaklıklar.</strong> Emlak ofisleri, villa kiralama şirketleri, site yönetimleri, property management firmaları. Tekrar eden hacim ve düşük satın alma maliyeti. Komisyon/yönlendirme modeli kurulabilir.</li>
+    <li><strong>Organik arama.</strong> §11–§12. Uzun vadede en yüksek getirili, en yavaş kanal. Bugün başlanmalı.</li>
+    <li><strong>Mevcut müşteri.</strong> Bakım aboneliği + yıllık kontrol araması. En ucuz gelir.</li>
+    <li><strong>Ücretli reklam.</strong> Sonra. Organik ve GBP oturmadan reklam parası yakar.</li>
+  </ol>
+
+  <div class="note">
+    <span class="tag">Öneri</span>
+    <p>Yandex'i unutmayın. Rusça konuşan kitle için Yandex arama ve <strong>Yandex Business</strong> kaydı Google kadar önemli. Rakiplerin neredeyse hiçbiri bunu yapmıyor — düşük maliyetli, korumasız bir alan.</p>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="site">
+  <div class="sechead">
+    <div class="secnum">§9</div>
+    <div>
+      <h2>Web sitesi planı</h2>
+      <p>Sitenin tek işi var: nitelikli keşif talebi üretmek.</p>
+    </div>
+  </div>
+
+  <h3>Dönüşüm mantığı</h3>
+  <p>Her sayfada iki eylem: <strong>Ücretsiz keşif talebi</strong> (birincil) ve <strong>WhatsApp'tan yaz</strong> (ikincil). Telefon numarası her yerde tıklanabilir. Form kısa olmalı — 5 alandan fazlası dönüşümü düşürür.</p>
+
+  <h4>Teklif formu alanları</h4>
+  <ul>
+    <li>Ad · Telefon/WhatsApp · Hizmet (seçim) · Konum (seçim) · Kısa açıklama · <em>opsiyonel fotoğraf</em> · KVKK onayı</li>
+    <li>Fotoğraf yükleme alanı fark yaratır: uzaktaki müşteri sorunu anlatmakta zorlanır, fotoğraf gönderir. Ayrıca ön elemeyi hızlandırır.</li>
+    <li>E-posta zorunlu olmasın — Türkiye'de WhatsApp yeterli, alan sayısı azalır.</li>
+  </ul>
+
+  <h3>Sayfa haritası</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Sayfa</th><th>URL</th><th>Amaç</th></tr></thead>
+      <tbody>
+        <tr><td>Ana sayfa</td><td class="mono">/tr/ · /en/ · /ru/</td><td>Vaat + hizmetler + güven + form</td></tr>
+        <tr><td>Hizmet sayfaları (4)</td><td class="mono">/tr/boya-tadilat/ vb.</td><td>Ana SEO varlığı; kapsam, süreç, SSS, fiyatı etkileyen faktörler</td></tr>
+        <tr><td>Ev Bakım Planı</td><td class="mono">/tr/ev-bakim-plani/</td><td>Çatı ürün satışı; abonelik</td></tr>
+        <tr><td>Hizmet × Bölge (6–10)</td><td class="mono">/tr/havuz-bakimi/oludeniz/</td><td>Yerel arama; ancak §11'deki kural geçerli</td></tr>
+        <tr><td>Nasıl çalışıyoruz</td><td class="mono">/tr/nasil-calisiyoruz/</td><td>8 adım; güvenin anlatıldığı sayfa</td></tr>
+        <tr><td>Hakkımızda</td><td class="mono">/tr/hakkimizda/</td><td>Kim olduğumuz, NAP, diller, sigorta, kurumsal kimlik</td></tr>
+        <tr><td>İşlerimiz</td><td class="mono">/tr/isler/</td><td>Öncesi/sonrası galeri, iş dosyaları</td></tr>
+        <tr><td>Fiyat rehberleri</td><td class="mono">/tr/rehber/...</td><td>Yüksek niyetli arama + GEO yemi</td></tr>
+        <tr><td>SSS</td><td class="mono">/tr/sss/</td><td>FAQPage şeması; LLM'lerin en çok alıntıladığı format</td></tr>
+        <tr><td>İletişim</td><td class="mono">/tr/iletisim/</td><td>Form, harita, çalışma saatleri, yanıt süresi</td></tr>
+        <tr><td>Yasal</td><td class="mono">/tr/gizlilik/ · /kvkk/</td><td>KVKK + GDPR; yabancı müşteri bunu arar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Dil yapısı</h3>
+  <ul>
+    <li>Üç dil, üç ayrı URL öneki: <code>/tr/</code> <code>/en/</code> <code>/ru/</code>. Her sayfanın üç dilde eşi olsun.</li>
+    <li><code>hreflang</code> etiketleri karşılıklı; <code>x-default</code> → <code>/en/</code> (yabancı trafik ağırlıklı olacak).</li>
+    <li><strong>Otomatik yönlendirme yapmayın.</strong> IP'ye göre zorla dil değiştirmek hem tarama sorunları yaratır hem kullanıcıyı sinirlendirir. Bunun yerine üstte kapatılabilir bir dil önerisi şeridi.</li>
+    <li>Çeviri makine çevirisi olmasın — özellikle Rusça. Kötü çeviri, güven satan bir markada doğrudan zarar.</li>
+  </ul>
+
+  <h3>Güven unsurları (her sayfada görünür)</h3>
+  <p>Sigortalıyız · Yazılı sözleşme · Sabit fiyat · 2 saat içinde dönüş · Fotoğraflı iş raporu · Vergi levhalı firma · Gerçek Google değerlendirmeleri (yeteri kadar birikince) · Gerçek ekip fotoğrafları (stok görsel kullanmayın — bu sektörde stok görsel güveni düşürür).</p>
+</section>
+
+<!-- 10 -->
+<section id="seo">
+  <div class="sechead">
+    <div class="secnum">§10</div>
+    <div>
+      <h2>SEO planı</h2>
+      <p>Yerel hizmet SEO'su: teknik %20, içerik %30, yerel varlık ve itibar %50.</p>
+    </div>
+  </div>
+
+  <h3>Arama niyeti haritası</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Niyet</th><th>Örnek sorgu</th><th>Hedef sayfa</th></tr></thead>
+      <tbody>
+        <tr><td>Acil</td><td class="mono">fethiye su tesisatçısı / plumber fethiye</td><td>Hizmet sayfası + GBP</td></tr>
+        <tr><td>Yerel</td><td class="mono">pool maintenance ölüdeniz</td><td>Hizmet × bölge</td></tr>
+        <tr><td>Fiyat</td><td class="mono">fethiye ev boyama fiyatları 2026</td><td>Fiyat rehberi</td></tr>
+        <tr><td>Karşılaştırma</td><td class="mono">how to find a reliable builder in fethiye</td><td>Rehber içerik</td></tr>
+        <tr><td>Rusça</td><td class="mono">обслуживание бассейна фетхие</td><td>RU hizmet sayfası</td></tr>
+        <tr><td>Marka</td><td class="mono">ustam fethiye</td><td>Ana sayfa</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="risk">
+    <span class="tag">Dikkat · Bölge sayfaları</span>
+    <p>"Hizmet × mahalle" sayfalarını çoğaltmak klasik hatadır; aynı metnin yer adı değiştirilmiş kopyaları <strong>doorway page</strong> sayılır ve zarar verir. Kural: bir bölge sayfası ancak <em>o bölgeye özgü gerçek içerik</em> varsa açılır — orada yapılmış işler, o bölgenin özel koşulu (deniz tuzu ve dış cephe, su sertliği ve tesisat, rüzgar ve bahçe), ulaşım süresi, yerel referans. 6–10 sayfa yeter; 60 sayfa zarar verir.</p>
+  </div>
+
+  <h3>İçerik üretim sırası</h3>
+  <ol>
+    <li>4 hizmet sayfası, üç dilde — derin, gerçek, 800–1200 kelime</li>
+    <li>SSS sayfası + her hizmet sayfasının altında 6–8 soru</li>
+    <li>Fiyat rehberleri: "X ne kadar tutar, fiyatı ne belirler" (rakam vermeden aralık ve faktör anlatımı)</li>
+    <li>İş dosyaları / vaka anlatımları — özgün fotoğraf, gerçek metin. Hem SEO hem güven.</li>
+    <li>Bölge sayfaları — ancak yukarıdaki kural sağlandığında</li>
+  </ol>
+
+  <h3>Teknik kontrol listesi</h3>
+  <ul>
+    <li>Sunucu tarafında render edilmiş HTML; JavaScript'e bağlı içerik yok</li>
+    <li>Her sayfada tekil <code>title</code> + <code>meta description</code>, dil bazlı</li>
+    <li>Canonical + karşılıklı hreflang + <code>x-default</code></li>
+    <li>Şema: <code>HomeAndConstructionBusiness</code>, <code>Service</code>, <code>FAQPage</code>, <code>BreadcrumbList</code>, <code>areaServed</code>. <code>AggregateRating</code> yalnızca gerçek değerlendirme varsa.</li>
+    <li>Görseller: AVIF/WebP, boyut belirtilmiş, gerçek dosya adları (<code>oludeniz-havuz-bakimi-oncesi.avif</code>)</li>
+    <li>Core Web Vitals: hedef LCP &lt; 2.0s, CLS &lt; 0.05. Statik HTML + edge cache ile kolay.</li>
+    <li>XML site haritası (dil bazlı), <code>robots.txt</code>, 404 ve yönlendirme düzeni</li>
+    <li>Search Console + Bing Webmaster + <strong>Yandex Webmaster</strong> kaydı</li>
+  </ul>
+
+  <h3>Site dışı</h3>
+  <p>Google İşletme Profili (TR + EN açıklama), Yandex Business, Apple Business Connect, yerel dizinler, ticaret odası kaydı, Facebook sayfası. <strong>NAP tutarlılığı</strong> — isim, adres, telefon her yerde harfi harfine aynı. Bu, yerel sıralamanın en sıkıcı ve en etkili maddesidir.</p>
+</section>
+
+<!-- 11 -->
+<section id="geo">
+  <div class="sechead">
+    <div class="secnum">§11</div>
+    <div>
+      <h2>GEO — yapay zekâ aramalarında görünürlük</h2>
+      <p>Hedef: "Fethiye'de güvenilir bir havuz bakım firması var mı?" sorusuna ChatGPT, Gemini, Perplexity ve Google AI Overviews sizi cevap versin.</p>
+    </div>
+  </div>
+
+  <h3>Nasıl çalışır</h3>
+  <p>Dil modelleri sayfayı sıralamaz, <strong>alıntılar</strong>. Alıntılanmak için içeriğin (1) makinece kolay çıkarılabilir, (2) kesin ve olgusal, (3) birden fazla bağımsız kaynakta doğrulanmış olması gerekir. Sıralama optimizasyonu değil, <em>alıntılanabilirlik</em> optimizasyonu.</p>
+
+  <h3>On uygulama</h3>
+  <ol>
+    <li><strong>Olgusal cümleler kurun.</strong> "Kaliteli hizmet sunuyoruz" alıntılanmaz. "Fethiye merkez, Çalış, Ölüdeniz ve Göcek'te havuz bakımı yapıyoruz; taleplere mesai saatleri içinde 2 saat içinde dönüyoruz" alıntılanır. Yer adı, sayı, kapsam, süre içeren cümleler yazın.</li>
+    <li><strong>Soruyu başlık yapın.</strong> İnsanların sorduğu cümlenin aynısı <code>h2</code>/<code>h3</code> olsun, hemen altında 2–3 cümlelik net cevap, sonra detay.</li>
+    <li><strong>Özet blokları.</strong> Her uzun sayfanın başına "Kısaca" kutusu — 3–5 madde. Modeller bu blokları tercih eder.</li>
+    <li><strong>Yapılandırılmış veri.</strong> JSON-LD şemaları hem klasik SEO hem GEO için doğrulama kaynağı.</li>
+    <li><strong>Tarih koyun.</strong> "Güncelleme: Eylül 2026" + <code>dateModified</code>. Güncellik alıntılanma olasılığını artırır.</li>
+    <li><strong>Tablo ve liste kullanın.</strong> Serbest paragraf yerine karşılaştırma tablosu ve madde listesi — çıkarımı kolay.</li>
+    <li><strong>JS'siz erişilebilirlik.</strong> Birçok yapay zekâ tarayıcısı JavaScript çalıştırmaz. İçerik ilk HTML yanıtında olmalı. (Workers mimarisi bunu doğal veriyor.)</li>
+    <li><strong>Bot izinleri bilinçli verilsin.</strong> <code>GPTBot</code>, <code>PerplexityBot</code>, <code>ClaudeBot</code>, <code>Google-Extended</code>, <code>OAI-SearchBot</code> — alıntılanmak istiyorsanız engellemeyin. Bu bilinçli bir tercih olmalı.</li>
+    <li><strong><code>/llms.txt</code> yayınlayın.</strong> Firma, hizmetler, bölgeler, diller, iletişim ve önemli sayfaların düz metin özeti.</li>
+    <li><strong>Dış doğrulama.</strong> En önemlisi. Model, tek bir sitenin kendi hakkındaki iddiasına güvenmez; Google İşletme Profili, Yandex Business, Facebook, dizinler ve gerçek değerlendirmelerdeki tutarlı bilgi alıntılanmayı belirler. GEO'nun %60'ı site dışıdır.</li>
+  </ol>
+
+  <h4>llms.txt taslağı</h4>
+<pre><b># Ustam Fethiye</b>
+&gt; Fethiye ve çevresinde boya-tadilat, havuz bakımı, bahçe bakımı ve su
+&gt; tesisatı hizmeti veren kurumsal hizmet şirketi. Türkçe, İngilizce, Rusça.
+
+<b>## Hizmetler</b>
+- Boya ve tadilat: /tr/boya-tadilat/
+- Havuz bakımı (aylık abonelik): /tr/havuz-bakimi/
+- Bahçe bakımı: /tr/bahce-bakimi/
+- Su tesisatı: /tr/su-tesisati/
+- Ev Bakım Planı: /tr/ev-bakim-plani/
+
+<b>## Bilinmesi gerekenler</b>
+- Hizmet bölgeleri: Fethiye merkez, Çalış, Karagözler, Ölüdeniz, Ovacık,
+  Hisarönü, Kayaköy, Göcek, Üzümlü
+- Elektrik işleri yapılmamaktadır.
+- Keşif ücretsizdir; fiyat keşif sonrası yazılı ve sabittir.
+- İşler yazılı sözleşme ile yapılır, işçilik garantisi verilir.
+- Diller: Türkçe, İngilizce, Rusça
+- İletişim: /tr/iletisim/</pre>
+
+  <div class="note">
+    <span class="tag">Öneri</span>
+    <p>Ayda bir kez ChatGPT, Gemini, Perplexity ve Google'a hedef sorularınızı sorun ve cevabı kaydedin: "Fethiye'de havuz bakımı yapan firma", "reliable painter in Fethiye", "сантехник Фетхие". Kimin çıktığını, hangi kaynaktan alındığını not edin. Bu, GEO'nun tek gerçek ölçüm yöntemi.</p>
+  </div>
+</section>
+
+<!-- 12 -->
+<section id="teknik">
+  <div class="sechead">
+    <div class="secnum">§12</div>
+    <div>
+      <h2>Teknik mimari — Cloudflare</h2>
+      <p>Tek Worker, statik HTML, birkaç API yolu. Sunucu yok, sürekli maliyet neredeyse yok.</p>
+    </div>
+  </div>
+
+  <h3>Katmanlar</h3>
+  <div class="deflist">
+    <dt>Barındırma</dt><dd>Workers + Static Assets. Sayfalar build sırasında statik HTML olarak üretilir, Worker asset binding üzerinden servis eder. API yolları aynı Worker içinde.</dd>
+    <dt>Site üretimi</dt><dd>Astro (statik çıktı) veya Hono + JSX. Astro önerilir: çok dilli yapı, sıfır JS çıktısı, içerik koleksiyonları, SEO kontrolü kolay.</dd>
+    <dt>İçerik</dt><dd>Markdown/MDX + JSON. Hizmetler, SSS, bölgeler, iş dosyaları veri dosyası olarak; üç dil aynı şemayı paylaşır. CMS gerekmez.</dd>
+    <dt>Form</dt><dd><code>POST /api/lead</code> → Turnstile doğrulama → D1'e kayıt → bildirim. Rate limit KV veya Rate Limiting binding ile.</dd>
+    <dt>Veritabanı</dt><dd>D1 (SQLite). Tablolar: <code>leads</code>, <code>jobs</code>, <code>quotes</code>, <code>craftsmen</code>, <code>subscriptions</code>.</dd>
+    <dt>Dosya</dt><dd>R2 — keşif fotoğrafları, iş dosyası görselleri, teklif PDF'leri. Cloudflare Images ile boyutlandırma.</dd>
+    <dt>Bildirim</dt><dd>E-posta için Resend/Brevo API; anlık bildirim için Telegram bot veya WhatsApp Cloud API. Telegram en hızlı ve ücretsiz başlangıç.</dd>
+    <dt>Bot koruması</dt><dd>Turnstile (görünmez), WAF kuralları, honeypot alanı.</dd>
+    <dt>Analitik</dt><dd>Cloudflare Web Analytics — çerezsiz, çerez onayı bandı gerektirmez. Bu bir yan fayda değil, GDPR açısından gerçek bir avantaj.</dd>
+    <dt>Alan adı</dt><dd>Cloudflare DNS, tam SSL, <code>www</code> → kök yönlendirmesi, HSTS.</dd>
+    <dt>Yayın</dt><dd>GitHub + Wrangler; <code>main</code>'e push ile otomatik yayın, preview ortamı ayrı.</dd>
+  </div>
+
+  <h4>Worker yol haritası</h4>
+<pre>GET  /*                 → statik varlık (edge cache, sürüm bazlı)
+GET  /robots.txt        → bot izinleri
+GET  /sitemap-[dil].xml → build'de üretilir
+GET  /llms.txt          → yapay zekâ özeti
+POST /api/lead          → Turnstile + doğrulama + D1 + bildirim
+POST /api/upload        → imzalı R2 yükleme (keşif fotoğrafı)
+GET  /api/health        → izleme</pre>
+
+  <h4>Sayfa başı JSON-LD iskeleti</h4>
+<pre>{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Ustam Fethiye",
+  "areaServed": ["Fethiye","Ölüdeniz","Çalış","Göcek","Hisarönü"],
+  "availableLanguage": ["tr","en","ru"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Fethiye",
+               "addressRegion": "Muğla", "addressCountry": "TR" },
+  "telephone": "+90...",
+  "hasOfferCatalog": { "@type": "OfferCatalog", "itemListElement": [
+    { "@type": "Offer", "itemOffered":
+      { "@type": "Service", "name": "Havuz Bakımı" } }
+  ]}
+}</pre>
+
+  <h3>Performans kuralları</h3>
+  <ul>
+    <li>Kritik CSS satır içi, geri kalanı tek dosya. Framework çalışma zamanı yok.</li>
+    <li>Yazı tiplerini kendiniz barındırın (woff2, <code>font-display:swap</code>, alt küme).</li>
+    <li>Görseller <code>loading="lazy"</code> (ilk ekran hariç), boyutlar sabit — CLS sıfır.</li>
+    <li>HTML edge'de önbelleklenir, yayın sonrası önbellek temizlenir.</li>
+    <li>Üçüncü parti script neredeyse yok. Chat widget'ı gerekiyorsa gecikmeli yüklenir.</li>
+  </ul>
+
+  <div class="note">
+    <span class="tag">Öneri</span>
+    <p>Faz 1'de bir müşteri paneli veya giriş sistemi kurmayın. Bütün kritik bilgi WhatsApp ve e-postadan akıyor. Panel Faz 2'de, ilk 30–50 iş operasyonu şekillendirdikten sonra — o zaman ne gerektiğini tahmin etmeyip bileceksiniz.</p>
+  </div>
+</section>
+
+<!-- 13 -->
+<section id="yol">
+  <div class="sechead">
+    <div class="secnum">§13</div>
+    <div>
+      <h2>Yol haritası</h2>
+      <p>Önce satış, sonra yazılım.</p>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Faz</th><th>Süre</th><th>Kapsam</th><th>Çıktı</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>0 · Temel</td><td class="mono">1–2 hafta</td>
+          <td>Şirket kurulumu, sigorta, sözleşme şablonları, marka kimliği, 2 usta ile anlaşma, GBP açılışı, telefon/WhatsApp hattı</td>
+          <td class="mono">İş alınabilir durum</td>
+        </tr>
+        <tr>
+          <td>1 · Site v1</td><td class="mono">2–3 hafta</td>
+          <td>Workers üzerinde 3 dilli statik site, 4 hizmet + Ev Bakım Planı sayfası, form + Turnstile + D1, şema, sitemap, llms.txt, analitik</td>
+          <td class="mono">Talep üreten site</td>
+        </tr>
+        <tr>
+          <td>2 · İçerik &amp; itibar</td><td class="mono">1–3. ay</td>
+          <td>SSS, fiyat rehberleri, ilk iş dosyaları, Google/Yandex değerlendirme akışı, B2B görüşmeleri, Facebook grubu varlığı</td>
+          <td class="mono">Organik trafik başlangıcı</td>
+        </tr>
+        <tr>
+          <td>3 · Operasyon paneli</td><td class="mono">3–5. ay</td>
+          <td>D1 üzerinde iş takip paneli, teklif PDF üretimi, R2 fotoğraf akışı, otomatik iş dosyası, usta karnesi</td>
+          <td class="mono">Ölçeklenebilir operasyon</td>
+        </tr>
+        <tr>
+          <td>4 · Abonelik ölçekleme</td><td class="mono">6–12. ay</td>
+          <td>Bakım planı otomatik yenileme ve hatırlatma, müşteri portalı, bölge sayfaları, ekip büyütme</td>
+          <td class="mono">Tekrarlayan gelir tabanı</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 14 -->
+<section id="kpi">
+  <div class="sechead">
+    <div class="secnum">§14</div>
+    <div>
+      <h2>Ölçtüğümüz şeyler</h2>
+      <p>Altı sayı. İlk günden tutulur, haftalık bakılır.</p>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">&lt; 2 sa</div><span class="l">İlk yanıt süresi</span><span class="n">Mesai içi taahhüt; kaybedilen işin bir numaralı sebebi.</span></div>
+    <div class="kpi"><div class="v">%70</div><span class="l">Talep → keşif</span><span class="n">Düşükse ön eleme veya yanıt hızı sorunlu.</span></div>
+    <div class="kpi"><div class="v">%40</div><span class="l">Keşif → sözleşme</span><span class="n">Düşükse fiyat veya teklif sunumu sorunlu.</span></div>
+    <div class="kpi"><div class="v">%25+</div><span class="l">Brüt marj</span><span class="n">Hizmet bazında ayrı izlenir.</span></div>
+    <div class="kpi"><div class="v">↑</div><span class="l">Aktif abonelik</span><span class="n">Uzun vadeli şirket değerinin tek göstergesi.</span></div>
+    <div class="kpi"><div class="v">4.8+</div><span class="l">Değerlendirme ort.</span><span class="n">Adet de önemli; ayda en az 4 yeni değerlendirme hedefi.</span></div>
+  </div>
+  <p>Ek olarak izlenmeli: kanal bazında talep sayısı (nereden geldi sorusu her müşteriye sorulur), iş başına ortalama tutar, garanti/yeniden iş oranı, usta karnesi ortalaması, abonelik iptal oranı.</p>
+</section>
+
+<!-- 15 -->
+<section id="kararlar" class="dsec">
+  <div class="sechead">
+    <div class="secnum">§15</div>
+    <div>
+      <h2>Düşünülmesi gereken detaylar</h2>
+      <p>Siteyi ve sistemi kurmadan önce cevaplanması gereken sorular. Her birinin bir kodu var — cevaplarken kodu belirtmeniz yeterli (ör. "K-07: ikinci seçenek").</p>
+    </div>
+  </div>
+
+  <div class="dgroup">
+    <h3>Kimlik ve kapsam</h3>
+    <div class="dgrid">
+      <div class="d"><span class="id">K-01</span><span class="q">Hizmet yarıçapı tam olarak nereye kadar?</span><span class="why">Fiyatlandırma, ulaşım maliyeti ve bölge sayfalarının hangileri olacağı buna bağlı.</span><span class="opt">Sadece merkez+sahil / Göcek-Üzümlü dahil / Dalaman-Kaş'a kadar</span></div>
+      <div class="d"><span class="id">K-02</span><span class="q">Marka adı üç dilde nasıl kullanılacak?</span><span class="why">"Ustam Fethiye" Türkçe bir ifade; İngilizce/Rusça kitle için alt açıklama gerekebilir.</span><span class="opt">Aynı isim + açıklayıcı alt başlık / Dile göre alt marka</span></div>
+      <div class="d"><span class="id">K-03</span><span class="q">Elektrik: tamamen ret mi, yönlendirme mi?</span><span class="why">Tadilat işlerinin içinden mutlaka çıkacak; şimdi karar verilmezse sahada karar verilir.</span><span class="opt">Tamamen kapsam dışı / Anlaşmalı firmaya yönlendirme</span></div>
+      <div class="d"><span class="id">K-04</span><span class="q">Ev Bakım Planı ürüne girecek mi?</span><span class="why">Girerse site mimarisi ve satış anlatısı bunun etrafında kurulur.</span><span class="opt">Faz 1'de / Faz 2'de / Hayır</span></div>
+      <div class="d"><span class="id">K-05</span><span class="q">Acil müdahale hizmeti verecek misiniz?</span><span class="why">7/24 tesisat, çok talep gören ve çok yıpratan bir hizmet. Vaat verilirse tutulmalı.</span><span class="opt">Mesai içi / Uzatılmış saat / 7-24 / Sadece abonelere</span></div>
+      <div class="d"><span class="id">K-06</span><span class="q">B2B işi alacak mısınız?</span><span class="why">Site yönetimi ve otel işleri hacim getirir ama fiyat baskısı ve ödeme vadesi getirir.</span><span class="opt">Evet, öncelikli / Seçici / Şimdilik hayır</span></div>
+    </div>
+  </div>
+
+  <div class="dgroup">
+    <h3>Operasyon ve ekip</h3>
+    <div class="dgrid">
+      <div class="d"><span class="id">K-07</span><span class="q">Usta modeli: bordrolu, alt yüklenici, karma?</span><span class="why">§7'deki en kritik hukuki karar. Maliyet yapısını ve riski tamamen belirler.</span><span class="opt">Tamamı alt yüklenici / Karma / Çekirdek ekip bordrolu</span></div>
+      <div class="d"><span class="id">K-08</span><span class="q">Keşifleri kim yapacak?</span><span class="why">Kurucu mu, bir koordinatör mü? Günde kaç keşif yapılabileceği büyüme hızını sınırlar.</span><span class="opt">Kurucu / İşe alım / Usta ile birlikte</span></div>
+      <div class="d"><span class="id">K-09</span><span class="q">Malzemeyi kim alıyor?</span><span class="why">Marj, garanti kapsamı ve nakit akışı buna bağlı. Tedarikçi anlaşması yapılacak mı?</span><span class="opt">Hep biz / Müşteri seçebilir / İşe göre</span></div>
+      <div class="d"><span class="id">K-10</span><span class="q">İş garantisi süreleri ne olacak?</span><span class="why">Sözleşmeye ve siteye yazılacak; marjın içindeki garanti payını belirler.</span><span class="opt">Hizmet bazında ayrı süre / Tek standart süre</span></div>
+      <div class="d"><span class="id">K-11</span><span class="q">Anahtar teslim alınacak mı?</span><span class="why">Uzaktaki ev sahibi için gerekli ama ciddi güven ve sorumluluk yükü. Prosedür ve sigorta gerekir.</span><span class="opt">Evet, tutanaklı / Sadece abonelerde / Hayır</span></div>
+      <div class="d"><span class="id">K-12</span><span class="q">Kaç kişilik başlangıç kadrosu?</span><span class="why">Sabit maliyet tabanı ve ilk ay kaç iş alınabileceği.</span><span class="opt">Kurucu tek / Kurucu + koordinatör / + saha şefi</span></div>
+    </div>
+  </div>
+
+  <div class="dgroup">
+    <h3>Ticari</h3>
+    <div class="dgrid">
+      <div class="d"><span class="id">K-13</span><span class="q">Hedef marj oranı nedir?</span><span class="why">Fiyat listesi ve teklif şablonu bunun üzerine kurulur.</span><span class="opt">%20 / %30 / hizmete göre değişken</span></div>
+      <div class="d"><span class="id">K-14</span><span class="q">Keşif ücretsiz mi, koşullu mu?</span><span class="why">Ücretsiz keşif dönüşümü artırır ama ciddiyetsiz talebi de artırır.</span><span class="opt">Tamamen ücretsiz / Yarıçap içinde ücretsiz / Ücretli+mahsup</span></div>
+      <div class="d"><span class="id">K-15</span><span class="q">Ödeme yöntemleri neler?</span><span class="why">Yurt dışından havale, nakit, kredi kartı? Kart altyapısı kurulacaksa şimdiden planlanmalı.</span><span class="opt">Havale + nakit / + sanal POS</span></div>
+      <div class="d"><span class="id">K-16</span><span class="q">Fiyatlar hangi para biriminde?</span><span class="why">Yabancı müşteriye GBP/EUR fiyat vermek satışı kolaylaştırır ama kur riskini size yükler.</span><span class="opt">Sadece TL / TL + bilgilendirme amaçlı döviz karşılığı</span></div>
+      <div class="d"><span class="id">K-17</span><span class="q">Abonelik fiyatı neye göre kademelenecek?</span><span class="why">Havuz hacmi, bahçe alanı, ziyaret sıklığı, konum uzaklığı — hangileri?</span><span class="opt">Sabit paketler / Keşif sonrası özel fiyat</span></div>
+      <div class="d"><span class="id">K-18</span><span class="q">İlk 6 ay için hedef nedir?</span><span class="why">Kaç iş, kaç abone, ne kadar ciro? Hedefsiz KPI ölçülemez.</span><span class="opt">Rakam yazın</span></div>
+    </div>
+  </div>
+
+  <div class="dgroup">
+    <h3>Site ve içerik</h3>
+    <div class="dgrid">
+      <div class="d"><span class="id">K-19</span><span class="q">Varsayılan dil hangisi?</span><span class="why">Kök URL'in nereye gideceğini ve x-default'u belirler.</span><span class="opt">TR / EN / Dil seçim ekranı (önerilmez)</span></div>
+      <div class="d"><span class="id">K-20</span><span class="q">Rusça içeriği kim yazacak?</span><span class="why">Makine çevirisi güven satan bir markada zarar verir. Anadili Rusça bir çevirmen bütçesi gerekli.</span><span class="opt">Profesyonel çevirmen / Faz 2'ye ertele</span></div>
+      <div class="d"><span class="id">K-21</span><span class="q">Sitede fiyat aralığı gösterilecek mi?</span><span class="why">Aralık göstermek nitelikli talebi artırır, zaman kazandırır; ama pazarlık zeminini daraltır.</span><span class="opt">Hiç gösterme / "Başlangıç fiyatı" / Rehber sayfalarında aralık</span></div>
+      <div class="d"><span class="id">K-22</span><span class="q">Formda hangi alanlar zorunlu?</span><span class="why">Her ek alan dönüşümü düşürür; her eksik alan ön elemeyi zorlaştırır.</span><span class="opt">Ad+telefon / +hizmet+konum / +fotoğraf</span></div>
+      <div class="d"><span class="id">K-23</span><span class="q">Fotoğrafları kim çekecek?</span><span class="why">Stok görsel bu sektörde güveni düşürür. Gerçek ekip, gerçek iş fotoğrafı şart.</span><span class="opt">Profesyonel çekim / Telefonla düzenli çekim protokolü</span></div>
+      <div class="d"><span class="id">K-24</span><span class="q">Yapay zekâ tarayıcılarına izin verilecek mi?</span><span class="why">GEO stratejisinin ön şartı. İzin verilirse içerik alıntılanır; verilmezse görünmezsiniz.</span><span class="opt">Hepsine izin (önerilen) / Seçili olanlara / Engelle</span></div>
+      <div class="d"><span class="id">K-25</span><span class="q">Blog/rehber içeriğini kim üretecek?</span><span class="why">SEO'nun sürdürülebilirliği tamamen buna bağlı. Ayda 2 yazı bile fark yaratır.</span><span class="opt">Kurucu / Freelance / Yapay zekâ destekli + insan editör</span></div>
+    </div>
+  </div>
+
+  <div class="dgroup">
+    <h3>Teknik ve yasal</h3>
+    <div class="dgrid">
+      <div class="d"><span class="id">K-26</span><span class="q">Talep bildirimleri nereye düşsün?</span><span class="why">Yanıt süresi taahhüdünün teknik karşılığı. E-posta yavaş kalabilir.</span><span class="opt">E-posta / Telegram / WhatsApp / hepsi</span></div>
+      <div class="d"><span class="id">K-27</span><span class="q">Şirket telefonu tek numara mı?</span><span class="why">WhatsApp Business tek numaraya bağlı; birden fazla kişi cevaplayacaksa çoklu cihaz kurulumu gerekir.</span><span class="opt">Tek numara / WhatsApp Business API</span></div>
+      <div class="d"><span class="id">K-28</span><span class="q">Müşteri verisi ne kadar saklanacak?</span><span class="why">KVKK ve GDPR aydınlatma metni bunu yazmak zorunda. Yabancı müşteri kontrol eder.</span><span class="opt">Süre belirleyin</span></div>
+      <div class="d"><span class="id">K-29</span><span class="q">Alan adı yapısı ne olacak?</span><span class="why">Tek alan adı + dil klasörleri mi, dile göre ayrı alan adları mı? İlki önerilir.</span><span class="opt">ustamfethiye.com/en/ (önerilen) / ayrı alan adları</span></div>
+      <div class="d"><span class="id">K-30</span><span class="q">Sözleşme ve teklifler dijital imzalı mı?</span><span class="why">Uzaktaki müşteri için ıslak imza pratik değil. E-imza/onay akışı gerekebilir.</span><span class="opt">E-posta onayı yeterli / Dijital imza servisi</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="tag">Sonraki adım</span>
+    <p>Bu 30 sorudan <strong>K-01, K-03, K-04, K-07, K-13, K-19, K-21</strong> siteyi kurmadan önce cevaplanmalı; gerisi paralel yürüyebilir. Cevapları toplayıp geri gönderin, site mimarisini ve içerik iskeletini bunun üzerine kuralım.</p>
+  </div>
+</section>
+
+<footer>
+  USTAM FETHİYE · KURULUŞ DOSYASI v0.1 · EYLÜL 2026<br>
+  Bu belge bir taslaktır. Hukuki, mali ve sigorta konuları uygulamadan önce mali müşavir ve avukat ile teyit edilmelidir.<br>
+  §6'daki rakamlar örnek şablondur, gerçek maliyet verisi değildir.
+</footer>
+
+</div>

@@ -1,0 +1,41 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ustamfethiye",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+
+  "observability": { "enabled": true },
+
+  "vars": {
+    "SITE_URL": "https://ustamfethiye.com"
+  }
+
+  // --- Kurulum sonrasi aktif edilecekler -------------------------------
+  //
+  // 1) Talepleri veritabanina yazmak icin (bkz. schema.sql):
+  //      npx wrangler d1 create ustamfethiye
+  //      npx wrangler d1 execute ustamfethiye --remote --file=./schema.sql
+  //    ardindan asagidaki blogun yorumunu kaldirin:
+  //
+  // "d1_databases": [
+  //   { "binding": "DB", "database_name": "ustamfethiye", "database_id": "<ID>" }
+  // ],
+  //
+  // 2) Spam korumasi (Turnstile) ve bildirimler icin secret ekleyin:
+  //      npx wrangler secret put TURNSTILE_SECRET
+  //      npx wrangler secret put RESEND_API_KEY
+  //      npx wrangler secret put TELEGRAM_BOT_TOKEN
+  //      npx wrangler secret put TELEGRAM_CHAT_ID
+  //    Turnstile site key'i src/content/site.js icinde tanimlanir.
+  //
+  // Hicbiri tanimli degilse form calismaya devam eder; talep yalnizca
+  // Worker loglarina dusar (npx wrangler tail).
+  // ---------------------------------------------------------------------
+}

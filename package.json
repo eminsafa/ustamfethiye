@@ -1,0 +1,17 @@
+{
+  "name": "ustamfethiye",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ustam Fethiye - Fethiye ve Seydikemer bolgesinde boya, tadilat, havuz, bahce ve su tesisati hizmetleri",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && wrangler dev",
+    "deploy": "node build.mjs && wrangler deploy",
+    "preview": "node build.mjs && node --run serve",
+    "serve": "node -e \"import('node:http').then(({default:h})=>import('node:fs').then(({default:f})=>h.createServer((q,s)=>{let p='dist'+q.url.split('?')[0];if(p.endsWith('/'))p+='index.html';if(!f.existsSync(p)&&f.existsSync(p+'/index.html'))p+='/index.html';if(!f.existsSync(p)){s.writeHead(302,{Location:'/tr/'});return s.end()}const t=p.endsWith('.css')?'text/css':p.endsWith('.xml')?'application/xml':p.endsWith('.svg')?'image/svg+xml':p.endsWith('.txt')?'text/plain; charset=utf-8':'text/html; charset=utf-8';s.writeHead(200,{'content-type':t});s.end(f.readFileSync(p))}).listen(8788,()=>console.log('http://localhost:8788/tr/'))))\""
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
