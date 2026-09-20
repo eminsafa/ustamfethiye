@@ -14,6 +14,9 @@ CREATE TABLE IF NOT EXISTS leads (
   source_page TEXT,
   referrer    TEXT,
   country     TEXT,
+  address     TEXT,
+  service_other TEXT,
+  files       INTEGER NOT NULL DEFAULT 0,
   status      TEXT    NOT NULL DEFAULT 'yeni'
 );
 

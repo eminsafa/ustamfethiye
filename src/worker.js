@@ -83,6 +83,19 @@ const b64 = (str) => {
   return btoa(bin);
 };
 
+/** Ikili veriyi base64'e cevirir (parcali; buyuk dosyalarda yigin tasmasi olmaz). */
+const bytesToB64 = (u8) => {
+  let bin = '';
+  for (let i = 0; i < u8.length; i += 0x8000) bin += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000));
+  return btoa(bin);
+};
+
+// Ek dosya sinirlari (e-posta toplam 25 MB ile sinirli; base64 ~%33 buyutur)
+const FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/heic', 'image/heif', 'application/pdf'];
+const MAX_FILES = 5;
+const MAX_FILE_BYTES = 4 * 1024 * 1024;
+const MAX_TOTAL_BYTES = 10 * 1024 * 1024;
+
 const EMAIL_RE = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 
 /**
@@ -91,10 +104,11 @@ const EMAIL_RE = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
  * LEAD_EMAIL_TO (Email Routing'de dogrulanmis hedef adres).
  * Alan degerleri clean() ile kontrol karakterlerinden arindirildigi icin baslik enjeksiyonu olmaz.
  */
-async function sendLeadMail(env, lead, summary) {
+async function sendLeadMail(env, lead, summary, files = []) {
   const from = env.LEAD_EMAIL_FROM;
   const to = env.LEAD_EMAIL_TO;
   const subject = `Yeni talep: ${lead.name} — ${SERVICE_LABEL[lead.service] || 'genel'}`;
+  const wrap = (str) => str.replace(/.{76}/g, '$&\r\n');
   const headers = [
     `From: Ustam Fethiye <${from}>`,
     `To: ${to}`,
@@ -103,22 +117,63 @@ async function sendLeadMail(env, lead, summary) {
     `Message-ID: <${crypto.randomUUID()}@${from.split('@')[1]}>`,
     `Date: ${new Date().toUTCString()}`,
     'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=utf-8',
-    'Content-Transfer-Encoding: base64',
   ];
-  const body = b64(summary).replace(/.{76}/g, '$&\r\n');
-  const raw = `${headers.join('\r\n')}\r\n\r\n${body}`;
+  const textPart = ['Content-Type: text/plain; charset=utf-8', 'Content-Transfer-Encoding: base64', '', wrap(b64(summary))];
+
+  let raw;
+  if (!files.length) {
+    raw = [...headers, ...textPart].join('\r\n');
+  } else {
+    const boundary = `=_ustam_${crypto.randomUUID()}`;
+    const parts = [`--${boundary}`, ...textPart];
+    for (const f of files) {
+      parts.push(
+        `--${boundary}`,
+        `Content-Type: ${f.type}; name="${f.name}"`,
+        `Content-Disposition: attachment; filename="${f.name}"`,
+        'Content-Transfer-Encoding: base64',
+        '',
+        wrap(bytesToB64(new Uint8Array(await f.arrayBuffer())))
+      );
+    }
+    parts.push(`--${boundary}--`, '');
+    raw = [...headers, `Content-Type: multipart/mixed; boundary="${boundary}"`, '', ...parts].join('\r\n');
+  }
   await env.LEAD_EMAIL.send(new EmailMessage(from, to, raw));
 }
 
 /* ---------------------------------------------------------------- lead akisi */
 async function handleLead(request, env, ctx) {
-  let data;
+  // Govde limiti: 5 dosya x 4 MB + form alanlari
+  if (Number(request.headers.get('content-length')) > 12 * 1024 * 1024) return json({ error: 'too_large' }, 413);
+
+  let data = {};
+  let files = [];
   try {
-    data = await request.json();
+    if ((request.headers.get('content-type') || '').includes('multipart/form-data')) {
+      for (const [key, value] of (await request.formData()).entries()) {
+        if (typeof value === 'string') data[key] = value;
+        else if (key === 'files' && value.size > 0) files.push(value);
+      }
+    } else {
+      data = await request.json();
+    }
   } catch {
     return json({ error: 'bad_request' }, 400);
   }
+
+  // Dosya dogrulama: sayi, tur, boyut. Gecersizse talep reddedilir (sessizce dusurulmez).
+  const total = files.reduce((n, f) => n + f.size, 0);
+  if (files.length > MAX_FILES || total > MAX_TOTAL_BYTES ||
+      files.some((f) => !FILE_TYPES.includes(f.type) || f.size > MAX_FILE_BYTES)) {
+    return json({ error: 'bad_files' }, 400);
+  }
+  files = files.map((f, i) => {
+    // Turkce harfleri sadelestir (ç→c, ı→i ...), gerisini guvenli karaktere cevir.
+    const ascii = String(f.name || '').replace(/ı/g, 'i').replace(/İ/g, 'I').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const safe = ascii.replace(/[^\w.\-]+/g, '_').replace(/^_+|_+$/g, '').slice(-80) || `dosya-${i + 1}`;
+    return new File([f], safe, { type: f.type });
+  });
 
   // Bal kupu alani — botlar doldurur, gercek kullanicilar gormez.
   if (clean(data.company)) return json({ ok: true });
@@ -131,12 +186,17 @@ async function handleLead(request, env, ctx) {
     service: SERVICES.includes(data.service) ? data.service : '',
     region: REGIONS.includes(data.region) ? data.region : '',
     message: clean(data.message, 2000),
+    address: clean(data.address, 300),
+    service_other: data.service === 'other' ? clean(data.service_other, 200) : '',
+    files: files.length,
     source_page: clean(request.headers.get('referer'), 300),
     referrer: clean(data.ref, 300),
     country: request.headers.get('cf-ipcountry') || '',
   };
 
   if (!lead.name || !lead.phone) return json({ error: 'missing_fields' }, 400);
+  if (lead.service === 'other' && !lead.service_other) return json({ error: 'service_detail_required' }, 400);
+  if (lead.region === 'other' && !lead.address) return json({ error: 'address_required' }, 400);
   if (!data.consent) return json({ error: 'consent_required' }, 400);
 
   // Turnstile — secret tanimliysa dogrula, degilse atla.
@@ -159,11 +219,12 @@ async function handleLead(request, env, ctx) {
   if (env.DB) {
     try {
       await env.DB.prepare(
-        `INSERT INTO leads (locale,name,phone,email,service,region,message,source_page,referrer,country)
-         VALUES (?,?,?,?,?,?,?,?,?,?)`
+        `INSERT INTO leads (locale,name,phone,email,service,region,message,source_page,referrer,country,address,service_other,files)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`
       ).bind(
         lead.locale, lead.name, lead.phone, lead.email, lead.service,
-        lead.region, lead.message, lead.source_page, lead.referrer, lead.country
+        lead.region, lead.message, lead.source_page, lead.referrer, lead.country,
+        lead.address, lead.service_other, lead.files
       ).run();
     } catch (e) {
       console.error('D1 insert failed', e);
@@ -174,7 +235,10 @@ async function handleLead(request, env, ctx) {
     'Yeni talep — Ustam Fethiye\n' +
     `Ad: ${lead.name}\nTelefon: ${lead.phone}\n` +
     (lead.email ? `E-posta: ${lead.email}\n` : '') +
-    `Hizmet: ${SERVICE_LABEL[lead.service] || '-'}\nKonum: ${REGION_LABEL[lead.region] || '-'}\n` +
+    `Hizmet: ${SERVICE_LABEL[lead.service] || '-'}${lead.service_other ? ` — ${lead.service_other}` : ''}\n` +
+    `Konum: ${REGION_LABEL[lead.region] || '-'}\n` +
+    (lead.address ? `Adres: ${lead.address}\n` : '') +
+    (lead.files ? `Ekler: ${lead.files} dosya (bu e-postaya ekli)\n` : '') +
     `Dil: ${lead.locale}${lead.country ? ` | Ulke: ${lead.country}` : ''}\n` +
     (lead.message ? `\nMesaj:\n${lead.message}\n` : '') +
     (lead.source_page ? `\nSayfa: ${lead.source_page}` : '');
@@ -192,7 +256,7 @@ async function handleLead(request, env, ctx) {
   }
 
   if (env.LEAD_EMAIL && env.LEAD_EMAIL_FROM && env.LEAD_EMAIL_TO) {
-    notify.push(sendLeadMail(env, lead, summary).catch((e) => console.error('email', e)));
+    notify.push(sendLeadMail(env, lead, summary, files).catch((e) => console.error('email', e)));
   }
 
   if (env.RESEND_API_KEY && env.LEAD_EMAIL_TO && env.LEAD_EMAIL_FROM) {

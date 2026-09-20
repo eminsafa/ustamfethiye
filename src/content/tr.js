@@ -46,12 +46,18 @@ export default {
 
     formTitle: `Ücretsiz keşif talebi`,
     formIntro: `Formu doldurun, mesai saatleri içinde 2 saat içinde dönüş yapalım. Keşif ücretsizdir.`,
-    fName: `Adınız`,
+    fName: `Ad ve soyad`,
     fPhone: `Telefon / WhatsApp`,
     fEmail: `E-posta (isteğe bağlı)`,
     fService: `Hangi hizmet?`,
     fRegion: `Konum`,
     fMessage: `Kısaca ne yapılması gerekiyor?`,
+    fServiceOther: `Hangi hizmet? Kısaca yazın`,
+    fAddress: `Adres veya konum tarifi (isteğe bağlı)`,
+    fAddressOther: `Hangi bölge? Adresi veya mahalleyi yazın`,
+    fFiles: `Fotoğraf veya dosya ekleyin (isteğe bağlı)`,
+    fFilesHint: `En fazla 5 dosya: fotoğraf veya PDF. Fotoğraflar otomatik küçültülür.`,
+    fFilesErr: `Dosyalar eklenemedi. En fazla 5 dosya ekleyebilirsiniz (dosya başına 4 MB, fotoğraflar otomatik küçültülür).`,
     fChoose: `Seçiniz`,
     fOther: `Diğer`,
     fConsent: `Kişisel verilerimin talebimi değerlendirmek amacıyla işlenmesini kabul ediyorum.`,
@@ -64,7 +70,7 @@ export default {
     fOk: `Talebiniz bize ulaştı. En kısa sürede sizi arayacağız.`,
     fErr: `Talep gönderilemedi. Lütfen WhatsApp üzerinden yazın veya telefonla arayın.`,
     fRequired: `Bu alan zorunlu.`,
-    fPhotoHint: `Fotoğrafınız varsa WhatsApp üzerinden gönderebilirsiniz — keşfi hızlandırır.`,
+    fPhotoHint: `Fotoğraf eklemek keşfi hızlandırır. İsterseniz WhatsApp'tan da gönderebilirsiniz.`,
 
     trust: [
       `Tek muhatap: usta değil, firma`,

@@ -46,12 +46,18 @@ export default {
 
     formTitle: `Request a free site visit`,
     formIntro: `Send us the form and we will get back to you within 2 hours during working hours. The site visit is free.`,
-    fName: `Your name`,
+    fName: `Full name`,
     fPhone: `Phone / WhatsApp`,
     fEmail: `Email (optional)`,
     fService: `Which service?`,
     fRegion: `Location`,
     fMessage: `Briefly, what needs to be done?`,
+    fServiceOther: `Which service? Briefly describe`,
+    fAddress: `Address or location details (optional)`,
+    fAddressOther: `Which area? Enter the address or neighbourhood`,
+    fFiles: `Add photos or files (optional)`,
+    fFilesHint: `Up to 5 files: photos or PDF. Photos are resized automatically.`,
+    fFilesErr: `The files could not be attached. You can add up to 5 files (4 MB each; photos are resized automatically).`,
     fChoose: `Please select`,
     fOther: `Other`,
     fConsent: `I agree to my personal data being processed so that my request can be handled.`,
@@ -64,7 +70,7 @@ export default {
     fOk: `We have received your request. We will call you shortly.`,
     fErr: `The request could not be sent. Please message us on WhatsApp or call us.`,
     fRequired: `This field is required.`,
-    fPhotoHint: `If you have photos, send them on WhatsApp — it speeds up the site visit.`,
+    fPhotoHint: `Adding photos speeds up the site visit. You can also send them on WhatsApp.`,
 
     trust: [
       `One point of contact: the company, not the tradesman`,

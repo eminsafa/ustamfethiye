@@ -132,19 +132,68 @@ ${footer(ctx)}
     b.setAttribute('data-open',String(!o));t.setAttribute('aria-expanded',String(!o));
   });
   var f=document.getElementById('leadform');
-  if(f)f.addEventListener('submit',async function(e){
-    e.preventDefault();
-    var btn=f.querySelector('button[type=submit]'),msg=f.querySelector('.formmsg'),old=btn.textContent;
-    btn.disabled=true;btn.textContent=f.dataset.sending;msg.removeAttribute('data-state');
-    try{
-      var r=await fetch('/api/lead',{method:'POST',headers:{'content-type':'application/json'},
-        body:JSON.stringify(Object.fromEntries(new FormData(f)))});
-      if(!r.ok)throw 0;
-      msg.textContent=f.dataset.ok;msg.setAttribute('data-state','ok');f.reset();
-    }catch(err){
-      msg.textContent=f.dataset.err;msg.setAttribute('data-state','err');
-    }finally{btn.disabled=false;btn.textContent=old;}
-  });
+  if(f){
+    var q=function(n){return f.querySelector('[name='+n+']')};
+    var svc=q('service'),svo=q('service_other'),reg=q('region'),adr=q('address'),fil=q('files');
+    var lst=f.querySelector('.filelist'),msg=f.querySelector('.formmsg');
+    var MAX=5,LIM=4*1024*1024;
+    var syncSvc=function(){
+      var on=!!svc&&svc.value==='other';
+      svo.parentNode.hidden=!on;svo.required=on;if(!on)svo.value='';
+    };
+    var syncReg=function(){
+      if(!adr)return;
+      var on=!!reg&&reg.value==='other',lb=adr.parentNode.querySelector('label');
+      lb.textContent=on?lb.dataset.other:lb.dataset.label;adr.required=on;
+    };
+    var shrink=function(file){
+      return new Promise(function(done){
+        if(!/^image\\/(jpeg|png|webp)$/.test(file.type))return done(file);
+        var img=new Image(),url=URL.createObjectURL(file);
+        img.onload=function(){
+          var k=Math.min(1,1600/Math.max(img.width,img.height)),c=document.createElement('canvas'),x;
+          c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);
+          x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0,c.width,c.height);
+          c.toBlob(function(b){
+            URL.revokeObjectURL(url);
+            done(b&&b.size<file.size?new File([b],file.name.replace(/\\.[^.]+$/,'')+'.jpg',{type:'image/jpeg'}):file);
+          },'image/jpeg',0.82);
+        };
+        img.onerror=function(){URL.revokeObjectURL(url);done(file)};
+        img.src=url;
+      });
+    };
+    if(svc&&svo){svc.addEventListener('change',syncSvc);syncSvc();}
+    if(reg)reg.addEventListener('change',syncReg);
+    if(fil)fil.addEventListener('change',function(){
+      lst.textContent='';
+      Array.prototype.forEach.call(fil.files,function(x){var li=document.createElement('li');li.textContent=x.name;lst.appendChild(li);});
+    });
+    f.addEventListener('submit',async function(e){
+      e.preventDefault();
+      if(!f.reportValidity())return;
+      var btn=f.querySelector('button[type=submit]'),old=btn.textContent;
+      btn.disabled=true;btn.textContent=f.dataset.sending;msg.removeAttribute('data-state');
+      try{
+        var fd=new FormData(f);
+        fd.delete('files');
+        if(fil&&fil.files.length){
+          if(fil.files.length>MAX)throw 'files';
+          for(var i=0;i<fil.files.length;i++){
+            var s=await shrink(fil.files[i]);
+            if(s.size>LIM)throw 'files';
+            fd.append('files',s,s.name);
+          }
+        }
+        var r=await fetch('/api/lead',{method:'POST',body:fd});
+        if(!r.ok)throw 0;
+        msg.textContent=f.dataset.ok;msg.setAttribute('data-state','ok');f.reset();
+        if(lst)lst.textContent='';if(svo)syncSvc();syncReg();
+      }catch(err){
+        msg.textContent=err==='files'?f.dataset.filesErr:f.dataset.err;msg.setAttribute('data-state','err');
+      }finally{btn.disabled=false;btn.textContent=old;}
+    });
+  }
 })();
 </script>
 </body>
@@ -203,7 +252,7 @@ export function leadForm(ctx, { heading, intro, compact = false, mini = false } 
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
   return `<form class="formcard" id="leadform" novalidate
-  data-sending="${attr(L.ui.fSending)}" data-ok="${attr(L.ui.fOk)}" data-err="${attr(L.ui.fErr)}">
+  data-sending="${attr(L.ui.fSending)}" data-ok="${attr(L.ui.fOk)}" data-err="${attr(L.ui.fErr)}" data-files-err="${attr(L.ui.fFilesErr)}">
   <h2>${esc(heading || (mini ? L.ui.callTitle : L.ui.formTitle))}</h2>
   <p class="formcard__intro">${esc(intro || (mini ? L.ui.callIntro : L.ui.formIntro))}</p>
   <input type="hidden" name="locale" value="${locale}">
@@ -236,6 +285,14 @@ export function leadForm(ctx, { heading, intro, compact = false, mini = false } 
       </select>
     </div>`}
   </div>
+  <div class="field" hidden>
+    <label for="f-service-other">${esc(L.ui.fServiceOther)} <span class="req">*</span></label>
+    <input id="f-service-other" name="service_other" type="text" maxlength="200">
+  </div>
+  ${mini ? '' : `<div class="field">
+    <label for="f-address" data-label="${attr(L.ui.fAddress)}" data-other="${attr(L.ui.fAddressOther + ' *')}">${esc(L.ui.fAddress)}</label>
+    <input id="f-address" name="address" type="text" maxlength="300" autocomplete="street-address">
+  </div>`}
   ${compact || mini ? '' : `<div class="field">
     <label for="f-email">${esc(L.ui.fEmail)}</label>
     <input id="f-email" name="email" type="email" autocomplete="email">
@@ -243,6 +300,12 @@ export function leadForm(ctx, { heading, intro, compact = false, mini = false } 
   ${mini ? '' : `  <div class="field">
     <label for="f-message">${esc(L.ui.fMessage)}</label>
     <textarea id="f-message" name="message" rows="3"></textarea>
+  </div>
+  <div class="field field--files">
+    <label for="f-files">${esc(L.ui.fFiles)}</label>
+    <input id="f-files" name="files" type="file" multiple accept="image/*,application/pdf,.pdf">
+    <p class="filehint">${esc(L.ui.fFilesHint)}</p>
+    <ul class="filelist" aria-live="polite"></ul>
   </div>`}
   <label class="consent">
     <input type="checkbox" name="consent" required value="1">
