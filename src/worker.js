@@ -24,6 +24,9 @@ const REGION_LABEL = {
   kayakoy: 'Kayaköy', gocek: 'Göcek', uzumlu: 'Üzümlü', seydikemer: 'Seydikemer', other: 'Diğer',
 };
 
+const TIMING_LABEL = { urgent: 'Acil (birkaç gün içinde)', week: 'Bu hafta', month: 'Bu ay içinde', later: 'Acelesi yok, fiyat öğreniyor' };
+const PROPERTY_LABEL = { apartment: 'Daire', villa: 'Villa', house: 'Müstakil ev', business: 'İşyeri' };
+
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
     status,
@@ -107,7 +110,7 @@ const EMAIL_RE = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 async function sendLeadMail(env, lead, summary, files = []) {
   const from = env.LEAD_EMAIL_FROM;
   const to = env.LEAD_EMAIL_TO;
-  const subject = `Yeni talep: ${lead.name} — ${SERVICE_LABEL[lead.service] || 'genel'}`;
+  const subject = `${lead.timing === 'urgent' ? 'ACİL — ' : ''}Yeni talep: ${lead.name} — ${SERVICE_LABEL[lead.service] || 'genel'}`;
   const wrap = (str) => str.replace(/.{76}/g, '$&\r\n');
   const headers = [
     `From: Ustam Fethiye <${from}>`,
@@ -189,6 +192,8 @@ async function handleLead(request, env, ctx) {
     address: clean(data.address, 300),
     service_other: data.service === 'other' ? clean(data.service_other, 200) : '',
     files: files.length,
+    timing: Object.hasOwn(TIMING_LABEL, data.timing) ? data.timing : '',
+    property_type: Object.hasOwn(PROPERTY_LABEL, data.property) ? data.property : '',
     source_page: clean(request.headers.get('referer'), 300),
     referrer: clean(data.ref, 300),
     country: request.headers.get('cf-ipcountry') || '',
@@ -219,12 +224,12 @@ async function handleLead(request, env, ctx) {
   if (env.DB) {
     try {
       await env.DB.prepare(
-        `INSERT INTO leads (locale,name,phone,email,service,region,message,source_page,referrer,country,address,service_other,files)
-         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`
+        `INSERT INTO leads (locale,name,phone,email,service,region,message,source_page,referrer,country,address,service_other,files,timing,property_type)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
       ).bind(
         lead.locale, lead.name, lead.phone, lead.email, lead.service,
         lead.region, lead.message, lead.source_page, lead.referrer, lead.country,
-        lead.address, lead.service_other, lead.files
+        lead.address, lead.service_other, lead.files, lead.timing, lead.property_type
       ).run();
     } catch (e) {
       console.error('D1 insert failed', e);
@@ -238,6 +243,8 @@ async function handleLead(request, env, ctx) {
     `Hizmet: ${SERVICE_LABEL[lead.service] || '-'}${lead.service_other ? ` — ${lead.service_other}` : ''}\n` +
     `Konum: ${REGION_LABEL[lead.region] || '-'}\n` +
     (lead.address ? `Adres: ${lead.address}\n` : '') +
+    (lead.property_type ? `Mülk: ${PROPERTY_LABEL[lead.property_type]}\n` : '') +
+    (lead.timing ? `Zamanlama: ${TIMING_LABEL[lead.timing]}\n` : '') +
     (lead.files ? `Ekler: ${lead.files} dosya (bu e-postaya ekli)\n` : '') +
     `Dil: ${lead.locale}${lead.country ? ` | Ulke: ${lead.country}` : ''}\n` +
     (lead.message ? `\nMesaj:\n${lead.message}\n` : '') +

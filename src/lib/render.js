@@ -7,6 +7,8 @@ export const esc = (s = '') => String(s)
   .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
 const attr = (s = '') => esc(s);
+const TIMING_IDS = ['urgent', 'week', 'month', 'later'];
+const PROPERTY_IDS = ['apartment', 'villa', 'house', 'business'];
 const j = (arr) => arr.filter(Boolean).join('\n');
 
 /* ---------------------------------------------------------------- ikonlar */
@@ -289,7 +291,23 @@ export function leadForm(ctx, { heading, intro, compact = false, mini = false } 
     <label for="f-service-other">${esc(L.ui.fServiceOther)} <span class="req">*</span></label>
     <input id="f-service-other" name="service_other" type="text" maxlength="200">
   </div>
-  ${mini ? '' : `<div class="field">
+  ${mini ? '' : `<div class="field2">
+    <div class="field">
+      <label for="f-timing">${esc(L.ui.fTiming)}</label>
+      <select id="f-timing" name="timing">
+        <option value="">${esc(L.ui.fChoose)}</option>
+        ${TIMING_IDS.map((id) => `<option value="${id}">${esc(L.ui.timing[id])}</option>`).join('')}
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-property">${esc(L.ui.fProperty)}</label>
+      <select id="f-property" name="property">
+        <option value="">${esc(L.ui.fChoose)}</option>
+        ${PROPERTY_IDS.map((id) => `<option value="${id}">${esc(L.ui.property[id])}</option>`).join('')}
+      </select>
+    </div>
+  </div>
+  <div class="field">
     <label for="f-address" data-label="${attr(L.ui.fAddress)}" data-other="${attr(L.ui.fAddressOther + ' *')}">${esc(L.ui.fAddress)}</label>
     <input id="f-address" name="address" type="text" maxlength="300" autocomplete="street-address">
   </div>`}

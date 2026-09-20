@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS leads (
   address     TEXT,
   service_other TEXT,
   files       INTEGER NOT NULL DEFAULT 0,
+  timing      TEXT,
+  property_type TEXT,
   status      TEXT    NOT NULL DEFAULT 'yeni'
 );
 
