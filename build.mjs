@@ -11,6 +11,7 @@ import tr from './src/content/tr.js';
 import en from './src/content/en.js';
 import ru from './src/content/ru.js';
 import * as P from './src/lib/pages.js';
+import { logoMark } from './src/lib/visuals.js';
 
 const LOCALES = { tr, en, ru };
 const OUT = 'dist';
@@ -186,7 +187,7 @@ Guncelleme / Updated: ${site.updated}
 `);
 
 /* ---------------------------------------------------------------- favicon */
-await write('assets/favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="5" fill="#0E5349"/><path d="M9 22.5V11a3 3 0 013-3h1.6v9.2a2.4 2.4 0 004.8 0V8H20a3 3 0 013 3v11.5" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M8 25.5h16" stroke="#7FC9B4" stroke-width="2.1" stroke-linecap="round"/></svg>`);
+await write('assets/favicon.svg', logoMark({ xmlns: true, roof: 6.5 }));
 
 /* ---------------------------------------------------------------- statikler */
 try { await stat('public'); await copyDir('public', OUT); } catch {}

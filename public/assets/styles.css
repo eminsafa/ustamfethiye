@@ -102,7 +102,7 @@ ul.plain{list-style:none;padding:0;margin:0}
 .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--f-ui);font-weight:800;
   font-size:1.02rem;letter-spacing:-.028em;color:var(--ink);text-decoration:none;white-space:nowrap}
 .brand:hover{color:var(--ink)}
-.brand__mark{width:26px;height:26px;flex:none}
+.brand__mark{width:30px;height:30px;flex:none}
 .brand em{font-style:normal;color:var(--brand)}
 
 .nav{display:flex;align-items:center;align-self:stretch;gap:.15rem;margin-left:auto}
@@ -167,6 +167,18 @@ ul.plain{list-style:none;padding:0;margin:0}
   font-size:.88rem;font-weight:500;color:var(--ink-2);line-height:1.3}
 .hero__facts svg{width:16px;height:16px;flex:none;color:var(--brand)}
 .hero__art svg{width:100%;height:auto;max-height:440px}
+
+.place{display:inline-flex;align-items:center;gap:.45rem;margin:0 0 1rem;padding:.4rem .9rem .4rem .65rem;
+  background:var(--brand-100);color:var(--brand-800);border-radius:999px;
+  font-family:var(--f-ui);font-weight:700;font-size:.92rem;line-height:1.2}
+.place svg{width:17px;height:17px;flex:none;color:var(--brand)}
+.hero .place{font-size:1rem;margin-bottom:1.2rem}
+.hero__art{position:relative}
+.hero__tag{position:absolute;left:50%;bottom:0;transform:translateX(-50%);white-space:nowrap;display:inline-flex;align-items:center;gap:.45rem;
+  padding:.5rem .95rem .5rem .7rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:999px;box-shadow:var(--shadow);font-family:var(--f-ui);font-weight:700;
+  font-size:.95rem;color:var(--brand-800)}
+.hero__tag svg{width:18px;height:18px;color:var(--brand)}
 
 /* ---------- form karti ---------- */
 .formcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
@@ -378,6 +390,12 @@ ul.plain{list-style:none;padding:0;margin:0}
 .ctaband h2{color:#fff;font-size:clamp(1.4rem,2.6vw,1.9rem)}
 .ctaband p{color:#AFC7C0;max-width:48ch;margin:.5rem 0 0;font-size:1.02rem}
 .ctaband .btn-row{display:flex;flex-wrap:wrap;gap:.65rem}
+.ctaband--form .ctaband__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);
+  gap:clamp(1.6rem,3.5vw,3rem);align-items:center;padding-block:clamp(2.4rem,4.5vw,3.6rem)}
+.ctaband--form .btn-row{margin-top:1.4rem}
+.ctaband .formcard h2{color:var(--ink);font-size:1.18rem}
+.ctaband .formcard .formcard__intro{color:var(--ink-2);margin:0 0 1.2rem;max-width:none;font-size:.92rem}
+.ctaband .formcard .formmsg{font-size:.9rem;max-width:none}
 
 /* ---------- alt bilgi ---------- */
 .foot{background:var(--brand-800);color:#9FB8B1;border-top:1px solid rgba(255,255,255,.08);
@@ -419,6 +437,7 @@ ul.plain{list-style:none;padding:0;margin:0}
 @media (max-width:920px){
   .hero__in{grid-template-columns:1fr}
   .hero__art{max-width:460px}
+  .ctaband--form .ctaband__in{grid-template-columns:1fr}
   .split{grid-template-columns:1fr}
   .aside{position:static}
   .tiles{grid-template-columns:repeat(2,1fr)}

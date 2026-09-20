@@ -1,5 +1,5 @@
 import { site, SERVICE_ORDER, REGION_IDS, waLink } from '../content/site.js';
-import { ART } from './visuals.js';
+import { ART, logoMark } from './visuals.js';
 
 /* ---------------------------------------------------------------- yardimcilar */
 export const esc = (s = '') => String(s)
@@ -26,7 +26,7 @@ const I = {
 };
 const SVC_ICON = { painting: I.painting, pool: I.pool, garden: I.garden, plumbing: I.plumbing, homecare: I.homecare };
 
-const LOGO = `<svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#0E5349"/><path d="M9 22.5V11a3 3 0 013-3h1.6v9.2a2.4 2.4 0 004.8 0V8H20a3 3 0 013 3v11.5" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 25.5h16" stroke="#7FC9B4" stroke-width="2.1" stroke-linecap="round"/></svg>`;
+const LOGO = logoMark({ cls: 'brand__mark' });
 
 /* ---------------------------------------------------------------- layout */
 export function layout(ctx, { title, description, body, jsonld = [], key, noindex = false }) {
@@ -75,10 +75,14 @@ ${alts.join('\n')}
 <meta property="og:url" content="${abs(u(key) || '/')}">
 <meta property="og:locale" content="${L.ogLocale}">
 ${ogAlt.join('\n')}
+<meta property="og:image" content="${abs('/assets/og-image.png')}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${abs('/assets/og-image.png')}">
 <meta name="theme-color" content="#0E5349">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@500;600&display=swap">
@@ -195,13 +199,13 @@ function footer(ctx) {
 }
 
 /* ---------------------------------------------------------------- parcalar */
-export function leadForm(ctx, { heading, intro, compact = false } = {}) {
+export function leadForm(ctx, { heading, intro, compact = false, mini = false } = {}) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
   return `<form class="formcard" id="leadform" novalidate
   data-sending="${attr(L.ui.fSending)}" data-ok="${attr(L.ui.fOk)}" data-err="${attr(L.ui.fErr)}">
-  <h2>${esc(heading || L.ui.formTitle)}</h2>
-  <p class="formcard__intro">${esc(intro || L.ui.formIntro)}</p>
+  <h2>${esc(heading || (mini ? L.ui.callTitle : L.ui.formTitle))}</h2>
+  <p class="formcard__intro">${esc(intro || (mini ? L.ui.callIntro : L.ui.formIntro))}</p>
   <input type="hidden" name="locale" value="${locale}">
   <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
   <div class="field2">
@@ -214,7 +218,7 @@ export function leadForm(ctx, { heading, intro, compact = false } = {}) {
       <input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel">
     </div>
   </div>
-  <div class="field2">
+  <div${mini ? '' : ' class="field2"'}>
     <div class="field">
       <label for="f-service">${esc(L.ui.fService)}</label>
       <select id="f-service" name="service">
@@ -223,31 +227,31 @@ export function leadForm(ctx, { heading, intro, compact = false } = {}) {
         <option value="other">${esc(L.ui.fOther)}</option>
       </select>
     </div>
-    <div class="field">
+    ${mini ? '' : `    <div class="field">
       <label for="f-region">${esc(L.ui.fRegion)}</label>
       <select id="f-region" name="region">
         <option value="">${esc(L.ui.fChoose)}</option>
         ${REGION_IDS.map((id) => `<option value="${id}">${esc(L.regions.items[id].name)}</option>`).join('')}
         <option value="other">${esc(L.ui.fOther)}</option>
       </select>
-    </div>
+    </div>`}
   </div>
-  ${compact ? '' : `<div class="field">
+  ${compact || mini ? '' : `<div class="field">
     <label for="f-email">${esc(L.ui.fEmail)}</label>
     <input id="f-email" name="email" type="email" autocomplete="email">
   </div>`}
-  <div class="field">
+  ${mini ? '' : `  <div class="field">
     <label for="f-message">${esc(L.ui.fMessage)}</label>
     <textarea id="f-message" name="message" rows="3"></textarea>
-  </div>
+  </div>`}
   <label class="consent">
     <input type="checkbox" name="consent" required value="1">
     <span>${esc(L.ui.fConsent)} <a href="${u('privacy')}">${esc(L.ui.fConsentLink)}</a></span>
   </label>
   ${site.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${attr(site.turnstileSiteKey)}" data-size="flexible"></div>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>` : ''}
-  <button class="btn btn--primary btn--block" type="submit">${esc(L.ui.fSubmit)}</button>
-  <p class="formhint">${esc(L.ui.fPhotoHint)}</p>
+  <button class="btn btn--primary btn--block" type="submit">${esc(mini ? L.ui.callSubmit : L.ui.fSubmit)}</button>
+  ${mini ? '' : `<p class="formhint">${esc(L.ui.fPhotoHint)}</p>`}
   <p class="formmsg" role="status" aria-live="polite"></p>
 </form>`;
 }
@@ -267,23 +271,36 @@ ${items.map((f) => `<details><summary>${esc(f.q)}</summary><div class="faq__a"><
 </div>`;
 }
 
-export function ctaBand(ctx) {
+export function ctaBand(ctx, { form = false } = {}) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
   const waText = locale === 'tr' ? 'Merhaba, keşif için bilgi almak istiyorum.'
     : locale === 'ru' ? 'Здравствуйте, хочу записаться на осмотр.'
     : 'Hello, I would like to arrange a site visit.';
-  return `<section class="ctaband">
+  const buttons = `<div class="btn-row">
+      ${form ? '' : `<a class="btn btn--light" href="${u('contact')}">${esc(L.ui.ctaQuote)}</a>`}
+      <a class="btn ${form ? 'btn--light' : 'btn--outline-light'}" href="${waLink(waText)}" rel="noopener">${I.wa}${esc(L.ui.ctaWhatsapp)}</a>
+      <a class="btn btn--outline-light" href="tel:${attr(site.phoneHref)}">${I.phone}${esc(site.phoneDisplay)}</a>
+    </div>`;
+  const text = `<h2>${esc(L.home.ctaTitle)}</h2>
+      <p>${esc(L.home.ctaLede)}</p>`;
+  if (!form) {
+    return `<section class="ctaband">
   <div class="wrap ctaband__in">
     <div>
-      <h2>${esc(L.home.ctaTitle)}</h2>
-      <p>${esc(L.home.ctaLede)}</p>
+      ${text}
     </div>
-    <div class="btn-row">
-      <a class="btn btn--light" href="${u('contact')}">${esc(L.ui.ctaQuote)}</a>
-      <a class="btn btn--outline-light" href="${waLink(waText)}" rel="noopener">${I.wa}${esc(L.ui.ctaWhatsapp)}</a>
-      <a class="btn btn--outline-light" href="tel:${attr(site.phoneHref)}">${I.phone}${esc(site.phoneDisplay)}</a>
+    ${buttons}
+  </div>
+</section>`;
+  }
+  return `<section class="ctaband ctaband--form">
+  <div class="wrap ctaband__in">
+    <div>
+      ${text}
+      ${buttons}
     </div>
+    ${leadForm(ctx, { mini: true })}
   </div>
 </section>`;
 }

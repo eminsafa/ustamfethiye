@@ -164,3 +164,11 @@ export const STEP_ICON = [ICON.chat, ICON.phone, ICON.ruler, ICON.doc, ICON.pen,
 
 // Taahhutler: muhatap, sabit fiyat, garanti, duzen
 export const GUARANTEE_ICON = [ICON.person, ICON.tag, ICON.shield, ICON.ok];
+
+/* ---------------------------------------------------------------- logo isareti
+   Dolu "U" (usta / sorumluluk) + cati (ev). 64x64; kucuk boyutta cati kalinlasir. */
+export const logoMark = ({ bg = C.deep, fg = C.white, accent = C.mint, cls = '', xmlns = false, roof = 5.5, rx = 15 } = {}) =>
+  `<svg${xmlns ? ' xmlns="http://www.w3.org/2000/svg"' : ''}${cls ? ` class="${cls}"` : ''} viewBox="0 0 64 64" fill="none"${xmlns ? '' : ' aria-hidden="true"'}>` +
+  `<rect width="64" height="64" rx="${rx}" fill="${bg}"/>` +
+  `<path d="M17 25v14c0 8.3 6.7 15 15 15s15-6.7 15-15V25h-9.5v14a5.5 5.5 0 01-11 0V25z" fill="${fg}"/>` +
+  `<path d="M13 22.5L32 9l19 13.5" stroke="${accent}" stroke-width="${roof}" stroke-linecap="round" stroke-linejoin="round"/></svg>`;

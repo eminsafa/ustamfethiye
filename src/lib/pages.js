@@ -89,7 +89,7 @@ export function home(ctx) {
 <section class="hero">
   <div class="wrap hero__in">
     <div>
-      <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
+      <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
       <h1>${esc(L.home.h1)}</h1>
       <p class="lede">${esc(L.home.lede)}</p>
       <div class="hero__actions">
@@ -100,7 +100,7 @@ export function home(ctx) {
         ${L.ui.trust.slice(0, 3).map((t) => `<li>${I.check}<span>${esc(t)}</span></li>`).join('')}
       </ul>
     </div>
-    <div class="hero__art">${heroArt(SVC_ICON)}</div>
+    <div class="hero__art">${heroArt(SVC_ICON)}<span class="hero__tag">${I.pin}${esc(L.ui.serviceArea)}</span></div>
   </div>
 </section>
 
@@ -142,6 +142,7 @@ export function home(ctx) {
 <section class="sec sec--alt">
   <div class="wrap">
     <div class="sec-head">
+      <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
       <h2>${esc(L.home.regionsTitle)}</h2>
       <p class="lede">${esc(L.home.regionsLede)}</p>
     </div>
@@ -159,7 +160,7 @@ export function home(ctx) {
   </div>
 </section>
 
-${ctaBand(ctx)}`;
+${ctaBand(ctx, { form: true })}`;
 
   return layout(ctx, {
     key: 'home', title: L.home.title, description: L.home.description, body,
@@ -185,7 +186,7 @@ ${crumbs(ctx, [[L.ui.services, u('home') + '#services'], [s.name, u('svc:' + id)
 <section class="phead">
   <div class="wrap phead__in phead__in--art">
     <div>
-      <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
+      <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
       <h1>${esc(s.name)}</h1>
       <p class="lede">${esc(s.tagline)}</p>
       <p class="phead__meta">${esc(L.ui.updated)}: ${site.updated}</p>
@@ -262,7 +263,7 @@ export function regionsIndex(ctx) {
   const body = `
 ${crumbs(ctx, [[R.h1, u('regions')]])}
 <section class="phead"><div class="wrap phead__in">
-  <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
+  <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
   <h1>${esc(R.h1)}</h1>
   <p class="lede">${esc(R.lede)}</p>
 </div></section>
@@ -282,7 +283,7 @@ ${crumbs(ctx, [[R.h1, u('regions')]])}
     </div>
   </div>
 </section>
-${ctaBand(ctx)}`;
+${ctaBand(ctx, { form: true })}`;
 
   return layout(ctx, {
     key: 'regions', title: R.title, description: R.description, body,
@@ -310,7 +311,7 @@ export function regionPage(ctx, id) {
   const body = `
 ${crumbs(ctx, [[L.regions.h1, u('regions')], [r.name, u('region:' + id)]])}
 <section class="phead"><div class="wrap phead__in">
-  <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
+  <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
   <h1>${esc(r.name)}</h1>
   <p class="lede">${esc(r.intro)}</p>
   <p class="phead__meta">${esc(L.ui.updated)}: ${site.updated}</p>
@@ -363,7 +364,7 @@ export function howPage(ctx) {
   const body = `
 ${crumbs(ctx, [[P.h1, u('how')]])}
 <section class="phead"><div class="wrap phead__in">
-  <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
+  <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
   <h1>${esc(P.h1)}</h1>
   <p class="lede">${esc(P.lede)}</p>
 </div></section>
@@ -385,7 +386,7 @@ ${crumbs(ctx, [[P.h1, u('how')]])}
     <p class="pricenote">${esc(L.priceNote)}</p>
   </div>
 </section>
-${ctaBand(ctx)}`;
+${ctaBand(ctx, { form: true })}`;
 
   return layout(ctx, {
     key: 'how', title: P.title, description: P.description, body,
@@ -438,7 +439,7 @@ ${crumbs(ctx, [[P.h1, u('about')]])}
     </aside>
   </div>
 </section>
-${ctaBand(ctx)}`;
+${ctaBand(ctx, { form: true })}`;
 
   return layout(ctx, {
     key: 'about', title: P.title, description: P.description, body,

@@ -57,6 +57,9 @@ export default {
     fConsent: `Kişisel verilerimin talebimi değerlendirmek amacıyla işlenmesini kabul ediyorum.`,
     fConsentLink: `Gizlilik ve KVKK metni`,
     fSubmit: `Talebi gönder`,
+    callTitle: `Sizi arayalım`,
+    callIntro: `Adınızı ve telefonunuzu bırakın, mesai saatleri içinde 2 saat içinde arayalım.`,
+    callSubmit: `Beni arayın`,
     fSending: `Gönderiliyor…`,
     fOk: `Talebiniz bize ulaştı. En kısa sürede sizi arayacağız.`,
     fErr: `Talep gönderilemedi. Lütfen WhatsApp üzerinden yazın veya telefonla arayın.`,
@@ -158,7 +161,7 @@ export default {
       faq: [
         { q: `Boya işi için keşif şart mı?`, a: `Evet. Metrekare kadar yüzeyin durumu da fiyatı belirler; çatlak, rutubet veya eski boyanın cinsi işin kapsamını değiştirir. Telefonda verilen tahmini fiyatlar sonradan anlaşmazlığa dönüşüyor, bu yüzden keşifsiz fiyat vermiyoruz. Keşif ücretsizdir.` },
         { q: `Boyayı siz mi alıyorsunuz, biz mi?`, a: `İkisi de olabilir. Malzemeyi biz temin edersek marka ve kat sayısı sözleşmede yazılır, garanti işçilik ve uygulamayı birlikte kapsar. Malzemeyi siz temin ederseniz işçilik garantisi devam eder, malzeme kaynaklı sorunlar kapsam dışında kalır.` },
-        { q: `Ev boşken yapılabilir mi?`, a: `Evet, en çok tercih edilen yöntem budur. Anahtar teslim alınır, tutanakla kayda geçirilir ve işin her aşaması fotoğraflanarak size iletilir. Yurt dışındaki ev sahiplerinin çoğu bu şekilde çalışıyor.` },
+        { q: `Ev boşken yapılabilir mi?`, a: `Evet. Ev sahibi yurt dışındayken en pratik yöntem budur. Anahtar teslim alınır, tutanakla kayda geçirilir ve işin her aşaması fotoğraflanarak size iletilir.` },
         { q: `İş ne kadar sürer?`, a: `Süre keşifte belirlenir ve sözleşmeye yazılır. Orta ölçekli bir daire içi boya birkaç gün, kapsamlı bir tadilat birkaç hafta sürebilir. Başlangıç ve teslim tarihi teklifte yer alır.` },
         { q: `Dış cephe için hangi mevsim uygun?`, a: `Dış cephe için ilkbahar ve sonbahar en uygun dönem. Yaz ortasında yüksek sıcaklık boyanın kuruma davranışını, kış aylarında nem ve yağış tutunmayı olumsuz etkiler. İç mekân işleri yıl boyu yapılabilir.` },
       ],
@@ -200,7 +203,7 @@ export default {
       faq: [
         { q: `Havuz bakımı hangi sıklıkla yapılmalı?`, a: `Yaz aylarında ve havuz aktif kullanılıyorken haftada bir bakım standarttır. Kullanım yoğunsa veya havuz ağaç altındaysa haftada iki ziyaret gerekebilir. Kış aylarında havuz kapatılmışsa iki haftada bir veya aylık kontrol yeterlidir.` },
         { q: `Kimyasalları siz mi getiriyorsunuz?`, a: `Evet, bakım anlaşmasında kimyasal tedariki bize aittir ve kullanılan miktar kayıt altına alınır. Dilerseniz kendi ürünlerinizin kullanılmasını da tercih edebilirsiniz; bu durum anlaşmada belirtilir.` },
-        { q: `Ben yurt dışındayken bakım yapılabilir mi?`, a: `Evet. Ev sahiplerinin çoğu bu şekilde çalışıyor. Havuz alanına erişim yöntemi tutanakla kayıt altına alınır ve her ziyaretten sonra fotoğraflı kısa rapor gönderilir. Bu hizmet Ev Bakım Planı kapsamına da dahil edilebilir.` },
+        { q: `Ben yurt dışındayken bakım yapılabilir mi?`, a: `Evet. Yurt dışındaki ev sahipleri için bakımı bu şekilde kuruyoruz. Havuz alanına erişim yöntemi tutanakla kayıt altına alınır ve her ziyaretten sonra fotoğraflı kısa rapor gönderilir. Bu hizmet Ev Bakım Planı kapsamına da dahil edilebilir.` },
         { q: `Havuzum yeşillendi, düzeltebilir misiniz?`, a: `Evet. Yeşillenmiş havuz için önce bir düzeltme (şok) işlemi yapılır, ardından düzenli bakım programına geçilir. Düzeltme işlemi, süresi ve kapsamı bakımdan ayrı olarak keşifte belirlenir.` },
         { q: `Kışın havuza ne yapılıyor?`, a: `Havuz kapanış işlemiyle kışa hazırlanır: su seviyesi ayarlanır, tesisat boşaltılır veya don koruması yapılır, kış kimyasalı verilir ve örtü uygulanır. Kış boyunca periyodik kontrol önerilir; donmuş veya taşmış su ekipmana zarar verebilir.` },
       ],
@@ -244,7 +247,7 @@ export default {
         { q: `Sulama sistemi arızasını da onarıyor musunuz?`, a: `Damlama hattı, fıskiye başlığı, filtre ve zaman ayarlı vana gibi bahçe sulama bileşenlerinin bakımı ve onarımı kapsamdadır. Ana su hattı ve depo tarafındaki işler su tesisatı hizmetimizle birlikte planlanır.` },
         { q: `Budamayı hangi dönemde yapıyorsunuz?`, a: `Bitki türüne göre değişir. Zeytin ve meyve ağaçlarında kış sonu, süs bitkilerinde ve çitlerde büyüme dönemi boyunca periyodik budama yapılır. Yanlış mevsimde yapılan budama bitkiye zarar verir; bu yüzden takvimi bitki belirler.` },
         { q: `Ağaç kesimi yapıyor musunuz?`, a: `Bakım kapsamında budama ve şekillendirme yapıyoruz. Büyük ağaç kesimi izne tabi olabilir ve ayrı ekipman gerektirir; bu tür işleri keşifte ayrıca değerlendiriyoruz.` },
-        { q: `Ben burada değilken bahçeye bakılabilir mi?`, a: `Evet. Bahçe bakımı, uzaktaki ev sahipleri için en çok tercih edilen hizmetimiz. Her ziyaretten sonra fotoğraflı kısa rapor gönderiyoruz; hizmet Ev Bakım Planı kapsamına da alınabilir.` },
+        { q: `Ben burada değilken bahçeye bakılabilir mi?`, a: `Evet. Bahçe bakımı, uzaktaki ev sahipleri için özellikle uygun bir hizmettir. Her ziyaretten sonra fotoğraflı kısa rapor gönderiyoruz; hizmet Ev Bakım Planı kapsamına da alınabilir.` },
       ],
     },
 
@@ -306,7 +309,7 @@ export default {
         PRICE_NOTE,
       ],
       intro: [
-        `Fethiye ve Seydikemer'de binlerce ev yılın yalnızca birkaç ayında kullanılıyor. Sahibi uzakta olan bir evde küçük bir su kaçağı aylarca fark edilmez, bahçe kontrolden çıkar, havuz bozulur ve sezon başında karşınıza büyük bir masraf çıkar.`,
+        `Fethiye ve Seydikemer'de çok sayıda ev yılın yalnızca birkaç ayında kullanılıyor. Sahibi uzakta olan bir evde küçük bir su kaçağı aylarca fark edilmez, bahçe kontrolden çıkar, havuz bozulur ve sezon başında karşınıza büyük bir masraf çıkar.`,
         `Ev Bakım Planı bunu önlemek için kurulmuş bir programdır: eve düzenli olarak gidilir, kontrol listesi üzerinden geçilir ve her ziyaretten sonra size fotoğraflı rapor gönderilir. Siz burada değilken evinizin durumunu her ay görürsünüz.`,
       ],
       scope: [
@@ -340,14 +343,14 @@ export default {
     title: `Hizmet Bölgeleri — Fethiye ve Seydikemer | Ustam Fethiye`,
     description: `Fethiye merkez, Çalış, Ölüdeniz, Ovacık, Hisarönü, Kayaköy, Göcek, Üzümlü ve Seydikemer bölgelerinde boya-tadilat, havuz, bahçe ve su tesisatı hizmeti.`,
     h1: `Hizmet verdiğimiz bölgeler`,
-    lede: `Fethiye ve Seydikemer ilçelerinin tamamına hizmet veriyoruz. Her bölgenin kendine özgü koşulları var; aşağıdaki sayfalarda o bölgede en çok karşılaştığımız işleri anlattık.`,
-    inRegion: `Bu bölgede en çok yaptığımız işler`,
+    lede: `Fethiye ve Seydikemer ilçelerinin tamamına hizmet veriyoruz. Her bölgenin kendine özgü koşulları var; aşağıdaki sayfalarda o bölgede sık ihtiyaç duyulan işleri anlattık.`,
+    inRegion: `Bu bölgede sunduğumuz hizmetler`,
     regionNotes: `Bölgeye özel notlar`,
     items: {
       'merkez': {
         slug: 'fethiye-merkez',
         name: `Fethiye Merkez`,
-        intro: `Fethiye merkezde apartman daireleri, site içi konutlar ve iş yerleri ağırlıkta. En sık gelen talepler iç mekân boya-tadilat, banyo–mutfak yenileme ve tesisat onarımı.`,
+        intro: `Fethiye merkezde apartman daireleri, site içi konutlar ve iş yerleri ağırlıkta. En sık ihtiyaç duyulan işler iç mekân boya-tadilat, banyo–mutfak yenileme ve tesisat onarımıdır.`,
         notes: [
           `Apartman ve sitelerde çalışma saatleri ve gürültü kuralları var; iş programını yönetimle uyumlu planlıyoruz.`,
           `Merkezdeki eski yapılarda tesisat borularının yaşı sık sorun kaynağı; nokta onarım yerine hat yenileme daha ekonomik olabiliyor.`,
@@ -382,8 +385,8 @@ export default {
         name: `Ovacık ve Hisarönü`,
         intro: `Ovacık ve Hisarönü'nde yabancı ev sahibi oranı yüksek ve konutların önemli bölümü yılın büyük kısmında boş kalıyor. Uzaktan takip edilebilen düzenli bakım burada en çok ihtiyaç duyulan hizmet.`,
         notes: [
-          `Uzun süre kapalı kalan evlerde nem, rutubet ve durgun su kaynaklı tesisat sorunları en sık karşılaştığımız durum.`,
-          `Ev sahiplerinin çoğu yurt dışında; iletişimi İngilizce veya Rusça yürütüyor, her ziyarette fotoğraflı rapor gönderiyoruz.`,
+          `Uzun süre kapalı kalan evlerde nem, rutubet ve durgun su kaynaklı tesisat sorunları en sık görülen sorunlar arasındadır.`,
+          `Bölgede ev sahiplerinin çoğu yurt dışında; iletişimi İngilizce veya Rusça yürütüyor, her ziyarette fotoğraflı rapor gönderiyoruz.`,
           `Site içi konutlarda ortak alan kuralları ve yönetim izinleri iş planını etkiliyor; bunu önceden çözüyoruz.`,
         ],
         services: ['homecare', 'plumbing', 'pool'],
@@ -424,7 +427,7 @@ export default {
       'seydikemer': {
         slug: 'seydikemer',
         name: `Seydikemer`,
-        intro: `Seydikemer geniş ve kırsal bir alan; müstakil evler, bahçeli konutlar ve tarım alanları ağırlıkta. Bahçe bakımı, tesisat ve depo–hidrofor işleri en sık gelen talepler.`,
+        intro: `Seydikemer geniş ve kırsal bir alan; müstakil evler, bahçeli konutlar ve tarım alanları ağırlıkta. Bahçe bakımı, tesisat ve depo–hidrofor işleri en sık ihtiyaç duyulan işlerdir.`,
         notes: [
           `Mesafeler uzun olduğu için ziyaretleri gruplayarak planlıyor, ulaşımı iş programına dahil ediyoruz.`,
           `Şebeke basıncının değişken olduğu noktalarda su deposu ve hidrofor kurulumu sık ihtiyaç duyulan çözüm.`,
@@ -472,7 +475,7 @@ export default {
         ]},
         { t: `Neden böyle bir şirket gerekliydi`, p: [
           `Fethiye'de usta bulmak zor değil. Zor olan; gelen ustanın söz verdiği gün geleceğinden, fiyatın işin ortasında değişmeyeceğinden ve işin bitirileceğinden emin olmak. Bir sorun çıktığında arayacak bir muhatabın olması.`,
-          `Evi Fethiye'de olup başka bir ülkede yaşayan ev sahipleri için buna bir de dil ve mesafe ekleniyor. Evde ne olup bittiğini görememek, en sık duyduğumuz şikâyet. Bu yüzden her işte fotoğraflı rapor gönderiyoruz.`,
+          `Evi Fethiye'de olup başka bir ülkede yaşayan ev sahipleri için buna bir de dil ve mesafe ekleniyor. Evde ne olup bittiğini görememek, en sık dile getirilen kaygıdır. Bu yüzden her işte fotoğraflı rapor gönderiyoruz.`,
         ]},
         { t: `Nasıl çalışıyoruz`, p: [
           `Her iş yazılı teklif ve sözleşmeyle başlar. Kapsam, süre, kullanılacak malzeme ve garanti işe başlamadan önce yazılıdır. Keşif ücretsizdir ve keşif yapılmadan fiyat vermeyiz — telefonda verilen tahmini rakamlar, sonradan yaşanan anlaşmazlıkların birinci sebebi.`,
@@ -508,7 +511,7 @@ export default {
         { q: `İşi kim yapıyor?`, a: `İşi, çalıştığımız usta ve ekipler yapar. Ancak sizinle sözleşmesi olan, işi planlayan, denetleyen ve sonucundan sorumlu olan taraf firmadır. Sahadaki ekiple siz değil, biz muhatap oluruz.` },
         { q: `Sözleşme yapıyor musunuz?`, a: `Evet, her iş yazılı sözleşme ile yapılır. Sözleşmede iş kapsamı, başlangıç ve teslim tarihi, kullanılacak malzeme, ödeme koşulları ve garanti yer alır. Sözleşmeyi tercih ettiğiniz dilde de sunuyoruz.` },
         { q: `Garanti veriyor musunuz?`, a: `Evet. Teslim ettiğimiz işlerde işçilik garantisi veriyoruz; süresi ve kapsamı hizmete göre değişir ve sözleşmede yazılı olarak tanımlanır. Malzemeyi biz temin ettiysek ürün garantisi de kapsamda değerlendirilir.` },
-        { q: `Yurt dışındayım, evimle nasıl ilgileneceksiniz?`, a: `Ev sahiplerimizin önemli bölümü yurt dışında yaşıyor. İletişimi İngilizce veya Rusça yürütüyor, anahtar teslim alınması gerekiyorsa tutanakla kayıt altına alıyor ve her ziyaret ya da iş aşamasında fotoğraflı rapor gönderiyoruz. Düzenli takip için Ev Bakım Planı hizmetimiz var.` },
+        { q: `Yurt dışındayım, evimle nasıl ilgileneceksiniz?`, a: `Bölgedeki ev sahiplerinin önemli bölümü yurt dışında yaşıyor. İletişimi İngilizce veya Rusça yürütüyor, anahtar teslim alınması gerekiyorsa tutanakla kayıt altına alıyor ve her ziyaret ya da iş aşamasında fotoğraflı rapor gönderiyoruz. Düzenli takip için Ev Bakım Planı hizmetimiz var.` },
         { q: `Hangi dillerde hizmet veriyorsunuz?`, a: `Türkçe, İngilizce ve Rusça. Teklif ve sözleşme dahil olmak üzere tüm yazışma tercih ettiğiniz dilde yürütülebilir.` },
         { q: `Ne kadar sürede dönüş yapıyorsunuz?`, a: `Mesai saatleri içinde gelen taleplere 2 saat içinde dönüyoruz. Mesai dışında gelen talepler ertesi iş günü sabah ilk iş olarak değerlendirilir.` },
         { q: `Malzemeyi kim temin ediyor?`, a: `Genellikle biz temin ediyoruz; kullanılan marka ve ürünler teklifte yazılı olur. Dilerseniz malzemeyi kendiniz de temin edebilirsiniz. Bu durumda işçilik garantimiz devam eder, malzeme kaynaklı sorunlar kapsam dışında kalır.` },

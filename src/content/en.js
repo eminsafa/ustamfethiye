@@ -57,6 +57,9 @@ export default {
     fConsent: `I agree to my personal data being processed so that my request can be handled.`,
     fConsentLink: `Privacy policy`,
     fSubmit: `Send request`,
+    callTitle: `We'll call you`,
+    callIntro: `Leave your name and number and we will call you within 2 hours during working hours.`,
+    callSubmit: `Call me back`,
     fSending: `Sending…`,
     fOk: `We have received your request. We will call you shortly.`,
     fErr: `The request could not be sent. Please message us on WhatsApp or call us.`,
@@ -158,7 +161,7 @@ export default {
       faq: [
         { q: `Do you need a site visit before quoting for painting?`, a: `Yes. The condition of the surface matters as much as the square metres: cracks, damp or the type of existing paint all change the scope. Estimates given over the phone turn into disputes later, so we do not quote without seeing the property. The site visit is free.` },
         { q: `Do you supply the paint, or do we?`, a: `Either works. If we supply the materials, the brand and number of coats are written into the contract and the guarantee covers workmanship and application together. If you supply the materials, our workmanship guarantee still applies but material-related faults fall outside it.` },
-        { q: `Can the work be done while the property is empty?`, a: `Yes, and this is the most common arrangement. Keys are handed over and recorded in writing, and every stage of the work is photographed and sent to you. Most of our overseas owners work this way.` },
+        { q: `Can the work be done while the property is empty?`, a: `Yes, and it is the most practical arrangement when you are abroad. Keys are handed over and recorded in writing, and every stage of the work is photographed and sent to you.` },
         { q: `How long does the work take?`, a: `The duration is agreed at the survey and written into the contract. Painting a mid-sized apartment takes a few days; a full renovation can take several weeks. Start and handover dates are stated in the quotation.` },
         { q: `What is the best season for exterior painting?`, a: `Spring and autumn are the best windows. In midsummer high temperatures affect how the paint cures, and in winter humidity and rain affect adhesion. Interior work can be carried out all year round.` },
       ],
@@ -200,7 +203,7 @@ export default {
       faq: [
         { q: `How often should a pool be serviced?`, a: `Weekly servicing is standard in summer and whenever the pool is in active use. If usage is heavy or the pool sits under trees, two visits a week may be needed. In winter, with the pool closed down, a fortnightly or monthly check is usually enough.` },
         { q: `Do you supply the chemicals?`, a: `Yes. Chemicals are supplied by us under the service agreement and the quantities used are recorded. If you prefer your own products to be used, that is noted in the agreement.` },
-        { q: `Can you service the pool while I am abroad?`, a: `Yes — most of our pool clients work this way. Access arrangements are recorded in writing and a short photo report is sent after every visit. This service can also be included in the Home Care Plan.` },
+        { q: `Can you service the pool while I am abroad?`, a: `Yes — this is how we set it up for owners who live abroad. Access arrangements are recorded in writing and a short photo report is sent after every visit. This service can also be included in the Home Care Plan.` },
         { q: `My pool has turned green. Can you fix it?`, a: `Yes. A green pool is first put through a corrective shock treatment and then moved onto a regular maintenance programme. The corrective work, its duration and scope are assessed at the site visit separately from routine maintenance.` },
         { q: `What happens to the pool in winter?`, a: `The pool is closed down for winter: the water level is set, pipework is drained or frost-protected, winter chemicals are added and a cover is fitted. Periodic checks are recommended through the winter, as frozen or overflowing water can damage equipment.` },
       ],
@@ -244,7 +247,7 @@ export default {
         { q: `Do you repair irrigation faults as well?`, a: `Yes. Drip lines, sprinkler heads, filters and timer valves are covered under garden maintenance. Work on the mains supply or water tank side is planned together with our plumbing service.` },
         { q: `When do you prune?`, a: `It depends on the species. Olive and fruit trees are pruned at the end of winter; ornamentals and hedges are pruned periodically through the growing season. Pruning at the wrong time damages the plant, so the plant sets the calendar.` },
         { q: `Do you fell trees?`, a: `Under maintenance we prune and shape. Felling a large tree may require permission and different equipment, so we assess that separately at the site visit.` },
-        { q: `Can the garden be maintained while I am away?`, a: `Yes. Garden maintenance is our most requested service among overseas owners. A short photo report is sent after every visit, and the service can be folded into the Home Care Plan.` },
+        { q: `Can the garden be maintained while I am away?`, a: `Yes. Garden maintenance suits owners who are away particularly well. A short photo report is sent after every visit, and the service can be folded into the Home Care Plan.` },
       ],
     },
 
@@ -306,7 +309,7 @@ export default {
         PRICE_NOTE,
       ],
       intro: [
-        `Thousands of properties across Fethiye and Seydikemer are used for only a few months a year. In a house whose owner is abroad, a small leak goes unnoticed for months, the garden gets away from you, the pool deteriorates — and the bill lands at the start of the season.`,
+        `Many properties across Fethiye and Seydikemer are used for only a few months a year. In a house whose owner is abroad, a small leak goes unnoticed for months, the garden gets away from you, the pool deteriorates — and the bill lands at the start of the season.`,
         `The Home Care Plan exists to prevent exactly that. We visit the property on a schedule, work through a checklist and send you a photo report after every visit. While you are away, you see the state of your property every month.`,
       ],
       scope: [
@@ -340,12 +343,12 @@ export default {
     title: `Areas We Cover — Fethiye & Seydikemer | Ustam Fethiye`,
     description: `Painting, renovation, pool, garden and plumbing services in Fethiye centre, Calis, Oludeniz, Ovacik, Hisaronu, Kayakoy, Gocek, Uzumlu and Seydikemer.`,
     h1: `Areas we cover`,
-    lede: `We cover the whole of the Fethiye and Seydikemer districts. Each area has its own conditions — below is what we most often deal with in each of them.`,
-    inRegion: `What we do most in this area`,
+    lede: `We cover the whole of the Fethiye and Seydikemer districts. Each area has its own conditions — below is what typically comes up in each of them.`,
+    inRegion: `Our services in this area`,
     regionNotes: `Local notes`,
     items: {
       'merkez': { slug: 'fethiye-centre', name: `Fethiye Centre`,
-        intro: `Central Fethiye is dominated by apartments, gated developments and commercial premises. The most common requests are interior painting and renovation, bathroom and kitchen refurbishment, and plumbing repairs.`,
+        intro: `Central Fethiye is dominated by apartments, gated developments and commercial premises. The most common needs are interior painting and renovation, bathroom and kitchen refurbishment, and plumbing repairs.`,
         notes: [
           `Apartment blocks and complexes have working-hour and noise rules; we plan the schedule around the management's requirements.`,
           `In older central buildings the age of the pipework is a frequent source of trouble — renewing a run is often more economical than repeated point repairs.`,
@@ -368,8 +371,8 @@ export default {
       'ovacik-hisaronu': { slug: 'ovacik-hisaronu', name: `Ovacik & Hisaronu`,
         intro: `Ovacik and Hisaronu have a high proportion of overseas owners, and much of the housing stock stands empty for most of the year. Regular maintenance that can be followed remotely is what is needed most here.`,
         notes: [
-          `In properties closed up for long periods, damp and standing-water plumbing problems are what we see most often.`,
-          `Most owners are abroad; we handle communication in English or Russian and send a photo report after every visit.`,
+          `In properties closed up for long periods, damp and standing-water plumbing problems are among the most common problems.`,
+          `Many owners here live abroad; we handle communication in English or Russian and send a photo report after every visit.`,
           `In gated developments, communal rules and management permissions affect the schedule — we sort that out in advance.`,
         ], services: ['homecare', 'plumbing', 'pool'] },
       'kayakoy': { slug: 'kayakoy', name: `Kayakoy`,
@@ -394,7 +397,7 @@ export default {
           `The spring and autumn window for exterior work is narrower than on the coast, so we plan early.`,
         ], services: ['plumbing', 'garden', 'painting'] },
       'seydikemer': { slug: 'seydikemer', name: `Seydikemer`,
-        intro: `Seydikemer is a large, rural district of detached houses, properties with land and farmland. Garden maintenance, plumbing and water tank or pressure pump work are the most frequent requests.`,
+        intro: `Seydikemer is a large, rural district of detached houses, properties with land and farmland. Garden maintenance, plumbing and water tank or pressure pump work are the most frequent needs.`,
         notes: [
           `Distances are long, so we group visits and build travel into the schedule.`,
           `Where mains pressure is inconsistent, a water tank and pressure pump is the usual solution.`,
@@ -440,7 +443,7 @@ export default {
         ]},
         { t: `Why this company was needed`, p: [
           `Finding a tradesman in Fethiye is not difficult. What is difficult is being certain he will turn up on the day he promised, that the price will not move mid-job, and that the work will be finished — and having someone to call when it is not.`,
-          `For owners whose property is in Fethiye while they live in another country, language and distance are added on top. Not being able to see what is happening at the property is the complaint we hear most often, and it is why we send a photo report on every job.`,
+          `For owners whose property is in Fethiye while they live in another country, language and distance are added on top. Not being able to see what is happening at the property is the most common worry, and it is why we send a photo report on every job.`,
         ]},
         { t: `How we work`, p: [
           `Every job begins with a written quotation and contract. Scope, timeline, materials and guarantee are set out in writing before anything starts. Site visits are free, and we do not quote without one — estimates given over the phone are the single biggest cause of disputes in this trade.`,
@@ -476,7 +479,7 @@ export default {
         { q: `Who actually does the work?`, a: `The work is carried out by the tradesmen and teams we work with. But the party under contract with you — planning, supervising and answerable for the result — is the company. You do not deal with the team on site; we do.` },
         { q: `Do you work under contract?`, a: `Yes, every job is carried out under a written contract covering scope, start and handover dates, materials, payment terms and guarantee. The contract is also provided in your preferred language.` },
         { q: `Do you give a guarantee?`, a: `Yes. We provide a workmanship guarantee on the work we hand over; the period and scope vary by service and are set out in the contract. Where we supply the materials, the product guarantee is handled alongside it.` },
-        { q: `I live abroad. How will you look after my property?`, a: `A large share of our clients live overseas. We handle communication in English or Russian, record any key handover in writing, and send a photo report at every visit or stage of work. For ongoing care we offer the Home Care Plan.` },
+        { q: `I live abroad. How will you look after my property?`, a: `Many property owners in the area live overseas. We handle communication in English or Russian, record any key handover in writing, and send a photo report at every visit or stage of work. For ongoing care we offer the Home Care Plan.` },
         { q: `What languages do you work in?`, a: `Turkish, English and Russian. All correspondence, including quotations and contracts, can be handled in the language you prefer.` },
         { q: `How quickly do you respond?`, a: `Within 2 hours for enquiries received during working hours. Enquiries received outside those hours are dealt with first thing on the next working day.` },
         { q: `Who supplies the materials?`, a: `Usually we do, and the brands and products used are listed in the quotation. You are also welcome to supply materials yourself; our workmanship guarantee still applies, but material-related faults fall outside it.` },

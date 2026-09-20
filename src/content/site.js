@@ -5,18 +5,17 @@
 
 export const site = {
   brand: 'Ustam Fethiye',
-  legalName: 'Ustam Fethiye',            // TODO: resmi unvan (Ltd. Sti. vb.)
+  legalName: 'Ustam Fethiye',
   origin: 'https://ustamfethiye.com',
 
-  // TODO: gercek numara ile degistirin (her iki alan da guncellenmeli)
-  phoneDisplay: '+90 555 000 00 00',
-  phoneHref: '+905550000000',
-  whatsapp: '905550000000',              // ulke kodu + numara, sadece rakam
+  phoneDisplay: '+90 532 219 80 48',
+  phoneHref: '+905322198048',
+  whatsapp: '905322198048',              // ulke kodu + numara, sadece rakam
 
   email: 'info@ustamfethiye.com',
 
   address: {
-    street: '',                          // TODO: acik adres
+    street: 'Foça Mah. 1019 Sok. No:1/1',
     locality: 'Fethiye',
     region: 'Mugla',
     postalCode: '48300',
