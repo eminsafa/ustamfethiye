@@ -1,5 +1,6 @@
 import { site, SERVICE_ORDER, REGION_IDS, waLink } from '../content/site.js';
-import { esc, layout, leadForm, crumbs, faqBlock, ctaBand, trustBar, serviceCard, icons as I, SVC_ICON } from './render.js';
+import { esc, layout, leadForm, crumbs, faqBlock, ctaBand, serviceCard, icons as I, SVC_ICON } from './render.js';
+import { ART, heroArt, WHY_ICON, STEP_ICON, GUARANTEE_ICON } from './visuals.js';
 
 const abs = (p) => site.origin + p;
 
@@ -72,12 +73,17 @@ const faqSchema = (items) => ({
 });
 
 /* ---------------------------------------------------------------- ana sayfa */
+// Ana sayfada sekiz adimin kisa ozeti: kesif, teklif, uygulama, teslim
+const HOME_STEPS = [2, 3, 6, 7];
+
+const waMessage = (locale) => locale === 'tr' ? 'Merhaba, keşif için bilgi almak istiyorum.'
+  : locale === 'ru' ? 'Здравствуйте, хочу записаться на осмотр.'
+  : 'Hello, I would like to arrange a site visit.';
+
 export function home(ctx) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
-  const waText = locale === 'tr' ? 'Merhaba, keşif için bilgi almak istiyorum.'
-    : locale === 'ru' ? 'Здравствуйте, хочу записаться на осмотр.'
-    : 'Hello, I would like to arrange a site visit.';
+  const faqItems = L.pages.faq.items.slice(0, 3);
 
   const body = `
 <section class="hero">
@@ -88,80 +94,68 @@ export function home(ctx) {
       <p class="lede">${esc(L.home.lede)}</p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="${u('contact')}">${esc(L.ui.ctaQuote)}</a>
-        <a class="btn btn--wa" href="${waLink(waText)}" rel="noopener">${I.wa}${esc(L.ui.ctaWhatsapp)}</a>
-        <a class="btn btn--ghost" href="tel:${site.phoneHref}">${I.phone}${esc(site.phoneDisplay)}</a>
+        <a class="btn btn--wa" href="${waLink(waMessage(locale))}" rel="noopener">${I.wa}${esc(L.ui.ctaWhatsapp)}</a>
       </div>
-      <ul class="hero__points">
-        ${L.ui.trust.map((t) => `<li>${I.check}<span>${esc(t)}</span></li>`).join('')}
+      <ul class="hero__facts">
+        ${L.ui.trust.slice(0, 3).map((t) => `<li>${I.check}<span>${esc(t)}</span></li>`).join('')}
       </ul>
     </div>
-    ${leadForm(ctx, { compact: true })}
+    <div class="hero__art">${heroArt(SVC_ICON)}</div>
   </div>
 </section>
 
-${trustBar(L)}
-
-<section class="sec sec--alt">
+<section class="sec" id="services">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">${esc(L.ui.services)}</p>
       <h2>${esc(L.home.servicesTitle)}</h2>
       <p class="lede">${esc(L.home.servicesLede)}</p>
     </div>
     <div class="grid grid--4">
       ${['painting', 'pool', 'garden', 'plumbing'].map((id) => serviceCard(ctx, id)).join('\n')}
-      ${serviceCard(ctx, 'homecare', true)}
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">${esc(L.home.promiseTitle)}</p>
-      <h2>${esc(L.home.promiseTitle)}</h2>
-      <p class="lede">${esc(L.home.promiseLede)}</p>
-    </div>
-    <div class="grid grid--3">
-      ${L.home.promises.map((p, i) => `<div class="cell promise">
-        <span class="promise__n">${String(i + 1).padStart(2, '0')}</span>
-        <h3>${esc(p.t)}</h3><p>${esc(p.d)}</p></div>`).join('\n')}
+      ${serviceCard(ctx, 'homecare', { wide: true })}
     </div>
   </div>
 </section>
 
 <section class="sec sec--alt">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">${esc(L.pages.how.h1)}</p>
-      <h2>${esc(L.home.howTitle)}</h2>
-      <p class="lede">${esc(L.home.howLede)}</p>
-    </div>
-    <ol class="steps">
-      ${L.pages.how.steps.map((s) => `<li><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></li>`).join('\n')}
-    </ol>
-    <p style="margin-top:1.6rem"><a class="btn btn--ghost" href="${u('how')}">${esc(L.pages.how.h1)} ${I.arrow}</a></p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">${esc(L.ui.regions)}</p>
-      <h2>${esc(L.home.regionsTitle)}</h2>
-      <p class="lede">${esc(L.home.regionsLede)}</p>
-    </div>
-    <ul class="chips">
-      ${REGION_IDS.map((id) => `<li><a href="${u('region:' + id)}">${esc(L.regions.items[id].name)}</a></li>`).join('')}
+    <div class="sec-head"><h2>${esc(L.home.promiseTitle)}</h2></div>
+    <ul class="tiles">
+      ${L.home.promises.map((p, i) => `<li><span class="tile__icon">${WHY_ICON[i]}</span><span class="tile__t">${esc(p.t)}</span></li>`).join('\n')}
     </ul>
   </div>
 </section>
 
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>${esc(L.home.howTitle)}</h2>
+      <p class="lede">${esc(L.home.howLede)}</p>
+    </div>
+    <ol class="flow" style="--cols:4">
+      ${HOME_STEPS.map((i, n) => `<li><span class="flow__icon">${STEP_ICON[i]}<b>${n + 1}</b></span><h3>${esc(L.pages.how.steps[i].t)}</h3></li>`).join('\n')}
+    </ol>
+    <p class="more"><a class="btn btn--ghost" href="${u('how')}">${esc(L.pages.how.h1)} ${I.arrow}</a></p>
+  </div>
+</section>
+
 <section class="sec sec--alt">
   <div class="wrap">
+    <div class="sec-head">
+      <h2>${esc(L.home.regionsTitle)}</h2>
+      <p class="lede">${esc(L.home.regionsLede)}</p>
+    </div>
+    <ul class="chips chips--pin">
+      ${REGION_IDS.map((id) => `<li><a href="${u('region:' + id)}">${I.pin}${esc(L.regions.items[id].name)}</a></li>`).join('')}
+    </ul>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
     <div class="sec-head"><h2>${esc(L.home.faqTitle)}</h2></div>
-    ${faqBlock(L.pages.faq.items.slice(0, 6))}
-    <p style="margin-top:1.6rem"><a class="btn btn--ghost" href="${u('faq')}">${esc(L.pages.faq.h1)} ${I.arrow}</a></p>
+    ${faqBlock(faqItems)}
+    <p class="more"><a class="btn btn--ghost" href="${u('faq')}">${esc(L.pages.faq.h1)} ${I.arrow}</a></p>
   </div>
 </section>
 
@@ -172,7 +166,7 @@ ${ctaBand(ctx)}`;
     jsonld: [
       orgSchema(ctx),
       { '@context': 'https://schema.org', '@type': 'WebSite', name: site.brand, url: abs(u('home')), inLanguage: locale },
-      faqSchema(L.pages.faq.items.slice(0, 6)),
+      faqSchema(faqItems),
     ],
   });
 }
@@ -183,38 +177,38 @@ export function servicePage(ctx, id) {
   const u = (k) => routes[locale][k];
   const s = L.services[id];
   const related = SERVICE_ORDER.filter((x) => x !== id).slice(0, 3);
+  const [lead, ...rest] = s.intro;
 
   const body = `
-${crumbs(ctx, [[L.ui.services, u('home')], [s.name, u('svc:' + id)]])}
+${crumbs(ctx, [[L.ui.services, u('home') + '#services'], [s.name, u('svc:' + id)]])}
 
 <section class="phead">
-  <div class="wrap phead__in">
-    <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
-    <h1>${esc(s.name)}</h1>
-    <p class="lede">${esc(s.tagline)}</p>
-    <p class="phead__meta">${esc(L.ui.updated)}: ${site.updated}</p>
+  <div class="wrap phead__in phead__in--art">
+    <div>
+      <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
+      <h1>${esc(s.name)}</h1>
+      <p class="lede">${esc(s.tagline)}</p>
+      <p class="phead__meta">${esc(L.ui.updated)}: ${site.updated}</p>
+    </div>
+    <div class="phead__art">${ART[id]}</div>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap split">
     <div class="prose">
-      <div class="summary">
-        <h2>${esc(L.ui.inShort)}</h2>
-        <ul>${s.summary.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
-      </div>
+      <p class="intro">${esc(lead)}</p>
+      ${rest.length ? `<details class="more-text"><summary>${esc(L.ui.readMore)}</summary>${rest.map((p) => `<p>${esc(p)}</p>`).join('')}</details>` : ''}
 
-      ${s.intro.map((p) => `<p>${esc(p)}</p>`).join('\n')}
-
-      <h2 style="margin:2.4rem 0 1.1rem">${esc(L.ui.scope)}</h2>
+      <h2 class="h-block">${esc(L.ui.scope)}</h2>
       <ul class="checklist">${s.scope.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
 
-      <h2 style="margin:2.4rem 0 1.1rem">${esc(L.ui.approach)}</h2>
-      <ul class="arrowlist">${s.approach.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+      <h2 class="h-block">${esc(L.ui.approach)}</h2>
+      <ol class="mini">${s.approach.map((x, n) => `<li><b>${n + 1}</b><span>${esc(x)}</span></li>`).join('')}</ol>
 
       <p class="pricenote">${esc(L.priceNote)}</p>
 
-      <h2 style="margin:2.6rem 0 1.1rem">${esc(L.ui.faqTitle)}</h2>
+      <h2 class="h-block">${esc(L.ui.faqTitle)}</h2>
       ${faqBlock(s.faq)}
     </div>
 
@@ -222,14 +216,8 @@ ${crumbs(ctx, [[L.ui.services, u('home')], [s.name, u('svc:' + id)]])}
       ${leadForm(ctx, { compact: true })}
       <div class="panel">
         <h3>${esc(L.ui.relatedServices)}</h3>
-        <ul class="chips" style="flex-direction:column;align-items:stretch">
+        <ul class="chips chips--col">
           ${related.map((r) => `<li><a href="${u('svc:' + r)}">${esc(L.services[r].name)}</a></li>`).join('')}
-        </ul>
-      </div>
-      <div class="panel">
-        <h3>${esc(L.ui.allRegions)}</h3>
-        <ul class="chips">
-          ${REGION_IDS.slice(0, 8).map((r) => `<li><a href="${u('region:' + r)}">${esc(L.regions.items[r].name)}</a></li>`).join('')}
         </ul>
       </div>
     </aside>
@@ -281,14 +269,15 @@ ${crumbs(ctx, [[R.h1, u('regions')]])}
 
 <section class="sec">
   <div class="wrap">
-    <div class="grid grid--2">
+    <div class="grid grid--4">
       ${REGION_IDS.map((id) => {
         const r = R.items[id];
-        return `<div class="cell">
-          <h3 style="margin-bottom:.5rem"><a href="${u('region:' + id)}" style="text-decoration:none">${esc(r.name)}</a></h3>
-          <p style="font-family:var(--f-ui);font-size:.92rem;color:var(--ink-2);line-height:1.55">${esc(r.intro)}</p>
-          <p style="margin:0"><a href="${u('region:' + id)}" style="font-family:var(--f-ui);font-size:.86rem;font-weight:600">${esc(L.ui.ctaMore)} →</a></p>
-        </div>`;
+        return `<a class="regioncard" href="${u('region:' + id)}">
+          <span class="regioncard__pin">${I.pin}</span>
+          <h3>${esc(r.name)}</h3>
+          <p>${esc(r.intro)}</p>
+          <span class="regioncard__svc">${r.services.map((sid) => `<i title="${esc(L.services[sid].name)}">${SVC_ICON[sid]}</i>`).join('')}</span>
+        </a>`;
       }).join('\n')}
     </div>
   </div>
@@ -330,17 +319,17 @@ ${crumbs(ctx, [[L.regions.h1, u('regions')], [r.name, u('region:' + id)]])}
 <section class="sec">
   <div class="wrap split">
     <div class="prose">
-      <h2 style="margin-bottom:1.1rem">${esc(L.regions.regionNotes)}</h2>
-      <ul class="arrowlist">${r.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>
-
-      <h2 style="margin:2.4rem 0 1.1rem">${esc(L.regions.inRegion)}</h2>
-      <div class="grid grid--3" style="margin-bottom:1.6rem">
+      <h2 class="h-block h-block--first">${esc(L.regions.inRegion)}</h2>
+      <div class="grid grid--3">
         ${r.services.map((sid) => serviceCard(ctx, sid)).join('\n')}
       </div>
 
+      <h2 class="h-block">${esc(L.regions.regionNotes)}</h2>
+      <ol class="mini mini--col">${r.notes.map((n, i) => `<li><b>${i + 1}</b><span>${esc(n)}</span></li>`).join('')}</ol>
+
       <p class="pricenote">${esc(L.priceNote)}</p>
 
-      <p><a href="${u('regions')}" style="font-family:var(--f-ui);font-weight:600">${esc(L.ui.allRegions)} →</a></p>
+      <p><a class="btn btn--ghost" href="${u('regions')}">${esc(L.ui.allRegions)} ${I.arrow}</a></p>
     </div>
     <aside class="aside">
       ${leadForm(ctx, { compact: true })}
@@ -381,8 +370,8 @@ ${crumbs(ctx, [[P.h1, u('how')]])}
 
 <section class="sec">
   <div class="wrap">
-    <ol class="steps" style="grid-template-columns:repeat(2,1fr)">
-      ${P.steps.map((s) => `<li><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></li>`).join('\n')}
+    <ol class="flow flow--detail" style="--cols:4">
+      ${P.steps.map((s, i) => `<li><span class="flow__icon">${STEP_ICON[i]}<b>${i + 1}</b></span><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></li>`).join('\n')}
     </ol>
   </div>
 </section>
@@ -391,7 +380,7 @@ ${crumbs(ctx, [[P.h1, u('how')]])}
   <div class="wrap">
     <div class="sec-head"><h2>${esc(P.guaranteeTitle)}</h2></div>
     <div class="grid grid--2">
-      ${P.guarantees.map((g) => `<div class="cell promise"><h3>${esc(g.t)}</h3><p>${esc(g.d)}</p></div>`).join('\n')}
+      ${P.guarantees.map((g, i) => `<div class="cell gcell"><span class="tile__icon">${GUARANTEE_ICON[i]}</span><div><h3>${esc(g.t)}</h3><p>${esc(g.d)}</p></div></div>`).join('\n')}
     </div>
     <p class="pricenote">${esc(L.priceNote)}</p>
   </div>
@@ -427,8 +416,8 @@ ${crumbs(ctx, [[P.h1, u('about')]])}
 
 <section class="sec">
   <div class="wrap split">
-    <div class="prose">
-      ${P.body.map((b) => `<h2 style="margin:0 0 1rem">${esc(b.t)}</h2>${b.p.map((x) => `<p>${esc(x)}</p>`).join('')}`).join('\n<hr style="margin:2rem 0">\n')}
+    <div class="grid grid--2 grid--flat">
+      ${P.body.map((b, i) => `<div class="cell abox"><span class="abox__n">${String(i + 1).padStart(2, '0')}</span><h2>${esc(b.t)}</h2>${b.p.map((x) => `<p>${esc(x)}</p>`).join('')}</div>`).join('\n')}
     </div>
     <aside class="aside">
       <div class="panel">
@@ -490,9 +479,6 @@ export function contactPage(ctx) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
   const P = L.pages.contact;
-  const waText = locale === 'tr' ? 'Merhaba, keşif için bilgi almak istiyorum.'
-    : locale === 'ru' ? 'Здравствуйте, хочу записаться на осмотр.'
-    : 'Hello, I would like to arrange a site visit.';
 
   const body = `
 ${crumbs(ctx, [[P.h1, u('contact')]])}
@@ -509,22 +495,15 @@ ${crumbs(ctx, [[P.h1, u('contact')]])}
         <h3>${esc(P.infoTitle)}</h3>
         <ul class="contactlist">
           <li>${I.phone}<div><a href="tel:${site.phoneHref}">${esc(site.phoneDisplay)}</a><span>${esc(L.ui.ctaCall)}</span></div></li>
-          <li>${I.wa}<div><a href="${waLink(waText)}" rel="noopener">WhatsApp</a><span>${esc(site.phoneDisplay)}</span></div></li>
+          <li>${I.wa}<div><a href="${waLink(waMessage(locale))}" rel="noopener">WhatsApp</a><span>${esc(site.phoneDisplay)}</span></div></li>
           <li>${I.mail}<div><a href="mailto:${site.email}">${esc(site.email)}</a></div></li>
           <li>${I.clock}<div>${esc(L.ui.footerWeekdays)} ${esc(site.hours.weekdays)}<span>${esc(L.ui.footerSaturday)} ${esc(site.hours.saturday)}</span></div></li>
         </ul>
       </div>
       <div class="panel">
         <h3>${esc(P.areaTitle)}</h3>
-        <p style="font-family:var(--f-ui);font-size:.92rem;color:var(--ink-2);line-height:1.55;margin:0 0 .9rem">${esc(P.areaText)}</p>
-        <ul class="chips">
-          ${REGION_IDS.map((id) => `<li><a href="${u('region:' + id)}">${esc(L.regions.items[id].name)}</a></li>`).join('')}
-        </ul>
-      </div>
-      <div class="panel">
-        <h3>${esc(L.ui.services)}</h3>
-        <ul class="chips" style="flex-direction:column;align-items:stretch">
-          ${SERVICE_ORDER.map((id) => `<li><a href="${u('svc:' + id)}">${esc(L.services[id].name)}</a></li>`).join('')}
+        <ul class="chips chips--pin">
+          ${REGION_IDS.map((id) => `<li><a href="${u('region:' + id)}">${I.pin}${esc(L.regions.items[id].name)}</a></li>`).join('')}
         </ul>
       </div>
     </aside>

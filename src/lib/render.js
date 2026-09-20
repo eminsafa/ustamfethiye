@@ -1,4 +1,5 @@
 import { site, SERVICE_ORDER, REGION_IDS, waLink } from '../content/site.js';
+import { ART } from './visuals.js';
 
 /* ---------------------------------------------------------------- yardimcilar */
 export const esc = (s = '') => String(s)
@@ -41,15 +42,16 @@ export function layout(ctx, { title, description, body, jsonld = [], key, noinde
   const ogAlt = site.locales.filter((lc) => lc !== locale)
     .map((lc) => `<meta property="og:locale:alternate" content="${lc === 'tr' ? 'tr_TR' : lc === 'ru' ? 'ru_RU' : 'en_GB'}">`);
 
-  const navItems = [
-    ['svc:painting', L.services.painting.short],
-    ['svc:pool', L.services.pool.short],
-    ['svc:garden', L.services.garden.short],
-    ['svc:plumbing', L.services.plumbing.short],
-    ['svc:homecare', L.services.homecare.short],
-    ['regions', L.ui.regions],
-    ['how', L.pages.how.h1],
-    ['contact', L.pages.contact.h1],
+  const navLink = (k, label) => `<a href="${u(k)}"${k === key ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
+  const onService = String(key).startsWith('svc:');
+  const nav = [
+    `<div class="nav__group">
+        <a class="nav__parent" href="${u('home')}#services"${onService ? ' aria-current="page"' : ''}>${esc(L.ui.services)}</a>
+        <div class="nav__menu">${SERVICE_ORDER.map((id) => navLink('svc:' + id, L.services[id].name)).join('')}</div>
+      </div>`,
+    navLink('regions', L.ui.regions),
+    navLink('how', L.pages.how.h1),
+    navLink('contact', L.pages.contact.h1),
   ];
 
   const waText = locale === 'tr' ? 'Merhaba, keşif için bilgi almak istiyorum.'
@@ -92,7 +94,7 @@ ${site.cfAnalyticsToken ? `<script defer src="https://static.cloudflareinsights.
     <a class="brand" href="${u('home')}">${LOGO}<span>Ustam <em>Fethiye</em></span></a>
     <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav" id="navtoggle">${esc(L.ui.menu)}</button>
     <nav class="nav" id="nav" aria-label="${attr(L.ui.services)}">
-      ${navItems.map(([k, label]) => `<a href="${u(k)}"${k === key ? ' aria-current="page"' : ''}>${esc(label)}</a>`).join('\n      ')}
+      ${nav.join('\n      ')}
     </nav>
     <div class="topbar__cta">
       <div class="lang" role="group" aria-label="${attr(L.ui.langLabel)}">
@@ -274,34 +276,29 @@ export function ctaBand(ctx) {
   return `<section class="ctaband">
   <div class="wrap ctaband__in">
     <div>
-      <p class="eyebrow">${esc(L.ui.serviceArea)}</p>
       <h2>${esc(L.home.ctaTitle)}</h2>
       <p>${esc(L.home.ctaLede)}</p>
-      <div class="btn-row">
-        <a class="btn btn--light" href="tel:${attr(site.phoneHref)}">${I.phone}${esc(site.phoneDisplay)}</a>
-        <a class="btn btn--outline-light" href="${waLink(waText)}" rel="noopener">${I.wa}${esc(L.ui.ctaWhatsapp)}</a>
-      </div>
     </div>
-    ${leadForm(ctx, { compact: true })}
+    <div class="btn-row">
+      <a class="btn btn--light" href="${u('contact')}">${esc(L.ui.ctaQuote)}</a>
+      <a class="btn btn--outline-light" href="${waLink(waText)}" rel="noopener">${I.wa}${esc(L.ui.ctaWhatsapp)}</a>
+      <a class="btn btn--outline-light" href="tel:${attr(site.phoneHref)}">${I.phone}${esc(site.phoneDisplay)}</a>
+    </div>
   </div>
 </section>`;
 }
 
-export function trustBar(L) {
-  return `<div class="trustbar"><div class="wrap"><ul>
-${L.ui.trust.map((t) => `<li>${esc(t)}</li>`).join('')}
-</ul></div></div>`;
-}
-
-export function serviceCard(ctx, id, wide = false) {
+export function serviceCard(ctx, id, { wide = false, art = true } = {}) {
   const { L, locale, routes } = ctx;
   const s = L.services[id];
-  return `<a class="svc${wide ? ' svc--wide' : ''}" href="${routes[locale]['svc:' + id]}">
-  <span class="svc__icon">${SVC_ICON[id]}</span>
-  ${wide ? `<span class="tagpill">${esc(L.ui.ctaPlan)}</span>` : ''}
-  <h3>${esc(s.name)}</h3>
-  <p>${esc(s.tagline)}</p>
-  <span class="svc__go">${esc(L.ui.ctaMore)} ${I.arrow}</span>
+  return `<a class="svc${wide ? ' svc--wide' : ''}${art ? ' svc--art' : ''}" href="${routes[locale]['svc:' + id]}">
+  ${art ? `<span class="svc__art">${ART[id]}</span>` : `<span class="svc__icon">${SVC_ICON[id]}</span>`}
+  <span class="svc__body">
+    ${wide ? `<span class="tagpill">${esc(L.ui.ctaPlan)}</span>` : ''}
+    <h3>${esc(s.name)}</h3>
+    <p>${esc(s.tagline)}</p>
+    <span class="svc__go">${esc(L.ui.ctaMore)} ${I.arrow}</span>
+  </span>
 </a>`;
 }
 

@@ -28,6 +28,7 @@ export default {
     allServices: `Tüm hizmetler`,
     allRegions: `Hizmet verdiğimiz bölgeler`,
     inShort: `Kısaca`,
+    readMore: `Devamını oku`,
     scope: `Kapsam`,
     approach: `Nasıl çalışıyoruz`,
     faqTitle: `Sık sorulan sorular`,
@@ -89,7 +90,7 @@ export default {
     title: `Fethiye ve Seydikemer'de Usta Hizmeti | Ustam Fethiye`,
     description: `Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı ve su tesisatı. Keşif ücretsiz, yazılı sözleşme, işçilik garantisi. Türkçe, İngilizce, Rusça.`,
     h1: `Ustayı siz aramayın. Sorumluluğu biz alalım.`,
-    lede: `Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı ve su tesisatı. Keşfi biz yapar, işi biz planlar, teslimi biz yaparız. Muhatabınız usta değil, firmadır.`,
+    lede: `Fethiye ve Seydikemer'de boya-tadilat, havuz, bahçe ve su tesisatı. Keşiften teslime her şey tek firmadan.`,
 
     promiseTitle: `Neden Ustam Fethiye?`,
     promiseLede: `Fethiye'de usta bulmak zor değil; gelen ustanın geleceğinden ve işin bitirileceğinden emin olmak zor. Biz tam olarak bu sorunu çözüyoruz.`,
@@ -105,7 +106,7 @@ export default {
     servicesTitle: `Hizmetlerimiz`,
     servicesLede: `Dört ana hizmet ve evini uzaktan yönetenler için hazırlanan bakım planı.`,
 
-    howTitle: `Talepten teslime sekiz adım`,
+    howTitle: `Keşiften teslime dört adım`,
     howLede: `Her iş aynı sırayı izler. Sürpriz yok.`,
 
     regionsTitle: `Hizmet verdiğimiz bölgeler`,
@@ -116,7 +117,7 @@ export default {
 
     faqTitle: `Merak edilenler`,
     ctaTitle: `Keşif için bize yazın`,
-    ctaLede: `Formu doldurun ya da doğrudan WhatsApp'tan yazın. Mesai saatleri içinde 2 saat içinde dönüş yapıyoruz.`,
+    ctaLede: `Keşif talebi bırakın, WhatsApp'tan yazın ya da arayın. Mesai saatleri içinde 2 saat içinde dönüş yapıyoruz.`,
   },
 
   services: {

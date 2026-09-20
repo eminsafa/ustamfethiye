@@ -28,6 +28,7 @@ export default {
     allServices: `All services`,
     allRegions: `Areas we cover`,
     inShort: `In short`,
+    readMore: `Read more`,
     scope: `What is included`,
     approach: `How we work`,
     faqTitle: `Frequently asked questions`,
@@ -89,7 +90,7 @@ export default {
     title: `Trusted Tradesmen in Fethiye & Seydikemer | Ustam Fethiye`,
     description: `Painting and renovation, pool maintenance, garden maintenance and plumbing in Fethiye and Seydikemer. Free site visit, written contract, workmanship guarantee. English, Russian and Turkish.`,
     h1: `Stop chasing tradesmen. We take responsibility.`,
-    lede: `Painting and renovation, pool maintenance, garden maintenance and plumbing across Fethiye and Seydikemer. We survey the job, plan it, supervise it and hand it over. Your point of contact is the company, not the tradesman.`,
+    lede: `Painting and renovation, pool, garden and plumbing across Fethiye and Seydikemer. From survey to handover, one company is responsible.`,
 
     promiseTitle: `Why Ustam Fethiye`,
     promiseLede: `Finding a tradesman in Fethiye is not the hard part. Knowing that he will turn up, that the price will hold and that the job will actually be finished — that is the hard part. This is exactly what we solve.`,
@@ -105,7 +106,7 @@ export default {
     servicesTitle: `Our services`,
     servicesLede: `Four core services, plus a care plan built for owners who manage their property from abroad.`,
 
-    howTitle: `Eight steps from enquiry to handover`,
+    howTitle: `Four steps from survey to handover`,
     howLede: `Every job follows the same sequence. No surprises.`,
 
     regionsTitle: `Areas we cover`,
@@ -116,7 +117,7 @@ export default {
 
     faqTitle: `Common questions`,
     ctaTitle: `Ask for a site visit`,
-    ctaLede: `Fill in the form or message us directly on WhatsApp. We reply within 2 hours during working hours.`,
+    ctaLede: `Request a site visit, message us on WhatsApp or call. We reply within 2 hours during working hours.`,
   },
 
   services: {
