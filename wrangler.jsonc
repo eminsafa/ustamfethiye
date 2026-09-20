@@ -19,26 +19,31 @@
   "observability": { "enabled": true },
 
   "vars": {
-    "SITE_URL": "https://ustamfethiye.com"
-  }
+    "SITE_URL": "https://ustamfethiye.com",
+    // Talep e-postasinin gonderen adresi (Email Routing acik alan adindan herhangi bir adres)
+    "LEAD_EMAIL_FROM": "talep@ustamfethiye.com"
+  },
+
+  // Talep e-postasi: Cloudflare Email Routing uzerinden gonderim.
+  // Hedef adres (LEAD_EMAIL_TO) secret olarak girilir ve Email Routing'de dogrulanmis olmalidir.
+  "send_email": [{ "name": "LEAD_EMAIL" }],
+
+  // Talepler D1'e de kaydedilir (tablo: schema.sql). E-posta kaybolsa bile kayit kalir.
+  "d1_databases": [
+    { "binding": "DB", "database_name": "ustamfethiye", "database_id": "f3afe3cf-f4e9-433f-ad62-d236a927b286" }
+  ]
 
   // --- Kurulum sonrasi aktif edilecekler -------------------------------
   //
-  // 1) Talepleri veritabanina yazmak icin (bkz. schema.sql):
-  //      npx wrangler d1 create ustamfethiye
-  //      npx wrangler d1 execute ustamfethiye --remote --file=./schema.sql
-  //    ardindan asagidaki blogun yorumunu kaldirin:
+  // 1) D1 ve send_email yukarida tanimli. (D1: npx wrangler d1 create ustamfethiye,
+  //    tablo: npx wrangler d1 execute ustamfethiye --remote --file=./schema.sql)
   //
-  // "d1_databases": [
-  //   { "binding": "DB", "database_name": "ustamfethiye", "database_id": "<ID>" }
-  // ],
-  //
-  // 2) Spam korumasi (Turnstile) ve bildirimler icin secret ekleyin:
+  // 2) Talep e-postasinin gidecegi adres ve spam korumasi (Turnstile) icin secret ekleyin:
+  //      npx wrangler secret put LEAD_EMAIL_TO
   //      npx wrangler secret put TURNSTILE_SECRET
-  //      npx wrangler secret put RESEND_API_KEY
-  //      npx wrangler secret put TELEGRAM_BOT_TOKEN
-  //      npx wrangler secret put TELEGRAM_CHAT_ID
   //    Turnstile site key'i src/content/site.js icinde tanimlanir.
+  //    (Alternatif e-posta yolu: RESEND_API_KEY secret'i; Telegram icin
+  //     TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID — ikisi de opsiyonel.)
   //
   // Hicbiri tanimli degilse form calismaya devam eder; talep yalnizca
   // Worker loglarina dusar (npx wrangler tail).
