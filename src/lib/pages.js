@@ -133,8 +133,9 @@ export function home(ctx) {
       <p class="lede">${esc(L.home.servicesLede)}</p>
     </div>
     <div class="grid grid--4">
+      ${serviceCard(ctx, 'cleaning', { wide: true, tag: L.ui.tagNew })}
       ${['painting', 'pool', 'garden', 'plumbing'].map((id) => serviceCard(ctx, id)).join('\n')}
-      ${serviceCard(ctx, 'homecare', { wide: true })}
+      ${serviceCard(ctx, 'homecare', { wide: true, tag: L.ui.ctaPlan })}
     </div>
   </div>
 </section>

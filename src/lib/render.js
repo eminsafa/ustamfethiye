@@ -24,9 +24,10 @@ const I = {
   pool: `<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 22c2.2 0 2.2 2 4.3 2s2.2-2 4.3-2 2.2 2 4.4 2 2.2-2 4.3-2 2.2 2 4.4 2 2.2-2 4.3-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 27c2.2 0 2.2 2 4.3 2s2.2-2 4.3-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".55"/><path d="M10 21V7a3 3 0 016 0v14M10 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M22 21V7a3 3 0 00-3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".55"/></svg>`,
   garden: `<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 28V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 17c-5 0-7-2.6-7-6.5C13.4 10.5 16 12.6 16 17z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 14c0-4.4 2.6-7 7-7 0 4.4-2.6 7-7 7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 28h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
   plumbing: `<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 4s6.5 7.4 6.5 12.2A6.5 6.5 0 0116 23a6.5 6.5 0 01-6.5-6.8C9.5 11.4 16 4 16 4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13 16.6a3 3 0 003 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M11 28h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+  cleaning: `<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 14h16l-1.5 11.6a2 2 0 01-2 1.7h-9a2 2 0 01-2-1.7L7 14z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 14c0-3.6 2.6-5.6 5.5-5.6s5.5 2 5.5 5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M25 3.5l1.3 3.2 3.2 1.3-3.2 1.3L25 12.5l-1.3-3.2L20.5 8l3.2-1.3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
   homecare: `<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 14.5L16 5l11 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 13v13h17V13" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12.5 20.5l2.3 2.3 4.7-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
-const SVC_ICON = { painting: I.painting, pool: I.pool, garden: I.garden, plumbing: I.plumbing, homecare: I.homecare };
+const SVC_ICON = { cleaning: I.cleaning, painting: I.painting, pool: I.pool, garden: I.garden, plumbing: I.plumbing, homecare: I.homecare };
 
 const LOGO = logoMark({ cls: 'brand__mark' });
 
@@ -388,13 +389,13 @@ export function ctaBand(ctx, { form = false } = {}) {
 </section>`;
 }
 
-export function serviceCard(ctx, id, { wide = false, art = true } = {}) {
+export function serviceCard(ctx, id, { wide = false, art = true, tag = '' } = {}) {
   const { L, locale, routes } = ctx;
   const s = L.services[id];
   return `<a class="svc${wide ? ' svc--wide' : ''}${art ? ' svc--art' : ''}" href="${routes[locale]['svc:' + id]}">
   ${art ? `<span class="svc__art">${ART[id]}</span>` : `<span class="svc__icon">${SVC_ICON[id]}</span>`}
   <span class="svc__body">
-    ${wide ? `<span class="tagpill">${esc(L.ui.ctaPlan)}</span>` : ''}
+    ${tag ? `<span class="tagpill">${esc(tag)}</span>` : ''}
     <h3>${esc(s.name)}</h3>
     <p>${esc(s.tagline)}</p>
     <span class="svc__go">${esc(L.ui.ctaMore)} ${I.arrow}</span>

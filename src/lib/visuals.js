@@ -74,6 +74,21 @@ export const ART = {
       <rect x="128" y="125" width="20" height="7" fill="${C.pale}"/>
     </g>`),
 
+  cleaning: svg('0 0 240 160', `
+    <rect x="0" y="130" width="240" height="30" fill="${C.sand}"/>
+    <path d="M38 52l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="${C.sand2}"/>
+    <path d="M198 30l3.5 8.5 8.5 3.5-8.5 3.5-3.5 8.5-3.5-8.5-8.5-3.5 8.5-3.5z" fill="${C.ochre}"/>
+    <path d="M214 96l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill="${C.sand2}"/>
+    <path d="M62 88h62l-8 44H70z" fill="${C.deep}"/>
+    <rect x="58" y="80" width="70" height="10" rx="5" fill="${C.mid}"/>
+    <path d="M68 82c0-32 50-32 50 0" stroke="${C.wood}" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="78" cy="76" r="9" fill="${C.water2}" stroke="${C.water}" stroke-width="2"/>
+    <circle cx="95" cy="68" r="12" fill="${C.water2}" stroke="${C.water}" stroke-width="2"/>
+    <circle cx="112" cy="77" r="8" fill="${C.water2}" stroke="${C.water}" stroke-width="2"/>
+    <path d="M188 22L170 116" stroke="${C.wood}" stroke-width="6" stroke-linecap="round"/>
+    <path d="M148 116h44l6 18h-56z" fill="${C.ochre}"/>
+    <path d="M156 122v10M166 122v10M176 122v10M186 122v10" stroke="${C.sand2}" stroke-width="2.4" stroke-linecap="round"/>`),
+
   homecare: svg('0 0 240 160', `
     <rect x="0" y="130" width="240" height="30" fill="${C.mint}" opacity=".5"/>
     <path d="M44 76L120 22l76 54z" fill="${C.deep}"/>

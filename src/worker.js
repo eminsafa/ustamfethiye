@@ -11,12 +11,12 @@ import { EmailMessage } from 'cloudflare:email';
 const DEFAULT_LOCALE = 'tr';
 const LOCALES = ['tr', 'en', 'ru'];
 
-const SERVICES = ['painting', 'pool', 'garden', 'plumbing', 'homecare', 'other'];
+const SERVICES = ['cleaning', 'painting', 'pool', 'garden', 'plumbing', 'homecare', 'other'];
 const REGIONS = ['merkez', 'calis', 'oludeniz', 'ovacik-hisaronu', 'kayakoy', 'gocek', 'uzumlu', 'seydikemer', 'other'];
 
 // Bildirimlerde kodlar yerine okunur adlar gosterilir.
 const SERVICE_LABEL = {
-  painting: 'Boya ve Tadilat', pool: 'Havuz Bakımı', garden: 'Bahçe Bakımı',
+  cleaning: 'Ev ve Villa Temizliği', painting: 'Boya ve Tadilat', pool: 'Havuz Bakımı', garden: 'Bahçe Bakımı',
   plumbing: 'Su Tesisatı', homecare: 'Ev Bakım Planı', other: 'Diğer',
 };
 const REGION_LABEL = {

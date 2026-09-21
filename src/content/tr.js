@@ -43,6 +43,7 @@ export default {
     ctaWhatsapp: `WhatsApp`,
     ctaCall: `Ara`,
     ctaPlan: `Ev Bakım Planı`,
+    tagNew: `Yeni`,
     ctaMore: `Ayrıntılar`,
 
     formTitle: `Ücretsiz teklif talebi`,
@@ -104,7 +105,7 @@ export default {
     title: `Fethiye Boyacı, Tadilat ve Havuz Bakımı | Ustam Fethiye`,
     description: `Fethiye ve Seydikemer'de villa ve müstakil evler için boyacı, tadilat, havuz ve bahçe bakımı, su tesisatı. Yazılı sözleşme, işçilik garantisi, ücretsiz teklif.`,
     h1: `Ustayı siz aramayın. Sorumluluğu biz alalım.`,
-    lede: `Fethiye ve Seydikemer'de villa ve müstakil ev sahipleri için boya-tadilat, havuz, bahçe ve su tesisatı. Yazılı sözleşme, işçilik garantisi ve fotoğraflı raporla, tek firmadan.`,
+    lede: `Fethiye ve Seydikemer'de villa ve müstakil ev sahipleri için boya-tadilat, havuz, bahçe, su tesisatı ve temizlik. Yazılı sözleşme, işçilik garantisi ve fotoğraflı raporla, tek firmadan.`,
 
     promiseTitle: `Neden Ustam Fethiye?`,
     promiseLede: `Fethiye'de usta bulmak zor değil; gelen ustanın geleceğinden ve işin bitirileceğinden emin olmak zor. Biz tam olarak bu sorunu çözüyoruz.`,
@@ -149,7 +150,7 @@ export default {
     },
 
     servicesTitle: `Hizmetlerimiz`,
-    servicesLede: `Dört ana hizmet ve evini uzaktan yönetenler için hazırlanan bakım planı.`,
+    servicesLede: `Beş ana hizmet ve evini uzaktan yönetenler için hazırlanan bakım planı.`,
 
     howTitle: `Keşiften teslime dört adım`,
     howLede: `Her iş aynı sırayı izler. Sürpriz yok.`,
@@ -357,6 +358,49 @@ export default {
       ],
     },
 
+    cleaning: {
+      slug: 'ev-temizligi',
+      name: `Ev ve Villa Temizliği`,
+      short: `Temizlik`,
+      h1: `Fethiye Ev ve Villa Temizliği`,
+      tagline: `Sezon açılış ve kapanış, konuk değişimi, derin ve tadilat sonrası temizlik.`,
+      title: `Fethiye Villa ve Ev Temizliği, Derin Temizlik | Ustam Fethiye`,
+      description: `Fethiye ve Seydikemer'de villa ve ev temizliği: sezon açılış-kapanış, konuk çıkışı, derin ve tadilat sonrası temizlik. Yazılı kapsam, ücretsiz teklif.`,
+      summary: [
+        `Fethiye ve Seydikemer bölgesinde villa ve müstakil evler için temizlik hizmeti veriyoruz.`,
+        `Sezon açılışı, kapanışı, kiralık evlerde konuk değişimi ve tadilat sonrası temizlik kapsamdadır.`,
+        `Kapsam yazılı kontrol listesiyle belirlenir; uzaktaki ev sahiplerine öncesi ve sonrası fotoğraf gönderilir.`,
+        PRICE_NOTE,
+      ],
+      intro: [
+        `Villa ve müstakil evlerde temizlik ihtiyacı yılın belirli dönemlerinde yoğunlaşır: sezon açılışında kış boyunca biriken toz ve nemi gidermek, kapanışta evi kışa hazırlamak, kiralık evi konuklar arasında hazır hale getirmek, tadilat ve boyadan sonra ince temizlik yapmak.`,
+        `Temizliği de diğer hizmetlerimiz gibi kapsamı yazılı bir iş olarak yürütüyoruz. Neyin temizleneceği, kaç kişiyle ne kadar sürede biteceği ve teslimin nasıl kontrol edileceği baştan bellidir. Uzaktaki ev sahipleri için işin öncesini ve sonrasını fotoğraflarız.`,
+      ],
+      scope: [
+        `İç mekân derin temizliği (zemin, yüzeyler, mobilya çevresi ve arkası)`,
+        `Mutfak ve banyo detaylı temizliği`,
+        `Cam, çerçeve ve doğrama temizliği`,
+        `Sezon açılış temizliği: toz alma, havalandırma, yatak ve tekstil hazırlığı`,
+        `Sezon kapanış temizliği ve kış öncesi koruma`,
+        `Kiralık evler için konuk çıkışı temizliği ve giriş hazırlığı`,
+        `Tadilat, boya ve inşaat sonrası ince temizlik`,
+        `Teras, balkon ve dış alan süpürme ve yıkama`,
+      ],
+      approach: [
+        `Temizlik kapsamı ve alanlar, işe başlamadan önce yazılı bir kontrol listesiyle belirlenir.`,
+        `Eve giriş anahtar teslim tutanağıyla yapılır; değerli eşya ve kilitli alanlar önceden konuşulur.`,
+        `İş sonunda kontrol listesi üzerinden teslim yapılır; uzaktaysanız öncesi ve sonrası fotoğraflanır.`,
+        `Ürünler, doğal taş ve ahşap gibi hassas yüzeylere uygun seçilir.`,
+      ],
+      faq: [
+        { q: `Temizlik için keşif gerekli mi?`, a: `Küçük ve standart işlerde kısa bir görüşme ve fotoğrafla kapsam netleşebilir. Büyük villalarda ve tadilat sonrası işlerde evi görmek gerekir.` },
+        { q: `Kiralık villam için konuk çıkışı temizliği yapılıyor mu?`, a: `Evet. Temizlik, giriş ve çıkış takviminize göre planlanır ve ev bir sonraki konuklar için hazırlanır.` },
+        { q: `Temizlik malzemesini kim getiriyor?`, a: `Genellikle ekip kendi malzemesini getirir; kullanılan ürünler anlaşmada belirtilir. Kendi ürünlerinizin kullanılmasını isterseniz bu da mümkündür.` },
+        { q: `Ev boşken temizlik yapılabilir mi?`, a: `Evet. Anahtar yazılı tutanakla teslim alınır ve iş bitince fotoğraflı rapor gönderilir.` },
+        { q: `Düzenli temizlik yapıyor musunuz?`, a: `Evet, tek seferlik iş ya da düzenli program olarak. Uzaktaki ev sahipleri için temizlik, Ev Bakım Planı'na dahil edilebilir.` },
+      ],
+    },
+
     homecare: {
       slug: 'ev-bakim-plani',
       name: `Ev Bakım Planı`,
@@ -442,7 +486,7 @@ export default {
           `Misafir giriş-çıkış dönemlerinde hızlı kontrol ve küçük onarım talepleri sık; bunlar için önceden takvim planlıyoruz.`,
           `Sezon açılışı öncesi mart–nisan döneminde havuz ve tesisat kontrolü talebi yoğunlaşıyor, randevuyu erken almanızı öneriyoruz.`,
         ],
-        services: ['pool', 'garden', 'homecare'],
+        services: ['pool', 'cleaning', 'homecare'],
       },
       'ovacik-hisaronu': {
         slug: 'ovacik-hisaronu',

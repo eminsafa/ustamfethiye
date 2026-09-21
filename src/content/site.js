@@ -39,14 +39,14 @@ export const site = {
 
   locales: ['tr', 'en', 'ru'],
   defaultLocale: 'tr',
-  updated: '2026-09-03',
+  updated: '2026-09-21',
 };
 
 // Hizmet kimlikleri - slug'lar dil dosyalarinda tanimlanir
-export const SERVICE_IDS = ['homecare', 'pool', 'garden', 'painting', 'plumbing'];
+export const SERVICE_IDS = ['homecare', 'cleaning', 'pool', 'garden', 'painting', 'plumbing'];
 
 // Ana sayfa ve menude one cikan sira (Ev Bakim Plani cati urun)
-export const SERVICE_ORDER = ['painting', 'pool', 'garden', 'plumbing', 'homecare'];
+export const SERVICE_ORDER = ['cleaning', 'painting', 'pool', 'garden', 'plumbing', 'homecare'];
 
 export const REGION_IDS = [
   'merkez', 'calis', 'oludeniz', 'ovacik-hisaronu',

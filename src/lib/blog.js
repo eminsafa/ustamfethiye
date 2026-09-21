@@ -9,7 +9,7 @@ import { join } from 'node:path';
 import { esc } from './render.js';
 
 const DIR = 'content/blog';
-const SERVICES = ['painting', 'pool', 'garden', 'plumbing', 'homecare'];
+const SERVICES = ['cleaning', 'painting', 'pool', 'garden', 'plumbing', 'homecare'];
 
 export const slugify = (t) => String(t).toLowerCase()
   .replace(/ı/g, 'i').normalize('NFD').replace(/[̀-ͯ]/g, '')

@@ -42,6 +42,7 @@ export default {
     ctaWhatsapp: `WhatsApp`,
     ctaCall: `Call`,
     ctaPlan: `Home Care Plan`,
+    tagNew: `New`,
     ctaMore: `Details`,
 
     formTitle: `Request a free quote`,
@@ -103,7 +104,7 @@ export default {
     title: `Fethiye Painter, Renovation & Pool Care | Ustam Fethiye`,
     description: `Painting, renovation, pool and garden care and plumbing for villas and houses in Fethiye and Seydikemer. Written contract, workmanship guarantee, free quote.`,
     h1: `Stop chasing tradesmen. We take responsibility.`,
-    lede: `Painting and renovation, pool, garden and plumbing for villa and house owners across Fethiye and Seydikemer. One company, with a written contract, a workmanship guarantee and photo reports.`,
+    lede: `Painting and renovation, pool, garden, plumbing and cleaning for villa and house owners across Fethiye and Seydikemer. One company, with a written contract, a workmanship guarantee and photo reports.`,
 
     promiseTitle: `Why Ustam Fethiye`,
     promiseLede: `Finding a tradesman in Fethiye is not the hard part. Knowing that he will turn up, that the price will hold and that the job will actually be finished — that is the hard part. This is exactly what we solve.`,
@@ -148,7 +149,7 @@ export default {
     },
 
     servicesTitle: `Our services`,
-    servicesLede: `Four core services, plus a care plan built for owners who manage their property from abroad.`,
+    servicesLede: `Five core services, plus a care plan built for owners who manage their property from abroad.`,
 
     howTitle: `Four steps from survey to handover`,
     howLede: `Every job follows the same sequence. No surprises.`,
@@ -339,6 +340,49 @@ export default {
       ],
     },
 
+    cleaning: {
+      slug: 'home-cleaning',
+      name: `Home & Villa Cleaning`,
+      short: `Cleaning`,
+      h1: `Home & Villa Cleaning in Fethiye`,
+      tagline: `Season opening and closing, guest changeovers, deep and post-renovation cleaning.`,
+      title: `Fethiye Villa & Home Cleaning, Deep Cleaning | Ustam Fethiye`,
+      description: `Villa and home cleaning in Fethiye and Seydikemer: season opening and closing, guest changeovers, deep and post-renovation cleaning. Written scope, free quote.`,
+      summary: [
+        `We provide cleaning for villas and detached houses across Fethiye and Seydikemer.`,
+        `Season opening and closing, guest changeovers in holiday lets and post-renovation cleaning are covered.`,
+        `The scope is set in a written checklist; owners who are away receive before-and-after photos.`,
+        PRICE_NOTE,
+      ],
+      intro: [
+        `Cleaning in villas and detached houses peaks at particular points in the year: clearing the dust and damp of the off-season when the season opens, preparing the house for winter when it closes, getting a holiday let ready between guests, and a fine clean after renovation or painting.`,
+        `We run cleaning like our other services: as a job with a written scope. What will be cleaned, how many people and how long it takes, and how the handover is checked are agreed up front. For owners who are away, we photograph the before and after.`,
+      ],
+      scope: [
+        `Deep cleaning of interiors (floors, surfaces, behind and around furniture)`,
+        `Detailed kitchen and bathroom cleaning`,
+        `Windows, frames and glazing`,
+        `Season-opening clean: dusting, airing, beds and linen preparation`,
+        `Season-closing clean and protection for the off-season`,
+        `Guest changeover cleaning and preparation for holiday lets`,
+        `Fine cleaning after renovation, painting or building work`,
+        `Terrace, balcony and outdoor area sweeping and washing`,
+      ],
+      approach: [
+        `The scope and areas are set in a written checklist before the work starts.`,
+        `Access is arranged with a signed key handover; valuables and locked areas are agreed in advance.`,
+        `At the end the job is handed over against the checklist; if you are away, the before and after are photographed.`,
+        `Products are chosen to suit sensitive surfaces such as natural stone and timber.`,
+      ],
+      faq: [
+        { q: `Do you need a site visit for cleaning?`, a: `For small and standard jobs, a short conversation and photos can be enough to settle the scope. For large villas or post-renovation work we need to see the property.` },
+        { q: `Can you clean my holiday let between guests?`, a: `Yes. Cleaning is planned around your check-in and check-out calendar, and the house is prepared for the next guests.` },
+        { q: `Who supplies the cleaning products?`, a: `Usually the crew brings its own; the products used are stated in the agreement. If you prefer your own products, they can be used.` },
+        { q: `Can the cleaning be done while the house is empty?`, a: `Yes. The key is taken over against a written record and a photo report is sent once the job is done.` },
+        { q: `Do you offer regular cleaning?`, a: `Yes, as a one-off job or a regular programme. For owners who are away, cleaning can be included in the Home Care Plan.` },
+      ],
+    },
+
     homecare: {
       slug: 'home-care-plan',
       name: `Home Care Plan`,
@@ -413,7 +457,7 @@ export default {
           `In rental villas pool usage is heavy, so a single weekly visit is often not enough; the schedule is built accordingly.`,
           `Quick checks and small repairs are frequently needed around guest changeover dates, so we plan those into the calendar in advance.`,
           `Demand for pre-season pool and plumbing checks peaks in March and April — book early.`,
-        ], services: ['pool', 'garden', 'homecare'] },
+        ], services: ['pool', 'cleaning', 'homecare'] },
       'ovacik-hisaronu': { slug: 'ovacik-hisaronu', name: `Ovacik & Hisaronu`,
         intro: `Ovacik and Hisaronu have a high proportion of overseas owners, and much of the housing stock stands empty for most of the year. Regular maintenance that can be followed remotely is what is needed most here.`,
         notes: [
