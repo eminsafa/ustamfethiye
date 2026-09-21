@@ -37,16 +37,16 @@ listede çıkan en yakın Türkçe karşılığı seçin.**
   beklediğiniz hizmet: *painter* (boyacı)
 - **Ek kategoriler** (en fazla 9, gerçekten yaptıklarınızla sınırlı): *plumber* (tesisatçı),
   *swimming pool cleaning service* (havuz temizlik/bakım), *gardener* (bahçıvan),
-  *landscaper* (peyzaj), *home improvement / renovation* (tadilat/yenileme)
+  *landscaper* (peyzaj), *home improvement / renovation* (tadilat/yenileme), *house cleaning service* (ev temizlik hizmeti)
 
-### İşletme açıklaması — Türkçe (491 karakter, sınır 750)
+### İşletme açıklaması — Türkçe (505 karakter, sınır 750)
 ```
-Ustam Fethiye, Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı ve su tesisatı hizmeti veren bir hizmet firmasıdır. Keşif ücretsizdir. İşin kapsamı, süresi ve malzemesi yazılı teklif ve sözleşmeyle netleştirilir; işçilik garantisi verilir. Muhatabınız usta değil, firmadır. Türkçe, İngilizce ve Rusça hizmet veriyoruz. Yurt dışında yaşayan ev sahipleri için fotoğraflı iş raporu ve aylık Ev Bakım Planı sunuyoruz. Mesai saatleri içinde 2 saat içinde dönüş yapıyoruz.
+Ustam Fethiye, Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı, su tesisatı ve ev temizliği hizmeti veren bir hizmet firmasıdır. Keşif ücretsizdir. İşin kapsamı, süresi ve malzemesi yazılı teklif ve sözleşmeyle netleştirilir; işçilik garantisi verilir. Muhatabınız usta değil, firmadır. Türkçe, İngilizce ve Rusça hizmet veriyoruz. Yurt dışında yaşayan ev sahipleri için fotoğraflı iş raporu ve aylık Ev Bakım Planı sunuyoruz. Mesai saatleri içinde 2 saat içinde dönüş yapıyoruz.
 ```
 
-### İngilizce sürüm (502 karakter) — hizmet alanı yabancıysa ikinci açıklama/duyuru için
+### İngilizce sürüm (517 karakter) — hizmet alanı yabancıysa ikinci açıklama/duyuru için
 ```
-Ustam Fethiye is a service company providing painting and renovation, pool maintenance, garden maintenance and plumbing across Fethiye and Seydikemer. Site visits are free. Scope, timeline and materials are agreed in a written quotation and contract, with a workmanship guarantee. Your point of contact is the company, not the tradesman. We work in Turkish, English and Russian. For owners living abroad we offer photo reports and a monthly Home Care Plan. We reply within 2 hours during working hours.
+Ustam Fethiye is a service company providing painting and renovation, pool maintenance, garden maintenance, plumbing and home cleaning across Fethiye and Seydikemer. Site visits are free. Scope, timeline and materials are agreed in a written quotation and contract, with a workmanship guarantee. Your point of contact is the company, not the tradesman. We work in Turkish, English and Russian. For owners living abroad we offer photo reports and a monthly Home Care Plan. We reply within 2 hours during working hours.
 ```
 
 > Açıklamaya "yıllardır", "yüzlerce iş", "en iyi" gibi ifadeler eklemeyin. Doğru olmayan
@@ -55,6 +55,7 @@ Ustam Fethiye is a service company providing painting and renovation, pool maint
 ### Hizmetler bölümü (her biri için kısa açıklama)
 | Hizmet | Açıklama |
 |--------|----------|
+| Ev ve Villa Temizliği | Sezon açılış ve kapanış, konuk çıkışı, derin ve tadilat sonrası temizlik. |
 | Boya ve Tadilat | İç ve dış cephe boyası, alçı, banyo–mutfak yenileme. Ücretsiz keşif, yazılı teklif. |
 | Havuz Bakımı | Düzenli bakım, su dengesi, filtre kontrolü, sezon açılış ve kapanış. |
 | Bahçe Bakımı | Çim, budama, sulama sistemi ve mevsimlik bakım. |
