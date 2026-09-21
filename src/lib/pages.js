@@ -1,6 +1,6 @@
 import { site, SERVICE_ORDER, REGION_IDS, waLink } from '../content/site.js';
 import { esc, layout, leadForm, crumbs, faqBlock, ctaBand, serviceCard, icons as I, SVC_ICON } from './render.js';
-import { ART, heroArt, WHY_ICON, STEP_ICON, GUARANTEE_ICON } from './visuals.js';
+import { ART, heroArt, WHY_ICON, STEP_ICON, GUARANTEE_ICON, ICON } from './visuals.js';
 
 const abs = (p) => site.origin + p;
 
@@ -73,8 +73,9 @@ const faqSchema = (items) => ({
 });
 
 /* ---------------------------------------------------------------- ana sayfa */
-// Ana sayfada sekiz adimin kisa ozeti: kesif, teklif, uygulama, teslim
-const HOME_STEPS = [2, 3, 6, 7];
+// Ana sayfa: fiyat etkenleri ve teklifin netlesme adimlari
+const PRICE_FACTOR_ICON = [I.pin, ICON.ruler, ICON.doc];
+const PRICE_STEP_ICON = [ICON.phone, ICON.camera, ICON.ruler, ICON.doc];
 
 const waMessage = (locale) => locale === 'tr' ? 'Merhaba, keşif için bilgi almak istiyorum.'
   : locale === 'ru' ? 'Здравствуйте, хочу записаться на осмотр.'
@@ -83,7 +84,7 @@ const waMessage = (locale) => locale === 'tr' ? 'Merhaba, keşif için bilgi alm
 export function home(ctx) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
-  const faqItems = L.pages.faq.items.slice(0, 3);
+  const faqItems = [2, 3, 6].map((i) => L.pages.faq.items[i]);
 
   const body = `
 <section class="hero">
@@ -119,6 +120,44 @@ export function home(ctx) {
 
 <section class="sec sec--alt">
   <div class="wrap">
+    <div class="sec-head">
+      <h2>${esc(L.home.compare.title)}</h2>
+      <p class="lede">${esc(L.home.compare.lede)}</p>
+    </div>
+    <div class="tablewrap">
+      <table class="compare">
+        <thead><tr>
+          <th scope="col"><span class="sr">${esc(L.home.compare.title)}</span></th>
+          <th scope="col">${esc(L.home.compare.colA)}</th>
+          <th scope="col" class="is-us">${esc(L.home.compare.colB)}</th>
+        </tr></thead>
+        <tbody>
+          ${L.home.compare.rows.map((r) => `<tr><th scope="row">${esc(r.k)}</th><td data-label="${esc(L.home.compare.colA)}">${esc(r.a)}</td><td class="is-us" data-label="${esc(L.home.compare.colB)}">${esc(r.b)}</td></tr>`).join('\n          ')}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>${esc(L.home.pricing.title)}</h2>
+      <p class="lede">${esc(L.home.pricing.lede)}</p>
+    </div>
+    <div class="grid grid--3">
+      ${L.home.pricing.factors.map((f, i) => `<div class="cell gcell"><span class="tile__icon">${PRICE_FACTOR_ICON[i]}</span><div><h3>${esc(f.t)}</h3><p>${esc(f.d)}</p></div></div>`).join('\n      ')}
+    </div>
+    <h3 class="h-flow">${esc(L.home.pricing.stepsTitle)}</h3>
+    <ol class="flow flow--detail" style="--cols:4">
+      ${L.home.pricing.steps.map((st, i) => `<li><span class="flow__icon">${PRICE_STEP_ICON[i]}<b>${i + 1}</b></span><h3>${esc(st.t)}</h3><p>${esc(st.d)}</p></li>`).join('\n      ')}
+    </ol>
+    <p class="more"><a class="btn btn--primary" href="${u('contact')}">${esc(L.ui.ctaQuote)}</a></p>
+  </div>
+</section>
+
+<section class="sec sec--alt">
+  <div class="wrap">
     <div class="sec-head"><h2>${esc(L.home.promiseTitle)}</h2></div>
     <ul class="tiles">
       ${L.home.promises.map((p, i) => `<li><span class="tile__icon">${WHY_ICON[i]}</span><span class="tile__t">${esc(p.t)}</span></li>`).join('\n')}
@@ -127,19 +166,6 @@ export function home(ctx) {
 </section>
 
 <section class="sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>${esc(L.home.howTitle)}</h2>
-      <p class="lede">${esc(L.home.howLede)}</p>
-    </div>
-    <ol class="flow" style="--cols:4">
-      ${HOME_STEPS.map((i, n) => `<li><span class="flow__icon">${STEP_ICON[i]}<b>${n + 1}</b></span><h3>${esc(L.pages.how.steps[i].t)}</h3></li>`).join('\n')}
-    </ol>
-    <p class="more"><a class="btn btn--ghost" href="${u('how')}">${esc(L.pages.how.h1)} ${I.arrow}</a></p>
-  </div>
-</section>
-
-<section class="sec sec--alt">
   <div class="wrap">
     <div class="sec-head">
       <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
@@ -152,7 +178,7 @@ export function home(ctx) {
   </div>
 </section>
 
-<section class="sec">
+<section class="sec sec--alt">
   <div class="wrap">
     <div class="sec-head"><h2>${esc(L.home.faqTitle)}</h2></div>
     ${faqBlock(faqItems)}

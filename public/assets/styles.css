@@ -260,6 +260,20 @@ ul.plain{list-style:none;padding:0;margin:0}
 .gcell h3{font-size:1.02rem;margin-bottom:.35rem}
 .gcell p{font-family:var(--f-ui);font-size:.9rem;color:var(--ink-2);margin:0;line-height:1.55}
 
+/* ---------- karsilastirma tablosu ---------- */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tablewrap{overflow-x:auto}
+.compare{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border:1px solid var(--line)}
+.compare th,.compare td{padding:1rem 1.15rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);
+  font-family:var(--f-ui);font-size:.93rem;line-height:1.5}
+.compare thead th{font-size:.74rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);background:var(--paper)}
+.compare thead th.is-us{background:var(--brand);color:#fff}
+.compare tbody th{width:19%;font-weight:700;color:var(--ink)}
+.compare td{width:40%;color:var(--ink-2)}
+.compare td.is-us{background:var(--brand-50);color:var(--ink);font-weight:500;border-left:1px solid var(--brand-100)}
+.compare tbody tr:last-child>*{border-bottom:0}
+.h-flow{margin:2.8rem 0 1.8rem;font-size:1.25rem}
+
 /* ---------- surec akisi ---------- */
 .flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--cols,4),1fr);gap:2.2rem 1rem}
 .flow li{position:relative;text-align:center;padding-inline:.4rem}
@@ -465,6 +479,19 @@ ul.plain{list-style:none;padding:0;margin:0}
   .navtoggle{display:inline-flex}
   .topbar__cta{display:none}
   .topbar__in{position:relative}
+}
+@media (max-width:760px){
+  .compare,.compare tbody,.compare tr,.compare th,.compare td{display:block;width:auto}
+  .compare thead{display:none}
+  .compare tbody th,.compare td{width:auto}
+  .compare tr{border-bottom:1px solid var(--line)}
+  .compare tbody tr:last-child{border-bottom:0}
+  .compare tbody th{padding-bottom:.35rem;background:var(--paper);border-bottom:0}
+  .compare td{border-bottom:0;padding-top:.55rem;padding-bottom:.7rem}
+  .compare td::before{content:attr(data-label);display:block;font:600 .66rem var(--f-mono);letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-3);margin-bottom:.15rem}
+  .compare td.is-us{border-left:0;border-top:1px solid var(--brand-100)}
+  .compare td.is-us::before{color:var(--brand)}
 }
 @media (max-width:620px){
   body{font-size:16.5px;padding-bottom:64px}

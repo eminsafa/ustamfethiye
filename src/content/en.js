@@ -37,15 +37,15 @@ export default {
     updated: `Updated`,
     breadcrumb: `Breadcrumb`,
 
-    ctaQuote: `Request a free site visit`,
+    ctaQuote: `Get a free quote`,
     ctaQuoteShort: `Get a quote`,
     ctaWhatsapp: `WhatsApp`,
     ctaCall: `Call`,
     ctaPlan: `Home Care Plan`,
     ctaMore: `Details`,
 
-    formTitle: `Request a free site visit`,
-    formIntro: `Send us the form and we will get back to you within 2 hours during working hours. The site visit is free.`,
+    formTitle: `Request a free quote`,
+    formIntro: `Send us the form and we will get back to you within 2 hours during working hours. The quotation is free.`,
     fName: `Full name`,
     fPhone: `Phone / WhatsApp`,
     fEmail: `Email (optional)`,
@@ -79,9 +79,9 @@ export default {
     trust: [
       `One point of contact: the company, not the tradesman`,
       `Written contract and workmanship guarantee`,
-      `Free site visit`,
-      `Türkçe · English · Русский`,
       `Photo report on every job`,
+      `Türkçe · English · Русский`,
+      `Free quotation`,
     ],
 
     footerAbout: `A service company delivering painting and renovation, pool maintenance, garden maintenance and plumbing across Fethiye and Seydikemer — with the company, not the tradesman, taking responsibility.`,
@@ -103,18 +103,49 @@ export default {
     title: `Trusted Tradesmen in Fethiye & Seydikemer | Ustam Fethiye`,
     description: `Painting and renovation, pool maintenance, garden maintenance and plumbing in Fethiye and Seydikemer. Free site visit, written contract, workmanship guarantee. English, Russian and Turkish.`,
     h1: `Stop chasing tradesmen. We take responsibility.`,
-    lede: `Painting and renovation, pool, garden and plumbing across Fethiye and Seydikemer. From survey to handover, one company is responsible.`,
+    lede: `Painting and renovation, pool, garden and plumbing for villa and house owners across Fethiye and Seydikemer. One company, with a written contract, a workmanship guarantee and photo reports.`,
 
     promiseTitle: `Why Ustam Fethiye`,
     promiseLede: `Finding a tradesman in Fethiye is not the hard part. Knowing that he will turn up, that the price will hold and that the job will actually be finished — that is the hard part. This is exactly what we solve.`,
     promises: [
       { t: `One point of contact`, d: `What matters is not who does the work, but who stands behind it. If something goes wrong, you deal with the company.` },
       { t: `Written contract`, d: `Scope, timeline, materials and guarantee are defined in writing in a single document.` },
-      { t: `Free site visit`, d: `We measure on site, take photos, agree the scope and prepare a written quotation.` },
+      { t: `Itemised quotation`, d: `Scope, materials and timeline in writing; the price stays fixed unless the scope changes.` },
       { t: `Workmanship guarantee`, d: `We stand behind the work we hand over. The guarantee terms are written into the contract.` },
       { t: `In your language`, d: `English, Russian and Turkish — including quotations and contracts.` },
       { t: `Photo report`, d: `If you are away from your property, you see the before, the progress and the result in photographs.` },
     ],
+
+    compare: {
+      title: `The difference between hiring a tradesman and working with a company`,
+      lede: `There are two ways to get the same job done: with a tradesman you find yourself, or with a company that takes responsibility.`,
+      colA: `A tradesman you find yourself`,
+      colB: `Ustam Fethiye`,
+      rows: [
+        { k: `Who does the work?`, a: `Someone you do not know, whose references you have to check yourself.`, b: `Tradesmen and crews our company works with; we plan and supervise the job.` },
+        { k: `If something goes wrong`, a: `Your only contact is the tradesman; the outcome often depends on goodwill.`, b: `Your contact is the company. Ustam Fethiye is the party to the contract and responsible for the work.` },
+        { k: `Price`, a: `Verbal and changeable; it can drift mid-job if the scope is unclear.`, b: `Scope written item by item; the price stays fixed unless the scope changes.` },
+        { k: `Contract and guarantee`, a: `Often just a verbal agreement.`, b: `Written contract and workmanship guarantee.` },
+        { k: `If you are away`, a: `You cannot see what is happening at the property.`, b: `Key handover recorded in writing; a photo report at every stage.` },
+        { k: `Communication`, a: `With the tradesman, and sometimes with several separate people.`, b: `One point of contact; Turkish, English and Russian.` },
+      ],
+    },
+    pricing: {
+      title: `Price depends on the job`,
+      lede: `No two properties are alike. So instead of a price list, we make sure we understand the job and give you a clear, written quotation.`,
+      factors: [
+        { t: `Location`, d: `Access, distance, estate or building rules, season.` },
+        { t: `Size`, d: `Floor area, pool dimensions, garden area, number of floors.` },
+        { t: `Scope of work`, d: `Scope, quality of materials, preparation and repair needs, timeline.` },
+      ],
+      stepsTitle: `How your quotation takes shape`,
+      steps: [
+        { t: `Short conversation`, d: `We listen to what you need by phone or WhatsApp.` },
+        { t: `Photos or video`, d: `Even if you are abroad, we can see the job and give a first assessment.` },
+        { t: `Site visit`, d: `When needed we measure and check the condition of the surfaces. Free of charge.` },
+        { t: `Written quotation`, d: `Itemised, with materials and timeline. The price stays fixed unless the scope changes.` },
+      ],
+    },
 
     servicesTitle: `Our services`,
     servicesLede: `Four core services, plus a care plan built for owners who manage their property from abroad.`,
@@ -129,8 +160,8 @@ export default {
     planLede: `The Home Care Plan is a monthly package for properties that stand empty most of the year: regular inspection visits, pool and garden maintenance, and a photo report every month.`,
 
     faqTitle: `Common questions`,
-    ctaTitle: `Ask for a site visit`,
-    ctaLede: `Request a site visit, message us on WhatsApp or call. We reply within 2 hours during working hours.`,
+    ctaTitle: `Ask for a quote`,
+    ctaLede: `Request a quote, message us on WhatsApp or call. We reply within 2 hours during working hours.`,
   },
 
   services: {
@@ -484,8 +515,8 @@ export default {
       items: [
         { q: `Which areas do you cover?`, a: `We cover the whole of the Fethiye and Seydikemer districts, including Fethiye centre, Calis, Karagozler, Oludeniz, Ovacik, Hisaronu, Kayakoy, Gocek, Uzumlu and the surrounding area.` },
         { q: `Do you charge for the site visit?`, a: `No. Site visits are free within our Fethiye and Seydikemer service area. We measure, photograph and then prepare your written quotation.` },
-        { q: `How do you set your prices?`, a: `Pricing is determined by the definition, location and scope of the work. That is why we do not quote without a site visit. The quotation prepared afterwards is itemised in writing and holds unless the scope changes.` },
-        { q: `Can you give me a rough price over the phone?`, a: `We could, but we do not. Estimates given without seeing the property change mid-job, and that is the single biggest cause of disputes in this trade. Instead we carry out a free site visit and give you a fixed price in writing.` },
+        { q: `How do you set your prices?`, a: `Pricing is determined by the definition, location and size of the work. We start with a short conversation and, if needed, photos or video; when necessary we carry out a free site visit. We then prepare an itemised written quotation, and the price holds unless the scope changes.` },
+        { q: `Can you give me a rough price over the phone?`, a: `In an initial conversation we can give you a rough frame for the size of the job from photos or video. But because no two properties are alike, a binding price is given in a written quotation once we have understood the job properly and, where needed, carried out a free site visit. Firm numbers given without seeing the property tend to change mid-job, which is the single biggest cause of disputes in this trade.` },
         { q: `Who actually does the work?`, a: `The work is carried out by the tradesmen and teams we work with. But the party under contract with you — planning, supervising and answerable for the result — is the company. You do not deal with the team on site; we do.` },
         { q: `Do you work under contract?`, a: `Yes, every job is carried out under a written contract covering scope, start and handover dates, materials, payment terms and guarantee. The contract is also provided in your preferred language.` },
         { q: `Do you give a guarantee?`, a: `Yes. We provide a workmanship guarantee on the work we hand over; the period and scope vary by service and are set out in the contract. Where we supply the materials, the product guarantee is handled alongside it.` },

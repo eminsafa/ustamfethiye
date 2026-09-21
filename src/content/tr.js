@@ -37,15 +37,15 @@ export default {
     updated: `Güncelleme`,
     breadcrumb: `Neredesiniz`,
 
-    ctaQuote: `Ücretsiz keşif talebi`,
+    ctaQuote: `Ücretsiz teklif al`,
     ctaQuoteShort: `Teklif al`,
     ctaWhatsapp: `WhatsApp`,
     ctaCall: `Ara`,
     ctaPlan: `Ev Bakım Planı`,
     ctaMore: `Ayrıntılar`,
 
-    formTitle: `Ücretsiz keşif talebi`,
-    formIntro: `Formu doldurun, mesai saatleri içinde 2 saat içinde dönüş yapalım. Keşif ücretsizdir.`,
+    formTitle: `Ücretsiz teklif talebi`,
+    formIntro: `Formu doldurun, mesai saatleri içinde 2 saat içinde dönüş yapalım. Teklif ücretsizdir.`,
     fName: `Ad ve soyad`,
     fPhone: `Telefon / WhatsApp`,
     fEmail: `E-posta (isteğe bağlı)`,
@@ -79,9 +79,9 @@ export default {
     trust: [
       `Tek muhatap: usta değil, firma`,
       `Yazılı sözleşme ve işçilik garantisi`,
-      `Keşif ücretsiz`,
-      `Türkçe · English · Русский`,
       `Fotoğraflı iş raporu`,
+      `Türkçe · English · Русский`,
+      `Ücretsiz teklif`,
     ],
 
     footerAbout: `Fethiye ve Seydikemer bölgesinde boya ve tadilat, havuz bakımı, bahçe bakımı ve su tesisatı hizmetlerini kurumsal sorumlulukla veren hizmet şirketi.`,
@@ -103,18 +103,49 @@ export default {
     title: `Fethiye ve Seydikemer'de Usta Hizmeti | Ustam Fethiye`,
     description: `Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı ve su tesisatı. Keşif ücretsiz, yazılı sözleşme, işçilik garantisi. Türkçe, İngilizce, Rusça.`,
     h1: `Ustayı siz aramayın. Sorumluluğu biz alalım.`,
-    lede: `Fethiye ve Seydikemer'de boya-tadilat, havuz, bahçe ve su tesisatı. Keşiften teslime her şey tek firmadan.`,
+    lede: `Fethiye ve Seydikemer'de villa ve müstakil ev sahipleri için boya-tadilat, havuz, bahçe ve su tesisatı. Yazılı sözleşme, işçilik garantisi ve fotoğraflı raporla, tek firmadan.`,
 
     promiseTitle: `Neden Ustam Fethiye?`,
     promiseLede: `Fethiye'de usta bulmak zor değil; gelen ustanın geleceğinden ve işin bitirileceğinden emin olmak zor. Biz tam olarak bu sorunu çözüyoruz.`,
     promises: [
       { t: `Tek muhatap`, d: `İşi kimin yaptığı değil, kimin arkasında durduğu önemli. Bir sorun çıkarsa muhatabınız firmadır.` },
       { t: `Yazılı sözleşme`, d: `İş kapsamı, süre, kullanılacak malzeme ve garanti tek belgede yazılı olarak tanımlanır.` },
-      { t: `Ücretsiz keşif`, d: `Yerinde ölçü alır, fotoğraflar, kapsamı netleştirir ve yazılı teklifi hazırlarız.` },
+      { t: `Kalem kalem teklif`, d: `Kapsam, malzeme ve süre yazılı; kapsam değişmedikçe fiyat sabittir.` },
       { t: `İşçilik garantisi`, d: `Teslim edilen işin arkasında dururuz. Garanti kapsamı sözleşmede yazılıdır.` },
       { t: `Kendi dilinizde`, d: `Türkçe, İngilizce ve Rusça iletişim; teklif ve sözleşme dahil.` },
       { t: `Fotoğraflı iş raporu`, d: `Evinizden uzaktaysanız işin öncesini, ilerleyişini ve sonucunu fotoğrafla görürsünüz.` },
     ],
+
+    compare: {
+      title: `Usta aramak ile firmayla çalışmak arasındaki fark`,
+      lede: `Aynı işi iki farklı yoldan yaptırabilirsiniz: kendi bulduğunuz ustayla ya da sorumluluğu üstlenen bir firmayla.`,
+      colA: `Kendi bulduğunuz usta`,
+      colB: `Ustam Fethiye`,
+      rows: [
+        { k: `İşi kim yapar?`, a: `Tanımadığınız, referansını kendiniz araştırmak zorunda olduğunuz bir usta.`, b: `Firmamızın çalıştığı usta ve ekipler; işi biz planlar ve denetleriz.` },
+        { k: `Sorun çıkarsa`, a: `Muhatabınız yalnızca ustadır; çözüm çoğu zaman kişisel iyi niyete kalır.`, b: `Muhatabınız firmadır. Sözleşmenin tarafı ve işin sorumlusu Ustam Fethiye'dir.` },
+        { k: `Fiyat`, a: `Sözlü ve değişebilir; kapsam net değilse iş ortasında kayabilir.`, b: `Kapsam kalem kalem yazılı; kapsam değişmedikçe fiyat sabittir.` },
+        { k: `Sözleşme ve garanti`, a: `Çoğu zaman sözlü anlaşma.`, b: `Yazılı sözleşme ve işçilik garantisi.` },
+        { k: `Siz uzaktaysanız`, a: `Evde neler olduğunu göremezsiniz.`, b: `Anahtar teslimi tutanakla; her aşamada fotoğraflı rapor.` },
+        { k: `İletişim`, a: `Ustayla ve gerekirse birkaç ayrı kişiyle ayrı ayrı.`, b: `Tek muhatap; Türkçe, İngilizce ve Rusça.` },
+      ],
+    },
+    pricing: {
+      title: `Fiyat işe göre belirlenir`,
+      lede: `İki ev birbirine benzemez. Bu yüzden hazır bir fiyat listesi yerine işi doğru anlıyor, size yazılı ve net bir teklif veriyoruz.`,
+      factors: [
+        { t: `Konum`, d: `Erişim, mesafe, site veya apartman kuralları, mevsim.` },
+        { t: `Büyüklük`, d: `Metrekare, havuz ölçüsü, bahçe alanı, kat sayısı.` },
+        { t: `İş tanımı`, d: `Kapsam, malzeme kalitesi, hazırlık ve onarım ihtiyacı, süre.` },
+      ],
+      stepsTitle: `Teklifiniz nasıl netleşir?`,
+      steps: [
+        { t: `Kısa görüşme`, d: `Telefon veya WhatsApp'ta ihtiyacınızı dinleriz.` },
+        { t: `Fotoğraf veya video`, d: `Uzaktaysanız da işi görür, ön değerlendirmeyi yaparız.` },
+        { t: `Yerinde keşif`, d: `Gerektiğinde ölçü alır, yüzeylerin durumuna bakarız. Ücretsiz.` },
+        { t: `Yazılı teklif`, d: `Kalem kalem; malzeme ve süre net. Kapsam değişmedikçe fiyat sabit.` },
+      ],
+    },
 
     servicesTitle: `Hizmetlerimiz`,
     servicesLede: `Dört ana hizmet ve evini uzaktan yönetenler için hazırlanan bakım planı.`,
@@ -129,8 +160,8 @@ export default {
     planLede: `Ev Bakım Planı, yılın büyük bölümünde boş kalan evler için aylık sabit ücretli bakım paketidir. Düzenli kontrol ziyareti, havuz ve bahçe bakımı ve her ay fotoğraflı rapor.`,
 
     faqTitle: `Merak edilenler`,
-    ctaTitle: `Keşif için bize yazın`,
-    ctaLede: `Keşif talebi bırakın, WhatsApp'tan yazın ya da arayın. Mesai saatleri içinde 2 saat içinde dönüş yapıyoruz.`,
+    ctaTitle: `Teklif için bize yazın`,
+    ctaLede: `Teklif talebi bırakın, WhatsApp'tan yazın ya da arayın. Mesai saatleri içinde 2 saat içinde dönüş yapıyoruz.`,
   },
 
   services: {
@@ -516,8 +547,8 @@ export default {
       items: [
         { q: `Hangi bölgelerde hizmet veriyorsunuz?`, a: `Fethiye ve Seydikemer ilçelerinin tamamında hizmet veriyoruz. Fethiye merkez, Çalış, Karagözler, Ölüdeniz, Ovacık, Hisarönü, Kayaköy, Göcek, Üzümlü ve Seydikemer çevresi hizmet bölgemizdedir.` },
         { q: `Keşif ücretli mi?`, a: `Hayır. Fethiye ve Seydikemer hizmet bölgesi içinde keşif ücretsizdir. Keşifte yerinde ölçü alır, fotoğraflar ve ardından yazılı teklifinizi hazırlarız.` },
-        { q: `Fiyatı nasıl belirliyorsunuz?`, a: `Fiyat; işin tanımı, konumu ve kapsamına göre belirlenir. Bu nedenle keşif yapılmadan fiyat vermiyoruz. Keşif sonrası hazırlanan teklif kalem kalem yazılıdır ve kapsam değişmedikçe geçerlidir.` },
-        { q: `Telefonda yaklaşık bir fiyat söyleyemez misiniz?`, a: `Söyleyebiliriz ama söylemiyoruz. Yerinde görülmeden verilen tahmini rakamlar işin ortasında değişiyor ve bu, bu sektördeki anlaşmazlıkların birinci sebebi. Onun yerine ücretsiz keşif yapıp yazılı ve sabit bir fiyat veriyoruz.` },
+        { q: `Fiyatı nasıl belirliyorsunuz?`, a: `Fiyat; işin tanımı, konumu ve büyüklüğüne göre belirlenir. Önce kısa bir görüşmeyle, gerekirse fotoğraf veya videoyla işi anlarız; gerektiğinde ücretsiz keşif yaparız. Ardından kalem kalem yazılı bir teklif hazırlarız; kapsam değişmedikçe fiyat sabittir.` },
+        { q: `Telefonda yaklaşık bir fiyat söyleyemez misiniz?`, a: `Ön görüşmede, fotoğraf veya videodan yola çıkarak işin büyüklüğü hakkında bir çerçeve çizebiliriz. Ancak iki ev aynı olmadığı için bağlayıcı fiyat, işi doğru anlayıp gerekirse ücretsiz keşif yaptıktan sonra yazılı teklifle verilir. Yerinde görülmeden verilen kesin rakamlar işin ortasında değişir ve bu, sektördeki anlaşmazlıkların birinci sebebidir.` },
         { q: `İşi kim yapıyor?`, a: `İşi, çalıştığımız usta ve ekipler yapar. Ancak sizinle sözleşmesi olan, işi planlayan, denetleyen ve sonucundan sorumlu olan taraf firmadır. Sahadaki ekiple siz değil, biz muhatap oluruz.` },
         { q: `Sözleşme yapıyor musunuz?`, a: `Evet, her iş yazılı sözleşme ile yapılır. Sözleşmede iş kapsamı, başlangıç ve teslim tarihi, kullanılacak malzeme, ödeme koşulları ve garanti yer alır. Sözleşmeyi tercih ettiğiniz dilde de sunuyoruz.` },
         { q: `Garanti veriyor musunuz?`, a: `Evet. Teslim ettiğimiz işlerde işçilik garantisi veriyoruz; süresi ve kapsamı hizmete göre değişir ve sözleşmede yazılı olarak tanımlanır. Malzemeyi biz temin ettiysek ürün garantisi de kapsamda değerlendirilir.` },
