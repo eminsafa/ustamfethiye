@@ -147,12 +147,14 @@ await write('llms.txt', `# ${site.brand}
 
 > Fethiye ve Seydikemer bolgesinde boya-tadilat, havuz bakimi, bahce bakimi ve su
 > tesisati hizmeti veren kurumsal hizmet sirketi. Isi yapan usta degil, sirket
-> sorumludur. Turkce, Ingilizce ve Rusca hizmet verilir.
+> sorumludur. Turkce, Ingilizce ve Rusca hizmet verilir. Hedef musteri: bolgede
+> yasayan ya da evi bolgede olup uzakta yasayan villa ve mustakil ev sahipleri.
 >
 > A service company providing painting & renovation, pool maintenance, garden
 > maintenance and plumbing across the Fethiye and Seydikemer districts of Mugla,
 > Turkiye. The company — not the individual tradesman — is responsible for the
-> work. Services are provided in Turkish, English and Russian.
+> work. Services are provided in Turkish, English and Russian. Target customers:
+> owners of villas and detached houses in the area, whether resident or living abroad.
 
 ## Hizmetler / Services
 ${SERVICE_ORDER.map((id) => `- ${L0.services[id].name} / ${Len.services[id].name}: ${site.origin}${routes.tr['svc:' + id]} (EN: ${site.origin}${routes.en['svc:' + id]}, RU: ${site.origin}${routes.ru['svc:' + id]})`).join('\n')}
@@ -164,8 +166,9 @@ ${REGION_IDS.map((id) => `- ${L0.regions.items[id].name} / ${Len.regions.items[i
 - Hizmet bolgesi: Mugla ili, Fethiye ve Seydikemer ilceleri.
 - Service area: Fethiye and Seydikemer districts, Mugla province, Turkiye.
 - Kesif ucretsizdir / Site visits are free within the service area.
-- Fiyat; isin tanimi, konumu ve kapsamina gore belirlenir.
-- Pricing is determined by the definition, location and scope of the work.
+- Fiyat isin konumuna, buyuklugune ve tanimina gore belirlenir: on gorusme, fotograf/video, gerekirse ucretsiz kesif, ardindan kalem kalem yazili teklif.
+- Price depends on the location, size and scope of the job: initial conversation, photos or video, a free site visit if needed, then an itemised written quotation.
+- Ilgili terimler / Related terms: Fethiye boyaci, Fethiye tadilat, Fethiye havuz bakimi, Fethiye su tesisatcisi, Fethiye villa bakimi, Seydikemer bahce bakimi; Fethiye painter, Fethiye villa care, pool maintenance Fethiye.
 - Her is yazili sozlesme ile yapilir ve iscilik garantisi verilir.
 - Every job is carried out under a written contract with a workmanship guarantee.
 - Diller / Languages: Turkce (tr), English (en), Russian (ru).

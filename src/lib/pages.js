@@ -4,6 +4,15 @@ import { ART, heroArt, WHY_ICON, STEP_ICON, GUARANTEE_ICON, ICON } from './visua
 
 const abs = (p) => site.origin + p;
 
+/** Aciklamayi cumle ya da kelime sinirinda keser; kelimeyi ortadan bolmez. */
+const clip = (text, max) => {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const dot = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '));
+  if (dot > max * 0.6) return cut.slice(0, dot + 1);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:–—-]$/, '') + '…';
+};
+
 /* ---------------------------------------------------------------- schema.org */
 export function orgSchema(ctx) {
   const { L, locale, routes } = ctx;
@@ -213,7 +222,7 @@ ${crumbs(ctx, [[L.ui.services, u('home') + '#services'], [s.name, u('svc:' + id)
   <div class="wrap phead__in phead__in--art">
     <div>
       <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
-      <h1>${esc(s.name)}</h1>
+      <h1>${esc(s.h1 || s.name)}</h1>
       <p class="lede">${esc(s.tagline)}</p>
       <p class="phead__meta">${esc(L.ui.updated)}: ${site.updated}</p>
     </div>
@@ -239,7 +248,7 @@ ${crumbs(ctx, [[L.ui.services, u('home') + '#services'], [s.name, u('svc:' + id)
       ${faqBlock(s.faq)}
     </div>
 
-    <aside class="aside">
+    <div class="aside">
       ${leadForm(ctx, { compact: true })}
       <div class="panel">
         <h3>${esc(L.ui.relatedServices)}</h3>
@@ -247,7 +256,7 @@ ${crumbs(ctx, [[L.ui.services, u('home') + '#services'], [s.name, u('svc:' + id)
           ${related.map((r) => `<li><a href="${u('svc:' + r)}">${esc(L.services[r].name)}</a></li>`).join('')}
         </ul>
       </div>
-    </aside>
+    </div>
   </div>
 </section>
 
@@ -331,8 +340,10 @@ export function regionPage(ctx, id) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
   const r = L.regions.items[id];
-  const title = `${r.name} — ${L.ui.services} | ${site.brand}`;
-  const desc = r.intro.slice(0, 155);
+  const shortList = r.services.map((sid) => L.services[sid].short).join(', ');
+  const nameList = r.services.map((sid) => L.services[sid].name).join(', ');
+  const title = `${r.name} — ${shortList} | ${site.brand}`;
+  const desc = clip(`${r.name}: ${nameList}. ${r.intro}`, 155);
 
   const body = `
 ${crumbs(ctx, [[L.regions.h1, u('regions')], [r.name, u('region:' + id)]])}
@@ -358,9 +369,9 @@ ${crumbs(ctx, [[L.regions.h1, u('regions')], [r.name, u('region:' + id)]])}
 
       <p><a class="btn btn--ghost" href="${u('regions')}">${esc(L.ui.allRegions)} ${I.arrow}</a></p>
     </div>
-    <aside class="aside">
+    <div class="aside">
       ${leadForm(ctx, { compact: true })}
-    </aside>
+    </div>
   </div>
 </section>
 ${ctaBand(ctx)}`;
@@ -397,6 +408,7 @@ ${crumbs(ctx, [[P.h1, u('how')]])}
 
 <section class="sec">
   <div class="wrap">
+    <h2 class="sr">${esc(P.stepsTitle)}</h2>
     <ol class="flow flow--detail" style="--cols:4">
       ${P.steps.map((s, i) => `<li><span class="flow__icon">${STEP_ICON[i]}<b>${i + 1}</b></span><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></li>`).join('\n')}
     </ol>
@@ -446,7 +458,7 @@ ${crumbs(ctx, [[P.h1, u('about')]])}
     <div class="grid grid--2 grid--flat">
       ${P.body.map((b, i) => `<div class="cell abox"><span class="abox__n">${String(i + 1).padStart(2, '0')}</span><h2>${esc(b.t)}</h2>${b.p.map((x) => `<p>${esc(x)}</p>`).join('')}</div>`).join('\n')}
     </div>
-    <aside class="aside">
+    <div class="aside">
       <div class="panel">
         <h3>${esc(P.factsTitle)}</h3>
         <dl class="deflist">
@@ -462,7 +474,7 @@ ${crumbs(ctx, [[P.h1, u('about')]])}
         </ul>
         <a class="btn btn--primary btn--block" style="margin-top:1rem" href="${u('contact')}">${esc(L.ui.ctaQuote)}</a>
       </div>
-    </aside>
+    </div>
   </div>
 </section>
 ${ctaBand(ctx, { form: true })}`;
@@ -490,7 +502,7 @@ ${crumbs(ctx, [[P.h1, u('faq')]])}
 <section class="sec">
   <div class="wrap split">
     <div>${faqBlock(P.items)}</div>
-    <aside class="aside">${leadForm(ctx, { compact: true })}</aside>
+    <div class="aside">${leadForm(ctx, { compact: true })}</div>
   </div>
 </section>
 ${ctaBand(ctx)}`;
@@ -517,7 +529,7 @@ ${crumbs(ctx, [[P.h1, u('contact')]])}
 <section class="sec">
   <div class="wrap split">
     ${leadForm(ctx)}
-    <aside class="aside">
+    <div class="aside">
       <div class="panel">
         <h3>${esc(P.infoTitle)}</h3>
         <ul class="contactlist">
@@ -533,7 +545,7 @@ ${crumbs(ctx, [[P.h1, u('contact')]])}
           ${REGION_IDS.map((id) => `<li><a href="${u('region:' + id)}">${I.pin}${esc(L.regions.items[id].name)}</a></li>`).join('')}
         </ul>
       </div>
-    </aside>
+    </div>
   </div>
 </section>`;
 

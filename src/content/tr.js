@@ -100,8 +100,8 @@ export default {
   },
 
   home: {
-    title: `Fethiye ve Seydikemer'de Usta Hizmeti | Ustam Fethiye`,
-    description: `Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı ve su tesisatı. Keşif ücretsiz, yazılı sözleşme, işçilik garantisi. Türkçe, İngilizce, Rusça.`,
+    title: `Fethiye Boyacı, Tadilat ve Havuz Bakımı | Ustam Fethiye`,
+    description: `Fethiye ve Seydikemer'de villa ve müstakil evler için boyacı, tadilat, havuz ve bahçe bakımı, su tesisatı. Yazılı sözleşme, işçilik garantisi, ücretsiz teklif.`,
     h1: `Ustayı siz aramayın. Sorumluluğu biz alalım.`,
     lede: `Fethiye ve Seydikemer'de villa ve müstakil ev sahipleri için boya-tadilat, havuz, bahçe ve su tesisatı. Yazılı sözleşme, işçilik garantisi ve fotoğraflı raporla, tek firmadan.`,
 
@@ -117,22 +117,22 @@ export default {
     ],
 
     compare: {
-      title: `Usta aramak ile firmayla çalışmak arasındaki fark`,
-      lede: `Aynı işi iki farklı yoldan yaptırabilirsiniz: kendi bulduğunuz ustayla ya da sorumluluğu üstlenen bir firmayla.`,
+      title: `Usta bulmak mı, firmayla çalışmak mı?`,
+      lede: `İki yol var: kendi bulduğunuz usta ya da sorumluluğu üstlenen bir firma.`,
       colA: `Kendi bulduğunuz usta`,
       colB: `Ustam Fethiye`,
       rows: [
-        { k: `İşi kim yapar?`, a: `Tanımadığınız, referansını kendiniz araştırmak zorunda olduğunuz bir usta.`, b: `Firmamızın çalıştığı usta ve ekipler; işi biz planlar ve denetleriz.` },
-        { k: `Sorun çıkarsa`, a: `Muhatabınız yalnızca ustadır; çözüm çoğu zaman kişisel iyi niyete kalır.`, b: `Muhatabınız firmadır. Sözleşmenin tarafı ve işin sorumlusu Ustam Fethiye'dir.` },
-        { k: `Fiyat`, a: `Sözlü ve değişebilir; kapsam net değilse iş ortasında kayabilir.`, b: `Kapsam kalem kalem yazılı; kapsam değişmedikçe fiyat sabittir.` },
-        { k: `Sözleşme ve garanti`, a: `Çoğu zaman sözlü anlaşma.`, b: `Yazılı sözleşme ve işçilik garantisi.` },
-        { k: `Siz uzaktaysanız`, a: `Evde neler olduğunu göremezsiniz.`, b: `Anahtar teslimi tutanakla; her aşamada fotoğraflı rapor.` },
-        { k: `İletişim`, a: `Ustayla ve gerekirse birkaç ayrı kişiyle ayrı ayrı.`, b: `Tek muhatap; Türkçe, İngilizce ve Rusça.` },
+        { k: `İşi kim yapar?`, a: `Tanımadığınız bir usta; referansını siz araştırırsınız.`, b: `Firmamızın ustaları; işi biz planlar ve denetleriz.` },
+        { k: `Sorun çıkarsa`, a: `Muhatabınız yalnızca usta.`, b: `Muhatabınız firma; sözleşmenin tarafı biziz.` },
+        { k: `Fiyat`, a: `Sözlü; iş ortasında kayabilir.`, b: `Kalem kalem yazılı; kapsam değişmedikçe sabit.` },
+        { k: `Sözleşme ve garanti`, a: `Çoğu zaman sözlü anlaşma.`, b: `Yazılı sözleşme, işçilik garantisi.` },
+        { k: `Siz uzaktaysanız`, a: `Evde olanları göremezsiniz.`, b: `Tutanaklı anahtar teslimi, fotoğraflı rapor.` },
+        { k: `İletişim`, a: `Usta ile, gerekirse birkaç kişiyle.`, b: `Tek muhatap; Türkçe, İngilizce, Rusça.` },
       ],
     },
     pricing: {
       title: `Fiyat işe göre belirlenir`,
-      lede: `İki ev birbirine benzemez. Bu yüzden hazır bir fiyat listesi yerine işi doğru anlıyor, size yazılı ve net bir teklif veriyoruz.`,
+      lede: `İki ev aynı değildir. Hazır liste yerine işi anlıyor, yazılı ve net bir teklif veriyoruz.`,
       factors: [
         { t: `Konum`, d: `Erişim, mesafe, site veya apartman kuralları, mevsim.` },
         { t: `Büyüklük`, d: `Metrekare, havuz ölçüsü, bahçe alanı, kat sayısı.` },
@@ -140,10 +140,10 @@ export default {
       ],
       stepsTitle: `Teklifiniz nasıl netleşir?`,
       steps: [
-        { t: `Kısa görüşme`, d: `Telefon veya WhatsApp'ta ihtiyacınızı dinleriz.` },
-        { t: `Fotoğraf veya video`, d: `Uzaktaysanız da işi görür, ön değerlendirmeyi yaparız.` },
-        { t: `Yerinde keşif`, d: `Gerektiğinde ölçü alır, yüzeylerin durumuna bakarız. Ücretsiz.` },
-        { t: `Yazılı teklif`, d: `Kalem kalem; malzeme ve süre net. Kapsam değişmedikçe fiyat sabit.` },
+        { t: `Kısa görüşme`, d: `Telefon veya WhatsApp'ta sizi dinleriz.` },
+        { t: `Fotoğraf veya video`, d: `Uzaktaysanız da işi görürüz.` },
+        { t: `Yerinde keşif`, d: `Gerekirse ölçü alırız. Ücretsiz.` },
+        { t: `Yazılı teklif`, d: `Kalem kalem; kapsam değişmedikçe sabit.` },
       ],
     },
 
@@ -168,10 +168,11 @@ export default {
     painting: {
       slug: 'boya-tadilat',
       name: `Boya ve Tadilat`,
+      h1: `Fethiye Boyacı ve Tadilat`,
       short: `Boya · Tadilat`,
       tagline: `İç ve dış cephe boyası, alçı ve dekorasyon, banyo–mutfak yenileme.`,
-      title: `Fethiye Boya ve Tadilat Hizmeti | Ustam Fethiye`,
-      description: `Fethiye ve Seydikemer bölgesinde iç–dış cephe boyası, tadilat, banyo ve mutfak yenileme. Ücretsiz keşif, yazılı sözleşme, işçilik garantisi.`,
+      title: `Fethiye Boyacı ve Tadilat, Boya Badana | Ustam Fethiye`,
+      description: `Fethiye ve Seydikemer'de boyacı ve tadilat: iç–dış cephe boya badana, alçı, banyo–mutfak yenileme. Yazılı sözleşme, işçilik garantisi, ücretsiz teklif.`,
       summary: [
         `Fethiye ve Seydikemer bölgesinde iç cephe, dış cephe boyası ve ev tadilatı yapıyoruz.`,
         `Keşif ücretsizdir; kapsam, süre ve kullanılacak malzeme yazılı teklifte tanımlanır.`,
@@ -211,10 +212,11 @@ export default {
     pool: {
       slug: 'havuz-bakimi',
       name: `Havuz Bakımı`,
+      h1: `Fethiye Havuz Bakımı`,
       short: `Havuz`,
       tagline: `Düzenli bakım, su dengesi, sezon açılış ve kapanış işlemleri.`,
       title: `Fethiye Havuz Bakımı ve Temizliği | Ustam Fethiye`,
-      description: `Fethiye ve Seydikemer bölgesinde haftalık havuz bakımı, su dengesi, filtre kontrolü, sezon açılış-kapanış. Aylık bakım anlaşması, düzenli rapor.`,
+      description: `Fethiye ve Seydikemer'de villa havuz bakımı: haftalık bakım, su dengesi, filtre kontrolü, sezon açılış ve kapanış. Fotoğraflı rapor, aylık bakım anlaşması.`,
       summary: [
         `Fethiye ve Seydikemer bölgesinde villa ve site havuzlarına düzenli bakım hizmeti veriyoruz.`,
         `Haftalık, iki haftalık veya aylık ziyaret programı kurulur; her ziyaret kayda geçer.`,
@@ -253,6 +255,7 @@ export default {
     garden: {
       slug: 'bahce-bakimi',
       name: `Bahçe Bakımı`,
+      h1: `Fethiye Bahçe Bakımı`,
       short: `Bahçe`,
       tagline: `Çim, budama, sulama sistemi ve mevsimlik bakım.`,
       title: `Fethiye Bahçe Bakımı ve Peyzaj Bakımı | Ustam Fethiye`,
@@ -295,9 +298,10 @@ export default {
     plumbing: {
       slug: 'su-tesisati',
       name: `Su Tesisatı`,
+      h1: `Fethiye Su Tesisatı ve Kaçak Tespiti`,
       short: `Tesisat`,
       tagline: `Kaçak tespiti, onarım, armatür değişimi ve tesisat yenileme.`,
-      title: `Fethiye Su Tesisatı ve Kaçak Tespiti | Ustam Fethiye`,
+      title: `Fethiye Su Tesisatçısı ve Kaçak Tespiti | Ustam Fethiye`,
       description: `Fethiye ve Seydikemer bölgesinde su tesisatı: kaçak tespiti ve onarım, gider açma, armatür değişimi, hidrofor ve depo, tesisat yenileme.`,
       summary: [
         `Fethiye ve Seydikemer bölgesinde su tesisatı onarım ve yenileme işleri yapıyoruz.`,
@@ -338,10 +342,11 @@ export default {
     homecare: {
       slug: 'ev-bakim-plani',
       name: `Ev Bakım Planı`,
+      h1: `Fethiye Villa ve Ev Bakım Planı`,
       short: `Ev Bakım Planı`,
       tagline: `Uzaktaki ev sahipleri için aylık düzenli kontrol ve bakım.`,
-      title: `Ev Bakım Planı — Fethiye ve Seydikemer | Ustam Fethiye`,
-      description: `Yılın büyük bölümünde boş kalan evler için aylık bakım planı: düzenli kontrol ziyareti, havuz ve bahçe bakımı, fotoğraflı rapor, sezon hazırlığı.`,
+      title: `Fethiye Villa Bakımı ve Ev Bakım Planı | Ustam Fethiye`,
+      description: `Fethiye ve Seydikemer'de boş kalan villa ve evler için aylık bakım planı: düzenli kontrol, havuz ve bahçe bakımı, fotoğraflı rapor, sezon hazırlığı.`,
       featured: true,
       summary: [
         `Ev Bakım Planı, yılın büyük bölümünde boş kalan evler için aylık bakım paketidir.`,
@@ -495,6 +500,7 @@ export default {
         { t: `Uygulama ve denetim`, d: `İş süresince saha kontrolü yapar, ilerlemeyi fotoğrafla kayıt altına alır ve size bildiririz.` },
         { t: `Teslim ve garanti`, d: `Kontrol listesi üzerinden birlikte geçer, iş dosyasını ve garanti belgesini teslim ederiz. Sonrasında memnuniyet araması yaparız.` },
       ],
+      stepsTitle: `Sekiz adım`,
       guaranteeTitle: `Taahhütlerimiz`,
       guarantees: [
         { t: `Muhatabınız firmadır`, d: `İşi yapan ekip bizim tedarikçimizdir. Sizinle sözleşmesi olan ve işten sorumlu olan taraf Ustam Fethiye'dir.` },

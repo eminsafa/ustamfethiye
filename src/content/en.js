@@ -100,8 +100,8 @@ export default {
   },
 
   home: {
-    title: `Trusted Tradesmen in Fethiye & Seydikemer | Ustam Fethiye`,
-    description: `Painting and renovation, pool maintenance, garden maintenance and plumbing in Fethiye and Seydikemer. Free site visit, written contract, workmanship guarantee. English, Russian and Turkish.`,
+    title: `Fethiye Painter, Renovation & Pool Care | Ustam Fethiye`,
+    description: `Painting, renovation, pool and garden care and plumbing for villas and houses in Fethiye and Seydikemer. Written contract, workmanship guarantee, free quote.`,
     h1: `Stop chasing tradesmen. We take responsibility.`,
     lede: `Painting and renovation, pool, garden and plumbing for villa and house owners across Fethiye and Seydikemer. One company, with a written contract, a workmanship guarantee and photo reports.`,
 
@@ -117,22 +117,22 @@ export default {
     ],
 
     compare: {
-      title: `The difference between hiring a tradesman and working with a company`,
-      lede: `There are two ways to get the same job done: with a tradesman you find yourself, or with a company that takes responsibility.`,
+      title: `Hiring a tradesman or working with a company?`,
+      lede: `Two routes: a tradesman you find yourself, or a company that answers for the result.`,
       colA: `A tradesman you find yourself`,
       colB: `Ustam Fethiye`,
       rows: [
-        { k: `Who does the work?`, a: `Someone you do not know, whose references you have to check yourself.`, b: `Tradesmen and crews our company works with; we plan and supervise the job.` },
-        { k: `If something goes wrong`, a: `Your only contact is the tradesman; the outcome often depends on goodwill.`, b: `Your contact is the company. Ustam Fethiye is the party to the contract and responsible for the work.` },
-        { k: `Price`, a: `Verbal and changeable; it can drift mid-job if the scope is unclear.`, b: `Scope written item by item; the price stays fixed unless the scope changes.` },
-        { k: `Contract and guarantee`, a: `Often just a verbal agreement.`, b: `Written contract and workmanship guarantee.` },
-        { k: `If you are away`, a: `You cannot see what is happening at the property.`, b: `Key handover recorded in writing; a photo report at every stage.` },
-        { k: `Communication`, a: `With the tradesman, and sometimes with several separate people.`, b: `One point of contact; Turkish, English and Russian.` },
+        { k: `Who does the work?`, a: `A stranger; you check the references.`, b: `Our company's tradesmen; we plan and supervise.` },
+        { k: `If something goes wrong`, a: `Your only contact is the tradesman.`, b: `Your contact is the company, the party to the contract.` },
+        { k: `Price`, a: `Verbal; can drift mid-job.`, b: `Itemised in writing; fixed unless the scope changes.` },
+        { k: `Contract and guarantee`, a: `Often a verbal agreement.`, b: `Written contract and workmanship guarantee.` },
+        { k: `If you are away`, a: `You cannot see what is happening.`, b: `Written key handover; photo report at every stage.` },
+        { k: `Communication`, a: `With the tradesman, sometimes several people.`, b: `One point of contact; Turkish, English, Russian.` },
       ],
     },
     pricing: {
       title: `Price depends on the job`,
-      lede: `No two properties are alike. So instead of a price list, we make sure we understand the job and give you a clear, written quotation.`,
+      lede: `No two properties are alike. Instead of a price list, we understand the job and give you a clear written quotation.`,
       factors: [
         { t: `Location`, d: `Access, distance, estate or building rules, season.` },
         { t: `Size`, d: `Floor area, pool dimensions, garden area, number of floors.` },
@@ -140,10 +140,10 @@ export default {
       ],
       stepsTitle: `How your quotation takes shape`,
       steps: [
-        { t: `Short conversation`, d: `We listen to what you need by phone or WhatsApp.` },
-        { t: `Photos or video`, d: `Even if you are abroad, we can see the job and give a first assessment.` },
-        { t: `Site visit`, d: `When needed we measure and check the condition of the surfaces. Free of charge.` },
-        { t: `Written quotation`, d: `Itemised, with materials and timeline. The price stays fixed unless the scope changes.` },
+        { t: `Short conversation`, d: `We listen by phone or WhatsApp.` },
+        { t: `Photos or video`, d: `Even from abroad, we can see the job.` },
+        { t: `Site visit`, d: `We measure if needed. Free.` },
+        { t: `Written quotation`, d: `Itemised; fixed unless the scope changes.` },
       ],
     },
 
@@ -168,10 +168,11 @@ export default {
     painting: {
       slug: 'painting-and-renovation',
       name: `Painting & Renovation`,
+      h1: `Painting & Renovation in Fethiye`,
       short: `Painting`,
       tagline: `Interior and exterior painting, plastering, bathroom and kitchen renovation.`,
-      title: `Painting & Renovation in Fethiye | Ustam Fethiye`,
-      description: `Interior and exterior painting, renovation, bathroom and kitchen refurbishment in Fethiye and Seydikemer. Free site visit, written contract, workmanship guarantee.`,
+      title: `Fethiye Painter & Renovation Contractor | Ustam Fethiye`,
+      description: `Painter and renovation in Fethiye & Seydikemer: interior and exterior painting, bathrooms, kitchens. Written contract, workmanship guarantee, free quote.`,
       summary: [
         `We carry out interior painting, exterior painting and property renovation across Fethiye and Seydikemer.`,
         `The site visit is free; scope, timeline and materials are defined in a written quotation.`,
@@ -211,10 +212,11 @@ export default {
     pool: {
       slug: 'pool-maintenance',
       name: `Pool Maintenance`,
+      h1: `Pool Maintenance in Fethiye`,
       short: `Pool`,
       tagline: `Regular servicing, water balance, season opening and closing.`,
       title: `Pool Maintenance & Cleaning in Fethiye | Ustam Fethiye`,
-      description: `Weekly pool maintenance in Fethiye and Seydikemer: water balancing, filter checks, cleaning, season opening and closing. Monthly service agreement with regular reports.`,
+      description: `Villa pool maintenance in Fethiye and Seydikemer: weekly service, water balance, filter checks, seasonal opening and closing. Photo reports, monthly plans.`,
       summary: [
         `We provide regular pool maintenance for villas and residential complexes across Fethiye and Seydikemer.`,
         `Visits are scheduled weekly, fortnightly or monthly; every visit is recorded.`,
@@ -253,6 +255,7 @@ export default {
     garden: {
       slug: 'garden-maintenance',
       name: `Garden Maintenance`,
+      h1: `Garden Maintenance in Fethiye`,
       short: `Garden`,
       tagline: `Lawns, pruning, irrigation systems and seasonal care.`,
       title: `Garden Maintenance in Fethiye & Seydikemer | Ustam Fethiye`,
@@ -295,9 +298,10 @@ export default {
     plumbing: {
       slug: 'plumbing',
       name: `Plumbing`,
+      h1: `Plumber in Fethiye: Plumbing & Leak Detection`,
       short: `Plumbing`,
       tagline: `Leak detection, repairs, fittings and pipework renewal.`,
-      title: `Plumbing & Leak Detection in Fethiye | Ustam Fethiye`,
+      title: `Fethiye Plumber: Plumbing & Leak Detection | Ustam Fethiye`,
       description: `Plumbing services in Fethiye and Seydikemer: leak detection and repair, drain unblocking, taps and fittings, water tanks and pressure pumps, pipework renewal.`,
       summary: [
         `We carry out plumbing repairs and pipework renewal across Fethiye and Seydikemer.`,
@@ -338,10 +342,11 @@ export default {
     homecare: {
       slug: 'home-care-plan',
       name: `Home Care Plan`,
+      h1: `Villa & Home Care Plan in Fethiye`,
       short: `Home Care Plan`,
       tagline: `Monthly inspection and maintenance for owners who are away.`,
-      title: `Home Care Plan — Fethiye & Seydikemer | Ustam Fethiye`,
-      description: `A monthly care plan for properties that stand empty most of the year: regular inspection visits, pool and garden maintenance, photo reports, season opening and closing.`,
+      title: `Fethiye Villa Care & Home Care Plan | Ustam Fethiye`,
+      description: `Monthly care plan for villas and homes left empty in Fethiye and Seydikemer: regular checks, pool and garden care, photo reports, seasonal preparation.`,
       featured: true,
       summary: [
         `The Home Care Plan is a monthly package for properties that stand empty for most of the year.`,
@@ -463,6 +468,7 @@ export default {
         { t: `Delivery and supervision`, d: `We supervise on site, record progress in photographs and keep you informed.` },
         { t: `Handover and guarantee`, d: `We walk through the checklist with you and hand over the job file and guarantee document. A follow-up call comes afterwards.` },
       ],
+      stepsTitle: `Eight steps`,
       guaranteeTitle: `Our commitments`,
       guarantees: [
         { t: `You deal with the company`, d: `The team carrying out the work is our supplier. The party under contract with you and responsible for the job is Ustam Fethiye.` },

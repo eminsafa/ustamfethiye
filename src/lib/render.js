@@ -121,10 +121,10 @@ ${body}
 
 ${footer(ctx)}
 
-<div class="mobilebar">
+<nav class="mobilebar" aria-label="${attr(L.pages.contact.h1)}">
   <a class="btn btn--primary" href="${u('contact')}">${esc(L.ui.ctaQuoteShort)}</a>
   <a class="btn btn--wa" href="${waLink(waText)}" rel="noopener">${I.wa}${esc(L.ui.ctaWhatsapp)}</a>
-</div>
+</nav>
 
 <script>
 (function(){
