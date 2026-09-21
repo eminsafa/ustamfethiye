@@ -174,13 +174,13 @@ Sitemap: ${site.origin}/sitemap.xml
 const L0 = LOCALES.tr, Len = LOCALES.en;
 await write('llms.txt', `# ${site.brand}
 
-> Fethiye ve Seydikemer bolgesinde boya-tadilat, havuz bakimi, bahce bakimi ve su
-> tesisati hizmeti veren kurumsal hizmet sirketi. Isi yapan usta degil, sirket
+> Fethiye ve Seydikemer bolgesinde boya-tadilat, havuz bakimi, bahce bakimi, su
+> tesisati ve ev temizligi hizmeti veren kurumsal hizmet sirketi. Isi yapan usta degil, sirket
 > sorumludur. Turkce, Ingilizce ve Rusca hizmet verilir. Hedef musteri: bolgede
 > yasayan ya da evi bolgede olup uzakta yasayan villa ve mustakil ev sahipleri.
 >
 > A service company providing painting & renovation, pool maintenance, garden
-> maintenance and plumbing across the Fethiye and Seydikemer districts of Mugla,
+> maintenance, plumbing and home cleaning across the Fethiye and Seydikemer districts of Mugla,
 > Turkiye. The company — not the individual tradesman — is responsible for the
 > work. Services are provided in Turkish, English and Russian. Target customers:
 > owners of villas and detached houses in the area, whether resident or living abroad.

@@ -86,7 +86,7 @@ export default {
       `Ücretsiz teklif`,
     ],
 
-    footerAbout: `Fethiye ve Seydikemer bölgesinde boya ve tadilat, havuz bakımı, bahçe bakımı ve su tesisatı hizmetlerini kurumsal sorumlulukla veren hizmet şirketi.`,
+    footerAbout: `Fethiye ve Seydikemer bölgesinde boya ve tadilat, havuz bakımı, bahçe bakımı, su tesisatı ve ev temizliği hizmetlerini kurumsal sorumlulukla veren hizmet şirketi.`,
     footerContact: `İletişim`,
     footerLegal: `Yasal`,
     footerHours: `Çalışma saatleri`,
@@ -169,7 +169,7 @@ export default {
   blog: {
     nav: `Rehber`,
     title: `Ev ve Villa Bakım Rehberi | Ustam Fethiye`,
-    description: `Villa ve müstakil ev sahipleri için boya, havuz, bahçe ve su tesisatı konusunda kısa, pratik ve anlaşılır rehberler.`,
+    description: `Villa ve müstakil ev sahipleri için boya, havuz, bahçe, su tesisatı ve temizlik konusunda kısa, pratik ve anlaşılır rehberler.`,
     h1: `Ev ve villa bakım rehberi`,
     lede: `Boya, havuz, bahçe ve tesisat konusunda kısa, pratik rehberler. Genel bilgi verir; kendi eviniz için yazılı teklif isteyin.`,
     readMin: `dk okuma`,
@@ -449,7 +449,7 @@ export default {
 
   regions: {
     title: `Hizmet Bölgeleri — Fethiye ve Seydikemer | Ustam Fethiye`,
-    description: `Fethiye merkez, Çalış, Ölüdeniz, Ovacık, Hisarönü, Kayaköy, Göcek, Üzümlü ve Seydikemer bölgelerinde boya-tadilat, havuz, bahçe ve su tesisatı hizmeti.`,
+    description: `Fethiye merkez, Çalış, Ölüdeniz, Ovacık, Hisarönü, Kayaköy, Göcek, Üzümlü ve Seydikemer bölgelerinde boya-tadilat, havuz, bahçe, su tesisatı ve temizlik hizmeti.`,
     h1: `Hizmet verdiğimiz bölgeler`,
     lede: `Fethiye ve Seydikemer ilçelerinin tamamına hizmet veriyoruz. Her bölgenin kendine özgü koşulları var; aşağıdaki sayfalarda o bölgede sık ihtiyaç duyulan işleri anlattık.`,
     inRegion: `Bu bölgede sunduğumuz hizmetler`,
@@ -574,12 +574,12 @@ export default {
 
     about: {
       title: `Hakkımızda — Ustam Fethiye`,
-      description: `Ustam Fethiye, Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı ve su tesisatı hizmetlerini kurumsal sorumlulukla veren bir hizmet şirketidir.`,
+      description: `Ustam Fethiye, Fethiye ve Seydikemer bölgesinde boya-tadilat, havuz bakımı, bahçe bakımı, su tesisatı ve ev temizliği hizmetlerini kurumsal sorumlulukla veren bir hizmet şirketidir.`,
       h1: `Hakkımızda`,
       lede: `Ustam Fethiye, usta bulma sorununu bir aracılık işi olarak değil, sorumluluğu üstlenen bir hizmet şirketi olarak çözmek üzere kuruldu.`,
       body: [
         { t: `Ne yapıyoruz`, p: [
-          `Fethiye ve Seydikemer bölgesinde boya ve tadilat, havuz bakımı, bahçe bakımı ve su tesisatı hizmetleri veriyoruz. Keşfi biz yapıyor, teklifi biz hazırlıyor, sözleşmeyi biz imzalıyor, işi planlıyor, denetliyor ve teslim ediyoruz.`,
+          `Fethiye ve Seydikemer bölgesinde boya ve tadilat, havuz bakımı, bahçe bakımı, su tesisatı ve ev temizliği hizmetleri veriyoruz. Keşfi biz yapıyor, teklifi biz hazırlıyor, sözleşmeyi biz imzalıyor, işi planlıyor, denetliyor ve teslim ediyoruz.`,
           `İşi sahada yürüten usta ve ekipler bizim tedarikçimizdir. Sizinle sözleşmesi olan taraf ve işin sonucundan sorumlu olan taraf firmadır. Bu, bizim en temel farkımız.`,
         ]},
         { t: `Neden böyle bir şirket gerekliydi`, p: [
@@ -597,7 +597,7 @@ export default {
       factsTitle: `Kısa bilgi`,
       facts: [
         { k: `Hizmet bölgesi`, v: `Fethiye ve Seydikemer ilçeleri` },
-        { k: `Hizmetler`, v: `Boya ve tadilat, havuz bakımı, bahçe bakımı, su tesisatı, Ev Bakım Planı` },
+        { k: `Hizmetler`, v: `Boya ve tadilat, havuz bakımı, bahçe bakımı, su tesisatı, ev temizliği, Ev Bakım Planı` },
         { k: `Diller`, v: `Türkçe, İngilizce, Rusça` },
         { k: `Keşif`, v: `Hizmet bölgesi içinde ücretsiz` },
         { k: `Fiyatlandırma`, v: PRICE_NOTE },

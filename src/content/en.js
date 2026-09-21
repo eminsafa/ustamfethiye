@@ -85,7 +85,7 @@ export default {
       `Free quotation`,
     ],
 
-    footerAbout: `A service company delivering painting and renovation, pool maintenance, garden maintenance and plumbing across Fethiye and Seydikemer — with the company, not the tradesman, taking responsibility.`,
+    footerAbout: `A service company delivering painting and renovation, pool maintenance, garden maintenance, plumbing and home cleaning across Fethiye and Seydikemer — with the company, not the tradesman, taking responsibility.`,
     footerContact: `Contact`,
     footerLegal: `Legal`,
     footerHours: `Working hours`,
@@ -431,7 +431,7 @@ export default {
 
   regions: {
     title: `Areas We Cover — Fethiye & Seydikemer | Ustam Fethiye`,
-    description: `Painting, renovation, pool, garden and plumbing services in Fethiye centre, Calis, Oludeniz, Ovacik, Hisaronu, Kayakoy, Gocek, Uzumlu and Seydikemer.`,
+    description: `Painting, renovation, pool, garden, plumbing and cleaning services in Fethiye centre, Calis, Oludeniz, Ovacik, Hisaronu, Kayakoy, Gocek, Uzumlu and Seydikemer.`,
     h1: `Areas we cover`,
     lede: `We cover the whole of the Fethiye and Seydikemer districts. Each area has its own conditions — below is what typically comes up in each of them.`,
     inRegion: `Our services in this area`,
@@ -524,12 +524,12 @@ export default {
 
     about: {
       title: `About Us — Ustam Fethiye`,
-      description: `Ustam Fethiye is a service company delivering painting and renovation, pool maintenance, garden maintenance and plumbing across Fethiye and Seydikemer, with the company taking responsibility for the work.`,
+      description: `Ustam Fethiye is a service company delivering painting and renovation, pool maintenance, garden maintenance, plumbing and home cleaning across Fethiye and Seydikemer, with the company taking responsibility for the work.`,
       h1: `About us`,
       lede: `Ustam Fethiye was set up to solve the problem of finding a good tradesman — not as an introduction service, but as a company that takes responsibility for the result.`,
       body: [
         { t: `What we do`, p: [
-          `We deliver painting and renovation, pool maintenance, garden maintenance and plumbing across Fethiye and Seydikemer. We carry out the site visit, prepare the quotation, sign the contract, schedule the work, supervise it and hand it over.`,
+          `We deliver painting and renovation, pool maintenance, garden maintenance, plumbing and home cleaning across Fethiye and Seydikemer. We carry out the site visit, prepare the quotation, sign the contract, schedule the work, supervise it and hand it over.`,
           `The tradesmen and teams who carry out the work on site are our suppliers. The party under contract with you, and responsible for the outcome, is the company. That is our fundamental difference.`,
         ]},
         { t: `Why this company was needed`, p: [
@@ -547,7 +547,7 @@ export default {
       factsTitle: `At a glance`,
       facts: [
         { k: `Service area`, v: `Fethiye and Seydikemer districts` },
-        { k: `Services`, v: `Painting and renovation, pool maintenance, garden maintenance, plumbing, Home Care Plan` },
+        { k: `Services`, v: `Painting and renovation, pool maintenance, garden maintenance, plumbing, home cleaning, Home Care Plan` },
         { k: `Languages`, v: `Turkish, English, Russian` },
         { k: `Site visit`, v: `Free within the service area` },
         { k: `Pricing`, v: PRICE_NOTE },
