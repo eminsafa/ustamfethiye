@@ -4,7 +4,6 @@ description: Sıcaklık, nem, güneş ve tuz etkisi dış cephe boyasının ömr
 date: 2026-09-21
 category: Boya ve tadilat
 service: painting
-draft: true
 ---
 
 Dış cephe boyasının ömrü yalnızca boyanın kalitesine bağlı değildir. Ne zaman ve hangi yüzeye uygulandığı da en az o kadar belirleyicidir. Fethiye ve çevresinde sıcak yazlar, yağışlı kışlar ve kıyıdaki tuzlu nem, cephe işlerini planlarken dikkate alınması gereken üç ana etkendir.

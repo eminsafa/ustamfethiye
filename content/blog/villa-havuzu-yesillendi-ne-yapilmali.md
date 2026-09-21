@@ -4,7 +4,6 @@ description: Havuz suyu yeşillendiğinde ilk yapılacaklar: nedeni bulmak, pH v
 date: 2026-09-21
 category: Havuz
 service: pool
-draft: true
 ---
 
 Havuz suyunun yeşillenmesi, suda yosunun çoğalması demektir. Yosun sıcak havada, durgun suda ve yetersiz dezenfeksiyonda hızla çoğalır. Erken müdahale edildiğinde çoğu havuz birkaç günde toparlanır. Ama nedeni çözülmeden yapılan müdahale, birkaç gün sonra suyun yeniden yeşile dönmesiyle sonuçlanır. Bu rehber, önce nedeni bulmanıza, sonra sırayla toparlamanıza yardımcı olur.

@@ -4,7 +4,6 @@ description: Boya ve tadilat tekliflerini karşılaştırırken bakmanız gereke
 date: 2026-09-21
 category: Boya ve tadilat
 service: painting
-draft: true
 ---
 
 Tadilat işlerinde en sık yaşanan anlaşmazlık, fiyatın işin ortasında değişmesidir. Bunun asıl nedeni çoğu zaman kötü niyet değil, teklifin belirsiz yazılmış olmasıdır. İyi hazırlanmış bir teklif, iki tarafı da korur. Aşağıdaki sekiz madde, iki teklifi karşılaştırırken ve sözleşmeye geçmeden önce kontrol etmeniz gereken başlıklardır.

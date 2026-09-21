@@ -4,7 +4,6 @@ description: Fethiye ve Seydikemer'de evi olup uzakta yaşayanlar için aylık v
 date: 2026-09-21
 category: Ev bakımı
 service: homecare
-draft: true
 ---
 
 Evinizden çok uzaktayken en büyük zorluk, evde neler olduğunu görememektir. Küçük bir su kaçağı, yeşillenen bir havuz ya da bakımsız kalan bir bahçe aylarca fark edilmeyebilir. Bu liste, uzaktan yönettiğiniz evde nelerin ne sıklıkla kontrol edilmesi gerektiğini düzenli bir çerçeveye oturtur.

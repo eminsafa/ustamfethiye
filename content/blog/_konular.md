@@ -3,7 +3,7 @@
 Otomatik hazırlık bu listeyi sırayla kullanır. Yeni yazı = bir konu. Hazırlanan konu "yapıldı" olarak işaretlenir.
 Kural: her yazı genel bilgi rehberidir; firma deneyimi, müşteri, fiyat ve abartı iddiası YOKTUR (bkz. docs/blog-yazim-kurallari.md).
 
-## Yapıldı (taslak olarak hazırlandı)
+## Yapıldı (yayınlandı)
 - [x] Villa havuzu yeşillendi: nedenleri ve ne yapılmalı
 - [x] Boş kalan evde kış hazırlığı
 - [x] Fethiye'de dış cephe boyası ne zaman yapılır

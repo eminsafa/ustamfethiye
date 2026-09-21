@@ -4,7 +4,6 @@ description: Kış boyunca kapalı kalan havuzu yaza hazırlamak için sıralı 
 date: 2026-09-21
 category: Havuz
 service: pool
-draft: true
 ---
 
 Fethiye'de yüzme sezonu genellikle nisan ve mayıs aylarında başlar. Havuzu kapanış hâlinden yaza hazırlamak; ekipmanı, suyu ve kimyasal dengeyi doğru sırayla ele almayı gerektirir. Sırayı bozmak (örneğin kimyasalı önce eklemek) zaman ve ürün israfına yol açar. Aşağıdaki sıra, açılışta izlenebilecek genel bir yol haritasıdır.

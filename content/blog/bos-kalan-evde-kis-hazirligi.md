@@ -4,7 +4,6 @@ description: Kış boyunca boş kalacak villa veya evde su, elektrik, nem ve gü
 date: 2026-09-21
 category: Ev bakımı
 service: homecare
-draft: true
 ---
 
 Fethiye ve Seydikemer'de kışlar genel olarak ılıktır, ama yağışlıdır ve nem yüksektir. Daha yüksek rakımlı yerlerde soğuk günlerde don da görülebilir. Boş bir evde küçük bir sorun, haftalarca kimse fark etmediği için büyük hasara dönüşebilir. Sezon kapanışında aşağıdaki başlıkları gözden geçirmek, bahar geldiğinde sürprizle karşılaşma ihtimalini azaltır.
