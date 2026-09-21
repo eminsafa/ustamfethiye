@@ -31,7 +31,7 @@ const SVC_ICON = { painting: I.painting, pool: I.pool, garden: I.garden, plumbin
 const LOGO = logoMark({ cls: 'brand__mark' });
 
 /* ---------------------------------------------------------------- layout */
-export function layout(ctx, { title, description, body, jsonld = [], key, noindex = false }) {
+export function layout(ctx, { title, description, body, jsonld = [], key, noindex = false, head = '' }) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
   const abs = (p) => site.origin + p;
@@ -53,6 +53,7 @@ export function layout(ctx, { title, description, body, jsonld = [], key, noinde
       </div>`,
     navLink('regions', L.ui.regions),
     navLink('how', L.pages.how.h1),
+    ...(routes[locale].blog ? [`<a href="${u('blog')}"${key === 'blog' || String(key).startsWith('post:') ? ' aria-current="page"' : ''}>${esc(L.blog.nav)}</a>`] : []),
     navLink('contact', L.pages.contact.h1),
   ];
 
@@ -70,6 +71,7 @@ export function layout(ctx, { title, description, body, jsonld = [], key, noinde
 ${noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">'}
 <link rel="canonical" href="${abs(u(key) || '/')}">
 ${alts.join('\n')}
+${head}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${attr(site.brand)}">
 <meta property="og:title" content="${attr(title)}">
@@ -243,7 +245,7 @@ function footer(ctx) {
   <div class="wrap">
     <div class="foot__bottom">
       <span>© ${new Date().getFullYear()} ${esc(site.brand)}. ${esc(L.ui.rights)}</span>
-      <span><a href="${u('about')}">${esc(L.pages.about.h1)}</a> · <a href="${u('privacy')}">${esc(L.pages.privacy.h1)}</a> · <a href="${u('faq')}">${esc(L.pages.faq.h1)}</a></span>
+      <span>${routes[locale].blog ? `<a href="${u('blog')}">${esc(L.blog.nav)}</a> · ` : ''}<a href="${u('about')}">${esc(L.pages.about.h1)}</a> · <a href="${u('privacy')}">${esc(L.pages.privacy.h1)}</a> · <a href="${u('faq')}">${esc(L.pages.faq.h1)}</a></span>
     </div>
   </div>
 </footer>`;

@@ -12,8 +12,13 @@ import en from './src/content/en.js';
 import ru from './src/content/ru.js';
 import * as P from './src/lib/pages.js';
 import { logoMark } from './src/lib/visuals.js';
+import { loadPosts } from './src/lib/blog.js';
 
 const LOCALES = { tr, en, ru };
+
+// Rehber (blog) yazilari: yalnizca Turkce. Gecersiz yazi yayina alinmaz.
+const { posts, issues: postIssues } = await loadPosts();
+if (postIssues.length) console.warn('UYARI — yayına alınmayan yazılar:\n' + postIssues.map((x) => '  - ' + x).join('\n'));
 const OUT = 'dist';
 
 /* ---------------------------------------------------------------- rotalar */
@@ -28,6 +33,10 @@ for (const [lc, L] of Object.entries(LOCALES)) {
   r.faq = `/${lc}/${L.slugs.faq}/`;
   r.contact = `/${lc}/${L.slugs.contact}/`;
   r.privacy = `/${lc}/${L.slugs.privacy}/`;
+  if (lc === 'tr' && L.slugs.blog && posts.length) {
+    r.blog = `/${lc}/${L.slugs.blog}/`;
+    for (const p of posts) r[`post:${p.slug}`] = `/${lc}/${L.slugs.blog}/${p.slug}/`;
+  }
   routes[lc] = r;
 }
 
@@ -53,11 +62,11 @@ await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 
 const pages = [];
-const add = (locale, key, path, priority, changefreq = 'monthly') =>
-  pages.push({ key, locale, path, priority, changefreq });
+const add = (locale, key, path, priority, changefreq = 'monthly', lastmod) =>
+  pages.push({ key, locale, path, priority, changefreq, lastmod });
 
 for (const [locale, L] of Object.entries(LOCALES)) {
-  const ctx = { L, locale, routes };
+  const ctx = { L, locale, routes, posts: locale === 'tr' ? posts : [] };
 
   await writePage(routes[locale].home, P.home(ctx));
   add(locale, 'home', routes[locale].home, '1.0', 'weekly');
@@ -83,6 +92,26 @@ for (const [locale, L] of Object.entries(LOCALES)) {
     await writePage(routes[locale][key], fn(ctx));
     add(locale, key, routes[locale][key], pri);
   }
+
+  if (routes[locale].blog) {
+    await writePage(routes[locale].blog, P.blogIndex(ctx));
+    add(locale, 'blog', routes[locale].blog, '0.7', 'weekly', posts[0].updated);
+    for (const p of posts) {
+      await writePage(routes[locale][`post:${p.slug}`], P.blogPost(ctx, p));
+      add(locale, `post:${p.slug}`, routes[locale][`post:${p.slug}`], '0.6', 'monthly', p.updated);
+    }
+    // RSS
+    const rfc = (iso) => new Date(iso + 'T09:00:00Z').toUTCString();
+    const x = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    await write(join(routes[locale].blog, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>${x(L.blog.title)}</title>
+<link>${site.origin}${routes[locale].blog}</link>
+<description>${x(L.blog.description)}</description>
+<language>${L.htmlLang}</language>
+${posts.map((p) => `<item><title>${x(p.title)}</title><link>${site.origin}${routes[locale]['post:' + p.slug]}</link><guid>${site.origin}${routes[locale]['post:' + p.slug]}</guid><pubDate>${rfc(p.date)}</pubDate><description>${x(p.description)}</description></item>`).join('\n')}
+</channel></rss>`);
+  }
 }
 
 /* 404 — varsayilan dil */
@@ -100,7 +129,7 @@ ${pages.map((p) => {
     .concat([`    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEsc(site.origin + routes[site.defaultLocale][p.key])}"/>`]);
   return `  <url>
     <loc>${xmlEsc(site.origin + p.path)}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <lastmod>${p.lastmod || lastmod}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
 ${alts.join('\n')}
@@ -175,7 +204,10 @@ ${REGION_IDS.map((id) => `- ${L0.regions.items[id].name} / ${Len.regions.items[i
 - Mesai saatleri icinde 2 saat icinde donus / Response within 2 hours in working hours.
 - Uzaktaki ev sahipleri icin aylik Ev Bakim Plani / Monthly Home Care Plan for absentee owners.
 
-## Sayfalar / Pages
+${posts.length ? `## Rehber / Guides (Turkish)
+${posts.map((p) => `- ${p.title}: ${site.origin}${routes.tr['post:' + p.slug]}`).join('\n')}
+
+` : ''}## Sayfalar / Pages
 - Nasil calisiyoruz / How we work: ${site.origin}${routes.tr.how} · ${site.origin}${routes.en.how}
 - Hakkimizda / About: ${site.origin}${routes.tr.about} · ${site.origin}${routes.en.about}
 - SSS / FAQ: ${site.origin}${routes.tr.faq} · ${site.origin}${routes.en.faq}

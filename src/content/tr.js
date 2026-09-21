@@ -15,6 +15,7 @@ export default {
     faq: 'sik-sorulan-sorular',
     contact: 'iletisim',
     privacy: 'gizlilik-ve-kvkk',
+    blog: 'rehber',
   },
 
   ui: {
@@ -162,6 +163,23 @@ export default {
     faqTitle: `Merak edilenler`,
     ctaTitle: `Teklif için bize yazın`,
     ctaLede: `Teklif talebi bırakın, WhatsApp'tan yazın ya da arayın. Mesai saatleri içinde 2 saat içinde dönüş yapıyoruz.`,
+  },
+
+  blog: {
+    nav: `Rehber`,
+    title: `Ev ve Villa Bakım Rehberi | Ustam Fethiye`,
+    description: `Villa ve müstakil ev sahipleri için boya, havuz, bahçe ve su tesisatı konusunda kısa, pratik ve anlaşılır rehberler.`,
+    h1: `Ev ve villa bakım rehberi`,
+    lede: `Boya, havuz, bahçe ve tesisat konusunda kısa, pratik rehberler. Genel bilgi verir; kendi eviniz için yazılı teklif isteyin.`,
+    readMin: `dk okuma`,
+    toc: `Bu yazıda`,
+    latest: `Rehberden`,
+    all: `Tüm rehberler`,
+    more: `Diğer rehberler`,
+    help: `Bu konuda yardım ister misiniz?`,
+    draft: `TASLAK — yayınlanmadı`,
+    disclaimer: `Bu yazı genel bilgi amaçlıdır. Her ev farklıdır; kendi eviniz için işi yerinde gören bir firmadan yazılı teklif isteyin.`,
+    months: [`Ocak`, `Şubat`, `Mart`, `Nisan`, `Mayıs`, `Haziran`, `Temmuz`, `Ağustos`, `Eylül`, `Ekim`, `Kasım`, `Aralık`],
   },
 
   services: {

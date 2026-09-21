@@ -94,6 +94,18 @@ export function home(ctx) {
   const { L, locale, routes } = ctx;
   const u = (k) => routes[locale][k];
   const faqItems = [2, 3, 6].map((i) => L.pages.faq.items[i]);
+  const latest = (ctx.posts || []).slice(0, 3);
+  const blogSection = latest.length && L.blog ? `<section class="sec sec--alt">
+  <div class="wrap">
+    <div class="sec-head"><h2>${esc(L.blog.latest)}</h2></div>
+    <ul class="postlist postlist--wide">
+      ${latest.map((p) => `<li><a href="${u('post:' + p.slug)}"><span>${esc(p.title)}</span>${I.arrow}</a></li>`).join('\n      ')}
+    </ul>
+    <p class="more"><a class="btn btn--ghost" href="${u('blog')}">${esc(L.blog.all)} ${I.arrow}</a></p>
+  </div>
+</section>
+
+` : '';
 
   const body = `
 <section class="hero">
@@ -187,7 +199,7 @@ export function home(ctx) {
   </div>
 </section>
 
-<section class="sec sec--alt">
+${blogSection}<section class="${blogSection ? 'sec' : 'sec sec--alt'}">
   <div class="wrap">
     <div class="sec-head"><h2>${esc(L.home.faqTitle)}</h2></div>
     ${faqBlock(faqItems)}
@@ -562,6 +574,109 @@ ${crumbs(ctx, [[P.h1, u('contact')]])}
           areaServed: ['Fethiye', 'Seydikemer'],
         },
       },
+      orgSchema(ctx),
+    ],
+  });
+}
+
+/* ---------------------------------------------------------------- rehber (blog) */
+const fmtDate = (L, iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d} ${L.blog.months[m - 1]} ${y}`;
+};
+
+const postCard = (ctx, p) => {
+  const { L, locale, routes } = ctx;
+  return `<a class="postcard" href="${routes[locale]['post:' + p.slug]}">
+    <span class="postcard__cat">${esc(p.category)}${p.draft ? ` · ${esc(L.blog.draft)}` : ''}</span>
+    <h2>${esc(p.title)}</h2>
+    <p>${esc(p.description)}</p>
+    <span class="postcard__meta">${esc(fmtDate(L, p.date))} · ${p.minutes} ${esc(L.blog.readMin)}</span>
+  </a>`;
+};
+
+export function blogIndex(ctx) {
+  const { L, locale, routes, posts } = ctx;
+  const u = (k) => routes[locale][k];
+  const B = L.blog;
+  const body = `
+${crumbs(ctx, [[B.nav, u('blog')]])}
+<section class="phead"><div class="wrap phead__in">
+  <p class="place">${I.pin}<span>${esc(L.ui.serviceArea)}</span></p>
+  <h1>${esc(B.h1)}</h1>
+  <p class="lede">${esc(B.lede)}</p>
+</div></section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="postgrid">
+      ${posts.map((p) => postCard(ctx, p)).join('\n      ')}
+    </div>
+  </div>
+</section>
+${ctaBand(ctx, { form: true })}`;
+
+  return layout(ctx, {
+    key: 'blog', title: B.title, description: B.description, body,
+    head: `<link rel="alternate" type="application/rss+xml" title="${esc(B.title)}" href="${u('blog')}feed.xml">`,
+    jsonld: [
+      breadcrumbSchema([[L.ui.home, u('home')], [B.nav, u('blog')]]),
+      { '@context': 'https://schema.org', '@type': 'CollectionPage', name: B.h1, url: abs(u('blog')), inLanguage: locale },
+      orgSchema(ctx),
+    ],
+  });
+}
+
+export function blogPost(ctx, post) {
+  const { L, locale, routes, posts } = ctx;
+  const u = (k) => routes[locale][k];
+  const B = L.blog;
+  const url = abs(u('post:' + post.slug));
+  const related = [
+    ...posts.filter((p) => p.slug !== post.slug && p.service === post.service),
+    ...posts.filter((p) => p.slug !== post.slug && p.service !== post.service),
+  ].slice(0, 3);
+
+  const body = `
+${crumbs(ctx, [[B.nav, u('blog')], [post.title, u('post:' + post.slug)]])}
+<section class="phead">
+  <div class="wrap phead__in narrow-head">
+    <p class="mono-cat">${esc(post.category)}${post.draft ? ` · ${esc(B.draft)}` : ''}</p>
+    <h1>${esc(post.title)}</h1>
+    <p class="lede">${esc(post.description)}</p>
+    <p class="phead__meta">${esc(fmtDate(L, post.date))} · ${post.minutes} ${esc(B.readMin)}${post.updated !== post.date ? ` · ${esc(L.ui.updated)}: ${esc(fmtDate(L, post.updated))}` : ''}</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split">
+    <article class="prose post">
+      ${post.toc.length >= 3 ? `<nav class="toc" aria-label="${esc(B.toc)}"><p class="toc__t">${esc(B.toc)}</p><ol>${post.toc.map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>` : ''}
+      ${post.html}
+      <p class="pricenote">${esc(B.disclaimer)}</p>
+      <p><a class="btn btn--primary" href="${u('svc:' + post.service)}">${esc(L.services[post.service].name)} ${I.arrow}</a></p>
+    </article>
+    <div class="aside">
+      ${leadForm(ctx, { compact: true })}
+      ${related.length ? `<div class="panel"><h3>${esc(B.more)}</h3><ul class="postlist">${related.map((p) => `<li><a href="${u('post:' + p.slug)}"><span>${esc(p.title)}</span></a></li>`).join('')}</ul></div>` : ''}
+    </div>
+  </div>
+</section>
+${ctaBand(ctx)}`;
+
+  return layout(ctx, {
+    key: 'post:' + post.slug, title: `${post.title} | ${site.brand}`, description: post.description, body,
+    head: `<link rel="alternate" type="application/rss+xml" title="${esc(B.title)}" href="${u('blog')}feed.xml">`,
+    jsonld: [
+      {
+        '@context': 'https://schema.org', '@type': 'BlogPosting',
+        headline: post.title, description: post.description, inLanguage: locale,
+        datePublished: post.date, dateModified: post.updated,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+        image: [abs('/assets/og-image.png')],
+        author: { '@id': site.origin + '/#business' }, publisher: { '@id': site.origin + '/#business' },
+      },
+      breadcrumbSchema([[L.ui.home, u('home')], [B.nav, u('blog')], [post.title, u('post:' + post.slug)]]),
       orgSchema(ctx),
     ],
   });

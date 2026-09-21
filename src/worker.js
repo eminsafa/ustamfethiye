@@ -44,6 +44,12 @@ export default {
     const url = new URL(request.url);
     const { pathname } = url;
 
+    /* --- www -> www'suz adres (tek kanonik adres; yinelenen icerik olmasin) ---- */
+    if (url.hostname.startsWith('www.')) {
+      url.hostname = url.hostname.slice(4);
+      return Response.redirect(url.toString(), 301);
+    }
+
     /* --- API -------------------------------------------------------------- */
     if (pathname === '/api/lead') {
       if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
