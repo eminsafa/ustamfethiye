@@ -8,7 +8,9 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // Worker (www yonlendirmesi, guvenlik basliklari) sayfa isteklerinde de calissin; /assets/ haric.
+    "run_worker_first": ["/*", "!/assets/*"]
   },
 
   // Wrangler deploy/dev oncesi statik siteyi uretir.
@@ -17,6 +19,13 @@
   "build": { "command": "node build.mjs" },
 
   "observability": { "enabled": true },
+
+  // Alan adlari: Cloudflare DNS kaydini ve sertifikayi kendisi olusturur.
+  // www, worker.js icinde ustamfethiye.com adresine 301 ile yonlendirilir.
+  "routes": [
+    { "pattern": "ustamfethiye.com", "custom_domain": true },
+    { "pattern": "www.ustamfethiye.com", "custom_domain": true }
+  ],
 
   "vars": {
     "SITE_URL": "https://ustamfethiye.com",
